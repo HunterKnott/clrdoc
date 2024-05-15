@@ -17,7 +17,6 @@ export default function Page() {
 
   const fetchProfiles = async () => {
     const { data } = await supabase.from("Profiles").select();
-    // const { data } = await supabase.from("Profiles").select("name, address, phone, price, photo_url");
     var filteredByAddress;
     if (isDentalFiltered) {
       const filtered = data.filter(profile => profile.type === "Dental");
