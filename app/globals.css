@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+body * {
+  color: #292a2b; /* Gray-700 */
+}
