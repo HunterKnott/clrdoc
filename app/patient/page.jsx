@@ -69,7 +69,7 @@ export default function Page() {
           <button
             className={isOpticFiltered ? "btn btn-primary btn-lg" : "btn btn-neutral btn-lg"}
             onClick={handleOpticFilterClick}>
-          Eye Exams</button>
+          Vision</button>
         </div>
       </div>
       <div className="overflow-x-auto">
