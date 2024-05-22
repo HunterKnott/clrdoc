@@ -1,9 +1,9 @@
 'use client';
 
-import { createSupabaseBrowserClient } from '@/lib/supabase/browser-client';
+import { createClient } from '@/utils/supabase/client';
 
 export default function LoginButton(props) {
-    const supabase = createSupabaseBrowserClient();
+    const supabase = createClient();
 
     const handleLogin = async () => {
         await supabase.auth.signInWithOAuth({

@@ -1,4 +1,4 @@
-import { createSupabaseServerComponentClient } from '@/lib/supabase/server-client';
+import { createSupabaseServerComponentClient } from '@/utils/supabase/server';
 import DetailsButtonClient from './DetailsButtonClient';
 
 export default async function DetailsButtonServer() {

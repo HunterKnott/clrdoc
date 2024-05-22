@@ -1,10 +1,10 @@
 'use client';
 
-import { createSupabaseBrowserClient } from '@/lib/supabase/browser-client';
+import { createClient } from '@/utils/supabase/client';
 import { useRouter } from 'next/navigation';
 
 export default function LogoutButton() {
-    const supabase = createSupabaseBrowserClient();
+    const supabase = createClient();
     const router = useRouter();
 
     const handleLogout = async () => {

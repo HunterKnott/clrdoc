@@ -1,4 +1,4 @@
-import { createSupabaseServerComponentClient } from '@/lib/supabase/server-client';
+import { createSupabaseServerComponentClient } from '@/utils/supabase/server';
 import Image from 'next/image';
 
 export default async function Avatar() {
