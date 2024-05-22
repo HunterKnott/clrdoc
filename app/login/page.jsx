@@ -1,4 +1,5 @@
 import { login, signup } from './actions'
+import { OAuthButtons } from './oauth-buttons'
 
 export default function LoginPage() {
   return (
@@ -44,6 +45,7 @@ export default function LoginPage() {
             >
               Login
             </button>
+            <OAuthButtons />
           </div>
         </form>
       </div>
