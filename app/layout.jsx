@@ -1,4 +1,3 @@
-import LoginButton from './components/LoginButton';
 import './globals.css'
 import { Inter, Montserrat } from 'next/font/google';
 
