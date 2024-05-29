@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const libs = ["core", "maps", "places", "marker"];
+const mapsApiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY
 
 const buildMapInfoCardContent = (title, body) => {
     return `
@@ -21,7 +22,7 @@ export default function Map ({ latlong }) {
     const [autoComplete, setAutoComplete] = useState(null);
     const [selectedPlace, setSelectedPlace] = useState(null);
     const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: process.env.NEXT_PUBLIC_MAPS_API_KEY,
+        googleMapsApiKey: mapsApiKey,
         libraries: libs
     });
     const mapRef = useRef(null);
