@@ -53,7 +53,7 @@ export default function Page() {
 
   return (
     <main className="flex min-h-screen flex-col gap-6 items-center justify-center bg-gray-100 py-24">
-      <div className="flex flex-col gap-2 items-center px-6 text-center">
+      <div className="flex flex-col gap-2 items-center p-6 text-center">
         <h1 className="text-4xl font-bold">ClrDoc</h1>
         <p>Connecting cash pay patients with quality providers</p>
         <input
@@ -78,19 +78,19 @@ export default function Page() {
         {profiles.map((profiles) => (
           <div key={profiles.id} className="flex flex-wrap md:flex-row justify-start pb-6 border-b">
             <div className="avatar md:w-[20%] pr-4">
-              <div className="mask mask-squircle w-16 h-16 md:w-24 md:h-24">
+              <div className="mask mask-squircle w-16 h-16 md:w-32 md:h-32">
                 {profiles.photo_url ?
                   <img src={`https://hvtkrqlqujwzyqpjjyyd.supabase.co/storage/v1/object/public/profile_pictures/${profiles.photo_url}`} />
                   : <p>_</p>
                 }
               </div>
             </div>
-            <div className="flex flex-col gap-2 text-left text-xs md:w-[60%]">
+            <div className="flex flex-col gap-2 text-left text-xs md:text-base md:w-[60%]">
               <h2 className="font-bold">{profiles.name}</h2>
               <h2 className="font-bold opacity-50">{profiles.phone}</h2>
               <h2 className="font-bold opacity-50">{profiles.address}</h2>
             </div>
-            <div className="flex flex-col gap-2 md:w-[20%] pt-4 md:pt-0">
+            <div className="flex flex-col gap-2 text-xs md:text-base md:w-[20%] pt-4 md:pt-0">
               {Object.entries(profiles.prices).map(([service, price]) => (
                 <div key={service}>
                   {`${service}: $${price}`}
