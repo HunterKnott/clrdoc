@@ -24,7 +24,7 @@ export default function Page() {
       const filtered = data.filter(profile => profile.type === "Dental");
       filteredByAddress = filtered.filter(profile => profile.address.toLowerCase().includes(searchTerm.toLowerCase()));
     } else if (isOpticFiltered) {
-      const filtered = data.filter(profile => profile.type === "Optometrist");
+      const filtered = data.filter(profile => profile.type === "Vision");
       filteredByAddress = filtered.filter(profile => profile.address.toLowerCase().includes(searchTerm.toLowerCase()));
     }
     else {

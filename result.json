@@ -1,0 +1,793 @@
+[
+  {
+    "phone": null,
+    "address": null
+  },
+  {
+    "title": "Salt City Orthodontics",
+    "link": "https://www.google.com/maps/place/Salt+City+Orthodontics/data=!4m7!3m6!1s0x8752854baf89e61d:0x4576326ae720d405!8m2!3d40.534171!4d-112.0229986!16s%2Fg%2F11vylw8mrx!19sChIJHeaJr0uFUocRBdQg52oydkU?authuser=0&hl=en&rclk=1",
+    "website": "//www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiPyYy-_9eGAxWHS38AHaNIADsYABAAGgJvYQ&ase=2&gclid=EAIaIQobChMIj8mMvv_XhgMVh0t_AB2jSAA7EBAYASAAEgKPUPD_BwE&ohost=www.google.com&cid=CAASE-RodLgr7z3_iTR4b9y6Ng0veVA&sig=AOD64_2zDeMwfZPtdRo9uo-1-K8wqxLDaw&adurl&q&ctype=99&nis=6",
+    "phone": "(801)9003187",
+    "address": null
+  },
+  {
+    "title": "Thorup Dental",
+    "link": "https://www.google.com/maps/place/Thorup+Dental/data=!4m7!3m6!1s0x87526269a98e8d57:0x64c2eea2cf6db948!8m2!3d40.5478057!4d-111.9383304!16s%2Fg%2F1tfn36l6!19sChIJV42OqWliUocRSLltz6LuwmQ?authuser=0&hl=en&rclk=1",
+    "website": "//www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiPyYy-_9eGAxWHS38AHaNIADsYABABGgJvYQ&ase=2&gclid=EAIaIQobChMIj8mMvv_XhgMVh0t_AB2jSAA7EBAYAiAAEgLH0PD_BwE&ohost=www.google.com&cid=CAASE-RodLgr7z3_iTR4b9y6Ng0veVA&sig=AOD64_0ai1S7zTC2sN267ZbBr5OhMkE38g&adurl&q&ctype=99&nis=6",
+    "phone": "(801)9449494",
+    "address": null
+  },
+  {
+    "title": "Simply Dental",
+    "link": "https://www.google.com/maps/place/Simply+Dental/data=!4m7!3m6!1s0x87527d513208a2eb:0xddeb707c542d86ee!8m2!3d40.5800671!4d-111.8504659!16s%2Fg%2F11gzyclqm!19sChIJ66IIMlF9UocR7oYtVHxw690?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5710063",
+    "address": null
+  },
+  {
+    "title": "Pristine Dental Utah",
+    "link": "https://www.google.com/maps/place/Pristine+Dental+Utah/data=!4m7!3m6!1s0x87527d5911846ee7:0x93cdce7a88951c1b!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F11j009nhtn!19sChIJ526EEVl9UocRGxyViHrOzZM?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5724404",
+    "address": null
+  },
+  {
+    "title": "Sandy Family Dentistry: Dr. Russell G. Lewis",
+    "link": "https://www.google.com/maps/place/Sandy+Family+Dentistry:+Dr.+Russell+G.+Lewis/data=!4m7!3m6!1s0x87527d51261863f7:0xe76511602d9c1b9e!8m2!3d40.5801244!4d-111.8501074!16s%2Fg%2F1vb9djpq!19sChIJ92MYJlF9UocRnhucLWARZec?authuser=0&hl=en&rclk=1",
+    "website": "https://www.sandyfamilydentistry.com/",
+    "phone": "(801)5720942",
+    "address": null
+  },
+  {
+    "title": "Dr. Rudy Thompson, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Rudy+Thompson,+DDS/data=!4m7!3m6!1s0x87527d512ede2637:0xacf06ca15082fb85!8m2!3d40.5800668!4d-111.850347!16s%2Fg%2F11p07bfmlv!19sChIJNybeLlF9UocRhfuCUKFs8Kw?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5710063",
+    "address": null
+  },
+  {
+    "title": "Platinum Dental of Sandy",
+    "link": "https://www.google.com/maps/place/Platinum+Dental+of+Sandy/data=!4m7!3m6!1s0x87527d48b3a79277:0xb2095e8ed9c5b9f!8m2!3d40.579851!4d-111.8382857!16s%2Fg%2F1q6j5ck1_!19sChIJd5Kns0h9UocRn1uc7eiVIAs?authuser=0&hl=en&rclk=1",
+    "website": "https://platinumdentalsandy.com/",
+    "phone": "(801)3868793",
+    "address": null
+  },
+  {
+    "title": "Sandy Professional Center",
+    "link": "https://www.google.com/maps/place/Sandy+Professional+Center/data=!4m7!3m6!1s0x87527d82c6f77a31:0x9685bb166f2169b6!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F11n_y11bt9!19sChIJMXr3xoJ9UocRtmkhbxa7hZY?authuser=0&hl=en&rclk=1",
+    "phone": null,
+    "address": null
+  },
+  {
+    "title": "Alta View Dental Care",
+    "link": "https://www.google.com/maps/place/Alta+View+Dental+Care/data=!4m7!3m6!1s0x87527d58d8cbf325:0x3c169e03f2c40342!8m2!3d40.5723013!4d-111.8539399!16s%2Fg%2F1tdfcl4l!19sChIJJfPL2Fh9UocRQgPE8gOeFjw?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5724261",
+    "address": null
+  },
+  {
+    "title": "Dr. Bart T. Watts, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Bart+T.+Watts,+DDS/data=!4m7!3m6!1s0x87527d51261863f7:0x37e61001c37fdd2e!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F1tv3p4s4!19sChIJ92MYJlF9UocRLt1_wwEQ5jc?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5724404",
+    "address": null
+  },
+  {
+    "title": "Sandy Center Family & Cosmetic Denistry",
+    "link": "https://www.google.com/maps/place/Sandy+Center+Family+%26+Cosmetic+Denistry/data=!4m7!3m6!1s0x8752880ee3584547:0xa64b6e302ff0ad2c!8m2!3d40.5889159!4d-111.8716344!16s%2Fg%2F1tmxg0nz!19sChIJR0VY4w6IUocRLK3wLzBuS6Y?authuser=0&hl=en&rclk=1",
+    "website": "http://sandydentalcare.com/",
+    "phone": "(801)5660660",
+    "address": null
+  },
+  {
+    "title": "Fort Union Family Dental",
+    "link": "https://www.google.com/maps/place/Fort+Union+Family+Dental/data=!4m7!3m6!1s0x8752882d5b3ad9a7:0xa9e02bbe7fd21f3d!8m2!3d40.5895749!4d-111.871566!16s%2Fg%2F1tvw5dmz!19sChIJp9k6Wy2IUocRPR_Sf74r4Kk?authuser=0&hl=en&rclk=1",
+    "website": "http://fortunionfamilydental.com/",
+    "phone": "(801)5622147",
+    "address": null
+  },
+  {
+    "title": "Town Dental",
+    "link": "https://www.google.com/maps/place/Town+Dental/data=!4m7!3m6!1s0x875287fd10bb6d2d:0x547dc1ea34024b0d!8m2!3d40.5821778!4d-111.8668744!16s%2Fg%2F11c5rpvscb!19sChIJLW27EP2HUocRDUsCNOrBfVQ?authuser=0&hl=en&rclk=1",
+    "website": "http://towndental.com/",
+    "phone": "(801)5725550",
+    "address": null
+  },
+  {
+    "title": "Canyons Family Dental Sandy",
+    "link": "https://www.google.com/maps/place/Canyons+Family+Dental+Sandy/data=!4m7!3m6!1s0x875289833f5bba9d:0xca75eadd99a85f63!8m2!3d40.5935236!4d-111.8726019!16s%2Fg%2F11j54_l_nl!19sChIJnbpbP4OJUocRY1-omd3qdco?authuser=0&hl=en&rclk=1",
+    "website": "https://www.canyonsfamilydental.com/?utm_source=google.com&utm_medium=business+profile&utm_campaign=",
+    "phone": "(385)7224686",
+    "address": null
+  },
+  {
+    "title": "Bright Pediatric Dentistry, David Anderson DDS",
+    "link": "https://www.google.com/maps/place/Bright+Pediatric+Dentistry,+David+Anderson+DDS/data=!4m7!3m6!1s0x87527d512e5a1f51:0xa857b834ea9c1155!8m2!3d40.5801175!4d-111.8502855!16s%2Fg%2F11c3tvxkgc!19sChIJUR9aLlF9UocRVRGc6jS4V6g?authuser=0&hl=en&rclk=1",
+    "website": "https://www.brightpediatricdentist.com/",
+    "phone": "(801)5715800",
+    "address": null
+  },
+  {
+    "title": "Nathan E. Chandler, DDS",
+    "link": "https://www.google.com/maps/place/Nathan+E.+Chandler,+DDS/data=!4m7!3m6!1s0x875287fce8ca9ce7:0xaf1c33a92195c853!8m2!3d40.5821796!4d-111.8667124!16s%2Fg%2F1v2f0_dj!19sChIJ55zK6PyHUocRU8iVIakzHK8?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandytowndental.com/",
+    "phone": "(801)5713446",
+    "address": null
+  },
+  {
+    "title": "Benchmark Dental",
+    "link": "https://www.google.com/maps/place/Benchmark+Dental/data=!4m7!3m6!1s0x87527d5937690df9:0x52594847411348aa!8m2!3d40.5726127!4d-111.8527221!16s%2Fg%2F1vl9rzkw!19sChIJ-Q1pN1l9UocRqkgTQUdIWVI?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5692600",
+    "address": null
+  },
+  {
+    "title": "Quarry Bend Dental",
+    "link": "https://www.google.com/maps/place/Quarry+Bend+Dental/data=!4m7!3m6!1s0x875287fde266a655:0x73f79895abeb659d!8m2!3d40.5856613!4d-111.8625712!16s%2Fg%2F1tgp18q4!19sChIJVaZm4v2HUocRnWXrq5WY93M?authuser=0&hl=en&rclk=1",
+    "website": "https://www.quarrybenddental.com/",
+    "phone": "(801)7272626",
+    "address": null
+  },
+  {
+    "title": "Dr. Jeff Easton, DMD",
+    "link": "https://www.google.com/maps/place/Dr.+Jeff+Easton,+DMD/data=!4m7!3m6!1s0x875287fc95bac90f:0x5e248763828b8c4e!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F1tgkhs12!19sChIJD8m6lfyHUocRToyLgmOHJF4?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5713400",
+    "address": null
+  },
+  {
+    "title": "Taylor Dental Care",
+    "link": "https://www.google.com/maps/place/Taylor+Dental+Care/data=!4m7!3m6!1s0x8752883a83dcfecf:0x3b12a5cd33045c66!8m2!3d40.5703912!4d-111.8725211!16s%2Fg%2F1tfgk90g!19sChIJz_7cgzqIUocRZlwEM82lEjs?authuser=0&hl=en&rclk=1",
+    "website": "https://www.taylordentalsmiles.com/",
+    "phone": "(801)2856607",
+    "address": null
+  },
+  {
+    "title": "Utah Smile Clinic",
+    "link": "https://www.google.com/maps/place/Utah+Smile+Clinic/data=!4m7!3m6!1s0x8752894538663143:0x9bbfba8e4558015!8m2!3d40.6189439!4d-111.9107564!16s%2Fg%2F1hc3q016x!19sChIJQzFmOEWJUocRFYBV5Kj7uwk?authuser=0&hl=en&rclk=1",
+    "website": "http://www.utahsmileclinic.com/",
+    "phone": "(801)5908694",
+    "address": null
+  },
+  {
+    "title": "Lone Peak Dental Care",
+    "link": "https://www.google.com/maps/place/Lone+Peak+Dental+Care/data=!4m7!3m6!1s0x875287ef9df203a7:0x3ec2863e72234fa9!8m2!3d40.5723508!4d-111.8718156!16s%2Fg%2F1thw2mks!19sChIJpwPyne-HUocRqU8jcj6Gwj4?authuser=0&hl=en&rclk=1",
+    "website": "http://www.lonepeakdentalcare.com/",
+    "phone": "(801)5724430",
+    "address": null
+  },
+  {
+    "title": "Bright Pediatric Dentistry, David Anderson DDS",
+    "link": "https://www.google.com/maps/place/Bright+Pediatric+Dentistry,+David+Anderson+DDS/data=!4m7!3m6!1s0x87527d512e5a1f51:0xa857b834ea9c1155!8m2!3d40.5801175!4d-111.8502855!16s%2Fg%2F11c3tvxkgc!19sChIJUR9aLlF9UocRVRGc6jS4V6g?authuser=0&hl=en&rclk=1",
+    "website": "https://www.brightpediatricdentist.com/",
+    "phone": "(801)5715800",
+    "address": null
+  },
+  {
+    "title": "After Hours Dental Care",
+    "link": "https://www.google.com/maps/place/After+Hours+Dental+Care/data=!4m7!3m6!1s0x8752899f14148059:0x8e8f4d31c1435ccf!8m2!3d40.5919558!4d-111.8903247!16s%2Fg%2F11pwwtmkdc!19sChIJWYAUFJ-JUocRz1xDwTFNj44?authuser=0&hl=en&rclk=1",
+    "phone": "(801)7228877",
+    "address": null
+  },
+  {
+    "title": "Dr. Rudy Thompson, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Rudy+Thompson,+DDS/data=!4m7!3m6!1s0x87527d512ede2637:0xacf06ca15082fb85!8m2!3d40.5800668!4d-111.850347!16s%2Fg%2F11p07bfmlv!19sChIJNybeLlF9UocRhfuCUKFs8Kw?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5710063",
+    "address": null
+  },
+  {
+    "title": "Benchmark Dental",
+    "link": "https://www.google.com/maps/place/Benchmark+Dental/data=!4m7!3m6!1s0x87527d5937690df9:0x52594847411348aa!8m2!3d40.5726127!4d-111.8527221!16s%2Fg%2F1vl9rzkw!19sChIJ-Q1pN1l9UocRqkgTQUdIWVI?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5692600",
+    "address": null
+  },
+  {
+    "title": "Dr. Bart T. Watts, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Bart+T.+Watts,+DDS/data=!4m7!3m6!1s0x87527d51261863f7:0x37e61001c37fdd2e!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F1tv3p4s4!19sChIJ92MYJlF9UocRLt1_wwEQ5jc?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5724404",
+    "address": null
+  },
+  {
+    "title": "William M Sergakis DDS",
+    "link": "https://www.google.com/maps/place/William+M+Sergakis+DDS/data=!4m7!3m6!1s0x87526269a98e8d57:0x4058b711f00ce700!8m2!3d40.6196955!4d-111.8349679!16s%2Fg%2F1tjbsn88!19sChIJV42OqWliUocRAOcM8BG3WEA?authuser=0&hl=en&rclk=1",
+    "phone": "(801)7330864",
+    "address": null
+  },
+  {
+    "title": "Craig Christensen Dentist",
+    "link": "https://www.google.com/maps/place/Craig+Christensen+Dentist/data=!4m7!3m6!1s0x875287e3ca246635:0x274bfd63efa4906a!8m2!3d40.5796067!4d-111.8732356!16s%2Fg%2F1txnpyqr!19sChIJNWYkyuOHUocRapCk72P9Syc?authuser=0&hl=en&rclk=1",
+    "website": "http://craigchristensendentist.com/",
+    "phone": "(801)5715050",
+    "address": null
+  },
+  {
+    "title": "Dr. Stephen Johansen, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Stephen+Johansen,+DDS/data=!4m7!3m6!1s0x87528829d42d1ffb:0xf4595b995d6f7a05!8m2!3d40.6173027!4d-111.8569736!16s%2Fg%2F1tflgq8w!19sChIJ-x8t1CmIUocRBXpvXZlbWfQ?authuser=0&hl=en&rclk=1",
+    "website": "http://sjdentistry.com/",
+    "phone": "(801)6761234",
+    "address": null
+  },
+  {
+    "title": "Monarch Dental & Orthodontics",
+    "link": "https://www.google.com/maps/place/Monarch+Dental+%26+Orthodontics/data=!4m7!3m6!1s0x875287d0349cb17f:0xd978ede914189912!8m2!3d40.5693387!4d-111.8943692!16s%2Fg%2F1v_vtcwp!19sChIJf7GcNNCHUocREpkYFOnteNk?authuser=0&hl=en&rclk=1",
+    "website": "https://www.monarchdental.com/dentist-near-me/sandy-dentist/42040/?utm_source=generic&utm_medium=profiles&utm_campaign=local_profiles",
+    "phone": "(801)2563700",
+    "address": null
+  },
+  {
+    "title": "David H. Thorup, DMD",
+    "link": "https://www.google.com/maps/place/David+H.+Thorup,+DMD/data=!4m7!3m6!1s0x875287e3ca246635:0x34406fb9cb4d6026!8m2!3d40.5796067!4d-111.8732356!16s%2Fg%2F1tfg84cb!19sChIJNWYkyuOHUocRJmBNy7lvQDQ?authuser=0&hl=en&rclk=1",
+    "website": "http://drthorup.com/",
+    "phone": "(801)7900393",
+    "address": null
+  },
+  {
+    "title": "Creekstone Dental",
+    "link": "https://www.google.com/maps/place/Creekstone+Dental/data=!4m7!3m6!1s0x87528832df9d6d51:0x8b7bf7a31cea8190!8m2!3d40.6204412!4d-111.8716634!16s%2Fg%2F11clt14gkb!19sChIJUW2d3zKIUocRkIHqHKP3e4s?authuser=0&hl=en&rclk=1",
+    "website": "http://creekstonedental.com/",
+    "phone": "(801)5670343",
+    "address": null
+  },
+  {
+    "title": "Nuvia Dental Implant Center",
+    "link": "https://www.google.com/maps/place/Nuvia+Dental+Implant+Center/data=!4m7!3m6!1s0x875263e8df466fe3:0xa6eaf017610ad911!8m2!3d40.6215131!4d-111.8351666!16s%2Fg%2F11j36rbsyw!19sChIJ429G3-hjUocREdkKYRfw6qY?authuser=0&hl=en&rclk=1",
+    "website": "https://www.nuviasmiles.com/locations/dental-implants-salt-lake-city-utah",
+    "phone": "(385)4425768",
+    "address": null
+  },
+  {
+    "title": "Dr. Jeff Easton, DMD",
+    "link": "https://www.google.com/maps/place/Dr.+Jeff+Easton,+DMD/data=!4m7!3m6!1s0x875287fc95bac90f:0x5e248763828b8c4e!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F1tgkhs12!19sChIJD8m6lfyHUocRToyLgmOHJF4?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5713400",
+    "address": null
+  },
+  {
+    "title": "Abundant Dental Care Orthodontics",
+    "link": "https://www.google.com/maps/place/Abundant+Dental+Care+Orthodontics/data=!4m7!3m6!1s0x875288892441a1bd:0x8b675c38a701aa9!8m2!3d40.5872966!4d-111.9088404!16s%2Fg%2F11c0vkbdjl!19sChIJvaFBJImIUocRqRpwisN1tgg?authuser=0&hl=en&rclk=1",
+    "website": "https://abundantdentalcare.com/sandy-orthodontics",
+    "phone": "(385)9005200",
+    "address": null
+  },
+  {
+    "title": "Callahan Duane D DDS",
+    "link": "https://www.google.com/maps/place/Callahan+Duane+D+DDS/data=!4m7!3m6!1s0x87528811bf561cef:0xa0863254567c867!8m2!3d40.5933597!4d-111.8724368!16s%2Fg%2F1tcv1y39!19sChIJ7xxWvxGIUocRZ8hnRSVjCAo?authuser=0&hl=en&rclk=1",
+    "phone": "(801)2553351",
+    "address": null
+  },
+  {
+    "title": "Fisher Kimel P DDS",
+    "link": "https://www.google.com/maps/place/Fisher+Kimel+P+DDS/data=!4m7!3m6!1s0x87527d58d8cbf325:0xf350645b6e381bd1!8m2!3d40.5723834!4d-111.8539707!16s%2Fg%2F1wn344dv!19sChIJJfPL2Fh9UocR0Rs4bltkUPM?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5716999",
+    "address": null
+  },
+  {
+    "title": "Midvale Family Dental | Dr. Ryan S. McNeil",
+    "link": "https://www.google.com/maps/place/Midvale+Family+Dental+%7C+Dr.+Ryan+S.+McNeil/data=!4m7!3m6!1s0x875289d3b15d0e91:0x58bead68bafaf4dd!8m2!3d40.6260395!4d-111.8653923!16s%2Fg%2F1tcz8s_y!19sChIJkQ5dsdOJUocR3fT6umitvlg?authuser=0&hl=en&rclk=1",
+    "website": "https://midvalefamilydental.com/",
+    "phone": "(801)2554555",
+    "address": null
+  },
+  {
+    "title": "Wright Family Dental",
+    "link": "https://www.google.com/maps/place/Wright+Family+Dental/data=!4m7!3m6!1s0x8752882d366a057b:0xa12f1efb956b1470!8m2!3d40.6215592!4d-111.867573!16s%2Fg%2F1tw1f9h0!19sChIJewVqNi2IUocRcBRrlfseL6E?authuser=0&hl=en&rclk=1",
+    "website": "https://www.wrightfamilydentalmidvale.com/",
+    "phone": "(801)5663332",
+    "address": null
+  },
+  {
+    "title": "Dr. Grant Heward, DMD",
+    "link": "https://www.google.com/maps/place/Dr.+Grant+Heward,+DMD/data=!4m7!3m6!1s0x87527d719de375a7:0x326ae5babb9b08fa!8m2!3d40.5800668!4d-111.850347!16s%2Fg%2F11k9lfvlfj!19sChIJp3XjnXF9UocR-gibu7rlajI?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5720226",
+    "address": null
+  },
+  {
+    "title": "Easton Dental Care",
+    "link": "https://www.google.com/maps/place/Easton+Dental+Care/data=!4m7!3m6!1s0x875287fc95a4923d:0xb836fe6cff22f78a!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F1hhkxrhjk!19sChIJPZKklfyHUocRivci_2z-Nrg?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5713400",
+    "address": null
+  },
+  {
+    "title": "Utah Dr. Daniel W. Ormsby, DDS",
+    "link": "https://www.google.com/maps/place/Utah+Dr.+Daniel+W.+Ormsby,+DDS/data=!4m7!3m6!1s0x875261f13bd92d91:0xfc699c790f1672c2!8m2!3d40.6449643!4d-111.8821575!16s%2Fg%2F1tx15vj7!19sChIJkS3ZO_FhUocRwnIWD3mcafw?authuser=0&hl=en&rclk=1",
+    "website": "https://ormsbydental.com/",
+    "phone": "(801)4079956",
+    "address": null
+  },
+  {
+    "title": "Glenn E. Taylor DDS",
+    "link": "https://www.google.com/maps/place/Glenn+E.+Taylor+DDS/data=!4m7!3m6!1s0x875287eefd4dbfaf:0xf0c0e144a5bb26af!8m2!3d40.5704136!4d-111.8725016!16s%2Fg%2F11f_11bc0h!19sChIJr79N_e6HUocRrya7pUThwPA?authuser=0&hl=en&rclk=1",
+    "website": "http://www.taylordentalsmiles.com/",
+    "phone": "(801)2856607",
+    "address": null
+  },
+  {
+    "title": "Alpenglow Dental Sandy",
+    "link": "https://www.google.com/maps/place/Alpenglow+Dental+Sandy/data=!4m7!3m6!1s0x875262829a5851fb:0x8fcc30a6231cf11a!8m2!3d40.6166647!4d-111.8571844!16s%2Fg%2F1vcjmqxn!19sChIJ-1FYmoJiUocRGvEcI6YwzI8?authuser=0&hl=en&rclk=1",
+    "website": "https://alpenglowdentists.com/",
+    "phone": "(801)5618131",
+    "address": null
+  },
+  {
+    "title": "Dr. Justin J. Woodward, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Justin+J.+Woodward,+DDS/data=!4m7!3m6!1s0x87527d5937690df9:0x96e2e0b74807cf86!8m2!3d40.5726419!4d-111.8526665!16s%2Fg%2F1v75sczx!19sChIJ-Q1pN1l9UocRhs8HSLfg4pY?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5533562",
+    "address": null
+  },
+  {
+    "title": "South Jordan Dental",
+    "link": "https://www.google.com/maps/place/South+Jordan+Dental/data=!4m7!3m6!1s0x87528622a3ddc6cb:0x8f2e252e568d3193!8m2!3d40.5628471!4d-111.9274902!16s%2Fg%2F1tcw8nlb!19sChIJy8bdoyKGUocRkzGNVi4lLo8?authuser=0&hl=en&rclk=1",
+    "website": "http://www.southjordandental.com/",
+    "phone": "(801)2533900",
+    "address": null
+  },
+  {
+    "title": "Brighton Dental",
+    "link": "https://www.google.com/maps/place/Brighton+Dental/data=!4m7!3m6!1s0x875262f371f334a3:0x80ba7147d59d1eee!8m2!3d40.6236013!4d-111.8306229!16s%2Fg%2F1ptwnsx9y!19sChIJozTzcfNiUocR7h6d1UdxuoA?authuser=0&hl=en&rclk=1",
+    "website": "https://www.brightondentistry.com/",
+    "phone": "(801)9432020",
+    "address": null
+  },
+  {
+    "title": "Peak Dental Utah",
+    "link": "https://www.google.com/maps/place/Peak+Dental+Utah/data=!4m7!3m6!1s0x87526214fb4f0fc9:0x9b73d36929581bfd!8m2!3d40.6434612!4d-111.8663139!16s%2Fg%2F1td3rzq0!19sChIJyQ9P-xRiUocR_RtYKWnTc5s?authuser=0&hl=en&rclk=1",
+    "website": "http://www.buxtondentistry.com/",
+    "phone": "(801)2783214",
+    "address": null
+  },
+  {
+    "title": "Jordan West Dr- Utah Dentist",
+    "link": "https://www.google.com/maps/place/Jordan+West+Dr-+Utah+Dentist/data=!4m7!3m6!1s0x875288ba388c05cf:0xb0fc0439e6a5d796!8m2!3d40.5828923!4d-111.9383855!16s%2Fg%2F1tfwqfxp!19sChIJzwWMOLqIUocRltel5jkE_LA?authuser=0&hl=en&rclk=1",
+    "phone": null,
+    "address": null
+  },
+  {
+    "title": "Dr. Kyle Perkins, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Kyle+Perkins,+DDS/data=!4m7!3m6!1s0x87527d713205eac3:0x18fe404a7cda8821!8m2!3d40.5798488!4d-111.8382822!16s%2Fg%2F11j8k6f4bb!19sChIJw-oFMnF9UocRIYjafEpA_hg?authuser=0&hl=en&rclk=1",
+    "phone": "(801)3868793",
+    "address": null
+  },
+  {
+    "title": "Michelle L. Taylor, DDS",
+    "link": "https://www.google.com/maps/place/Michelle+L.+Taylor,+DDS/data=!4m7!3m6!1s0x8752883a9b454be7:0xa67abb86f857b945!8m2!3d40.5704044!4d-111.8725056!16s%2Fg%2F11c2kl8hx6!19sChIJ50tFmzqIUocRRblX-Ia7eqY?authuser=0&hl=en&rclk=1",
+    "website": "http://taylordentalsmiles.com/?utm_source=GMB&utm_medium=organic&utm_campaign=DevOptimization&utm_content=Website",
+    "phone": "(801)2856607",
+    "address": null
+  },
+  {
+    "title": "Sandy Modern Dentistry",
+    "link": "https://www.google.com/maps/place/Sandy+Modern+Dentistry/data=!4m7!3m6!1s0x8752872bff3e521f:0x38be4bb9f80e0736!8m2!3d40.5591699!4d-111.8893503!16s%2Fg%2F11hz6dkxpn!19sChIJH1I-_yuHUocRNgcO-LlLvjg?authuser=0&hl=en&rclk=1",
+    "website": "https://www.sandymoderndentistry.com/?sc_cid=GBP%3AO%3AGP%3A583%3AOrganic_Search%3AGeneral%3Ana&_vsrefdom=organic_gbp&y_source=1_MTMwMTIxNzctNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "phone": "(801)3053736",
+    "address": null
+  },
+  {
+    "title": "Blackstone Dental",
+    "link": "https://www.google.com/maps/place/Blackstone+Dental/data=!4m7!3m6!1s0x8752626001223b99:0x36680afe599ba82a!8m2!3d40.6293303!4d-111.8334267!16s%2Fg%2F1tf24kg2!19sChIJmTsiAWBiUocRKqibWf4KaDY?authuser=0&hl=en&rclk=1",
+    "website": "http://www.blackstonedentalutah.com/",
+    "phone": "(801)2780458",
+    "address": null
+  },
+  {
+    "title": "Jordan River Dental",
+    "link": "https://www.google.com/maps/place/Jordan+River+Dental/data=!4m7!3m6!1s0x875286180924a5e5:0xc94e8996699073ae!8m2!3d40.562484!4d-111.928344!16s%2Fg%2F1w4vkdsf!19sChIJ5aUkCRiGUocRrnOQaZaJTsk?authuser=0&hl=en&rclk=1",
+    "website": "http://www.jordanriverdental.com/",
+    "phone": "(801)2541400",
+    "address": null
+  },
+  {
+    "title": "Dr. Jaleena A. Jessop, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Jaleena+A.+Jessop,+DDS/data=!4m7!3m6!1s0x87527d5937690df9:0xfd9e6a625ebc686!8m2!3d40.572724!4d-111.852627!16s%2Fg%2F1w0h7_b2!19sChIJ-Q1pN1l9UocRhsbrJabm2Q8?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5692600",
+    "address": null
+  },
+  {
+    "title": "Dr. Matthew D. Webb, DDS, AAACD",
+    "link": "https://www.google.com/maps/place/Dr.+Matthew+D.+Webb,+DDS,+AAACD/data=!4m7!3m6!1s0x87527d51261863f7:0x8a6dc989008a246b!8m2!3d40.5800668!4d-111.850347!16s%2Fg%2F1tql57v_!19sChIJ92MYJlF9UocRaySKAInJbYo?authuser=0&hl=en&rclk=1",
+    "website": "http://www.utahveneers.com/",
+    "phone": "(801)8363377",
+    "address": null
+  },
+  {
+    "title": "Neibaur Family Orthodontics",
+    "link": "https://www.google.com/maps/place/Neibaur+Family+Orthodontics/data=!4m7!3m6!1s0x87528995629d8307:0x7bcd25edb87df9d3!8m2!3d40.5801003!4d-111.8503299!16s%2Fg%2F1tcx7h7v!19sChIJB4OdYpWJUocR0_l9uO0lzXs?authuser=0&hl=en&rclk=1",
+    "website": "https://nfortho.com/",
+    "phone": "(801)2690303",
+    "address": null
+  },
+  {
+    "title": "The Fort Union Dentist",
+    "link": "https://www.google.com/maps/place/The+Fort+Union+Dentist/data=!4m7!3m6!1s0x8752627f9414af0d:0xa720448eefa2db8!8m2!3d40.6263923!4d-111.8556289!16s%2Fg%2F1w0h7_9p!19sChIJDa8UlH9iUocRuC367kgEcgo?authuser=0&hl=en&rclk=1",
+    "website": "https://thefortuniondentist.com/?utm_source=GoogleMyBusiness&utm_medium=Organic&utm_campaign=Website",
+    "phone": "(801)6768100",
+    "address": null
+  },
+  {
+    "title": "Artisan Dental",
+    "link": "https://www.google.com/maps/place/Artisan+Dental/data=!4m7!3m6!1s0x87526301024ace1f:0x478dd33c8abd7f2c!8m2!3d40.6265335!4d-111.8555309!16s%2Fg%2F1tcy9cmn!19sChIJH85KAgFjUocRLH-9ijzTjUc?authuser=0&hl=en&rclk=1",
+    "website": "http://www.artisan-dental.com/",
+    "phone": "(801)9434200",
+    "address": null
+  },
+  {
+    "title": "Granite View Dental",
+    "link": "https://www.google.com/maps/place/Granite+View+Dental/data=!4m7!3m6!1s0x875287fc95a4923d:0x3255a9b8ee2f4a51!8m2!3d40.5439882!4d-111.8621016!16s%2Fg%2F12hsgkh69!19sChIJPZKklfyHUocRUUov7ripVTI?authuser=0&hl=en&rclk=1",
+    "website": "https://graniteviewdental.com/",
+    "phone": "(801)7945885",
+    "address": null
+  },
+  {
+    "title": "The Smile Shop @ Simply Dental",
+    "link": "https://www.google.com/maps/place/The+Smile+Shop+@+Simply+Dental/data=!4m7!3m6!1s0x87527d512ede2637:0xc8fcaf57a691758e!8m2!3d40.5801175!4d-111.8502856!16s%2Fg%2F11rjyx4r6j!19sChIJNybeLlF9UocRjnWRplev_Mg?authuser=0&hl=en&rclk=1",
+    "website": "http://www.utahveneers.com/contact",
+    "phone": "(801)8363377",
+    "address": null
+  },
+  {
+    "title": "Walker Lynn R DDS",
+    "link": "https://www.google.com/maps/place/Walker+Lynn+R+DDS/data=!4m7!3m6!1s0x875288522baa1143:0xbef91a641072c4ce!8m2!3d40.611843!4d-111.8951196!16s%2Fg%2F1tddsp0n!19sChIJQxGqK1KIUocRzsRyEGQa-b4?authuser=0&hl=en&rclk=1",
+    "phone": "(801)2554821",
+    "address": null
+  },
+  {
+    "title": "Professional Dental",
+    "link": "https://www.google.com/maps/place/Professional+Dental/data=!4m7!3m6!1s0x875286522f80c589:0x7f4784cae9be3d1e!8m2!3d40.5439147!4d-111.8734054!16s%2Fg%2F1pzrxnsvc!19sChIJicWAL1KGUocRHj2-6cqER38?authuser=0&hl=en&rclk=1",
+    "website": "http://www.prodentalut.com/",
+    "phone": "(801)5722006",
+    "address": null
+  },
+  {
+    "title": "Abundant Dental Care of South Town",
+    "link": "https://www.google.com/maps/place/Abundant+Dental+Care+of+South+Town/data=!4m7!3m6!1s0x8752875fdaed61a7:0x455b88fc867b14b4!8m2!3d40.5607019!4d-111.890485!16s%2Fg%2F11p08k1_h0!19sChIJp2Ht2l-HUocRtBR7hvyIW0U?authuser=0&hl=en&rclk=1",
+    "website": "https://abundantdentalcare.com/south-town",
+    "phone": "(801)2159992",
+    "address": null
+  },
+  {
+    "title": "Dentistry For Children Sandy: Rooklidge Erik DDS",
+    "link": "https://www.google.com/maps/place/Dentistry+For+Children+Sandy:+Rooklidge+Erik+DDS/data=!4m7!3m6!1s0x875287d0349cb17f:0x46d8bff8b96b933e!8m2!3d40.569154!4d-111.894623!16s%2Fg%2F1tgc07mx!19sChIJf7GcNNCHUocRPpNrufi_2EY?authuser=0&hl=en&rclk=1",
+    "website": "https://dentistryforchildrenutah.com/",
+    "phone": "(801)5622222",
+    "address": null
+  },
+  {
+    "title": "Dr. David J. Clonts, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+David+J.+Clonts,+DDS/data=!4m7!3m6!1s0x8752bf70a961a175:0xbec6c9e4cd582eb7!8m2!3d40.5798488!4d-111.8382822!16s%2Fg%2F1vwlpm5x!19sChIJdaFhqXC_UocRty5YzeTJxr4?authuser=0&hl=en&rclk=1",
+    "website": "https://weence.com/medical/doctors/sandy/dr-david-j-clonts-dds/",
+    "phone": "(801)5903266",
+    "address": null
+  },
+  {
+    "title": "NATE C. LEWIS DENTISTRY",
+    "link": "https://www.google.com/maps/place/NATE+C.+LEWIS+DENTISTRY/data=!4m7!3m6!1s0x875287e5ba1e933d:0xe4901e7b57eed1bc!8m2!3d40.5544362!4d-111.8718855!16s%2Fg%2F1tdywvkq!19sChIJPZMeuuWHUocRvNHuV3sekOQ?authuser=0&hl=en&rclk=1",
+    "website": "https://natelewis-dds.com/?utm_source=google&utm_medium=organic+&utm_campaign=google-business-profile",
+    "phone": "(801)5723211",
+    "address": null
+  },
+  {
+    "title": "Oquirrh Mountain Dental",
+    "link": "https://www.google.com/maps/place/Oquirrh+Mountain+Dental/data=!4m7!3m6!1s0x8752861a8026c4b5:0xdb247a6d6cc71268!8m2!3d40.5582512!4d-111.9382688!16s%2Fg%2F1tht1yct!19sChIJtcQmgBqGUocRaBLHbG16JNs?authuser=0&hl=en&rclk=1",
+    "website": "https://oquirrhmountaindental.com/",
+    "phone": "(801)2547003",
+    "address": null
+  },
+  {
+    "title": "Roundy Family Dental",
+    "link": "https://www.google.com/maps/place/Roundy+Family+Dental/data=!4m7!3m6!1s0x87526269a98e8d57:0xa2c186a7c5b82e5b!8m2!3d40.6216464!4d-111.8351801!16s%2Fg%2F1tcxvqkm!19sChIJV42OqWliUocRWy64xaeGwaI?authuser=0&hl=en&rclk=1",
+    "website": "https://drroundy.com/",
+    "phone": "(801)9439194",
+    "address": null
+  },
+  {
+    "title": "Roundy Aaron P DDS",
+    "link": "https://www.google.com/maps/place/Roundy+Aaron+P+DDS/data=!4m7!3m6!1s0x875263ecf91d5983:0xfd7d6492561ac1c0!8m2!3d40.6216457!4d-111.8353395!16s%2Fg%2F12631qn1f!19sChIJg1kd-exjUocRwMEaVpJkff0?authuser=0&hl=en&rclk=1",
+    "website": "https://drroundy.com/",
+    "phone": "(801)9439194",
+    "address": null
+  },
+  {
+    "title": "Charles B Jackson Jr PC",
+    "link": "https://www.google.com/maps/place/Charles+B+Jackson+Jr+PC/data=!4m7!3m6!1s0x875287e3b6508049:0xbd38d9f1e9e0ebaf!8m2!3d40.5794393!4d-111.8731279!16s%2Fg%2F1vtzhpnl!19sChIJSYBQtuOHUocRr-vg6fHZOL0?authuser=0&hl=en&rclk=1",
+    "website": "http://drjacksons.com/",
+    "phone": "(801)5711231",
+    "address": null
+  },
+  {
+    "title": "Draper Dental",
+    "link": "https://www.google.com/maps/place/Draper+Dental/data=!4m7!3m6!1s0x87528767c2436dbf:0x86d7368632c42824!8m2!3d40.5280105!4d-111.8728521!16s%2Fg%2F1thhk_9j!19sChIJv21DwmeHUocRJCjEMoY214Y?authuser=0&hl=en&rclk=1",
+    "website": "https://www.draperdentalsolutions.com/",
+    "phone": "(801)7628920",
+    "address": null
+  },
+  {
+    "title": "Cottonwood Heights Dentistry",
+    "link": "https://www.google.com/maps/place/Cottonwood+Heights+Dentistry/data=!4m7!3m6!1s0x875262f372f9631b:0x6cc659ea302bd756!8m2!3d40.6236032!4d-111.8306228!16s%2Fg%2F1hc3dqhx8!19sChIJG2P5cvNiUocRVtcrMOpZxmw?authuser=0&hl=en&rclk=1",
+    "phone": "(866)9100576",
+    "address": null
+  },
+  {
+    "title": "Sean P Lucas DDS",
+    "link": "https://www.google.com/maps/place/Sean+P+Lucas+DDS/data=!4m7!3m6!1s0x87526269a98e8d57:0x593e2c10d54d1029!8m2!3d40.6206582!4d-111.8347175!16s%2Fg%2F1v5k3hc5!19sChIJV42OqWliUocRKRBN1RAsPlk?authuser=0&hl=en&rclk=1",
+    "phone": "(801)4530244",
+    "address": null
+  },
+  {
+    "title": "Randy L Webb, Matthew D Webb, & David H Webb, DDS",
+    "link": "https://www.google.com/maps/place/Randy+L+Webb,+Matthew+D+Webb,+%26+David+H+Webb,+DDS/data=!4m7!3m6!1s0x87527d51261863f7:0xf978154135a5cb24!8m2!3d40.5801558!4d-111.8503844!16s%2Fg%2F1tf6xv02!19sChIJ92MYJlF9UocRJMulNUEVePk?authuser=0&hl=en&rclk=1",
+    "website": "http://www.sandycitysmiles.com/",
+    "phone": "(801)5710063",
+    "address": null
+  },
+  {
+    "title": "Jordan Valley Dental",
+    "link": "https://www.google.com/maps/place/Jordan+Valley+Dental/data=!4m7!3m6!1s0x87528eeeeb364b4d:0xa69274ef503875e0!8m2!3d40.6157021!4d-111.9846631!16s%2Fg%2F1tg81yrh!19sChIJTUs26-6OUocR4HU4UO90kqY?authuser=0&hl=en&rclk=1",
+    "website": "https://www.jordanvalleydental.com/",
+    "phone": "(801)2822323",
+    "address": null
+  },
+  {
+    "title": "DDS Todd Larsen",
+    "link": "https://www.google.com/maps/place/DDS+Todd+Larsen/data=!4m7!3m6!1s0x87528995ccf4c62b:0x8feaafb2d2425b5b!8m2!3d40.5895062!4d-111.871484!16s%2Fg%2F11j7jb1d2c!19sChIJK8b0zJWJUocRW1tC0rKv6o8?authuser=0&hl=en&rclk=1",
+    "phone": null,
+    "address": null
+  },
+  {
+    "title": "Rigby Dental Care",
+    "link": "https://www.google.com/maps/place/Rigby+Dental+Care/data=!4m7!3m6!1s0x875287b163a34d19:0xd170e4534982ea73!8m2!3d40.5434268!4d-111.8622733!16s%2Fg%2F11sxdwnxb7!19sChIJGU2jY7GHUocRc-qCSVPkcNE?authuser=0&hl=en&rclk=1",
+    "website": "http://rigbydental.com/",
+    "phone": "(801)5722250",
+    "address": null
+  },
+  {
+    "title": "West Jordan Family Dentistry Scott K McGavin DMD",
+    "link": "https://www.google.com/maps/place/West+Jordan+Family+Dentistry+Scott+K+McGavin+DMD/data=!4m7!3m6!1s0x8752895ad24ed6d1:0x50d8477e8d6b009f!8m2!3d40.6374836!4d-111.9380155!16s%2Fg%2F1vzv443g!19sChIJ0dZO0lqJUocRnwBrjX5H2FA?authuser=0&hl=en&rclk=1",
+    "website": "https://www.westjordanfamilydentistry.net/",
+    "phone": "(801)2938740",
+    "address": null
+  },
+  {
+    "title": "Draper Parkway Dental",
+    "link": "https://www.google.com/maps/place/Draper+Parkway+Dental/data=!4m7!3m6!1s0x875287676f1d4d15:0x21f07a2596e29f5d!8m2!3d40.5267169!4d-111.864809!16s%2Fg%2F1tfkr7mq!19sChIJFU0db2eHUocRXZ_iliV68CE?authuser=0&hl=en&rclk=1",
+    "website": "https://www.draperfamilydentist.com/?utm_source=GMB&utm_medium=organic&utm_campaign=DevOptimization&utm_content=Website",
+    "phone": "(801)2524439",
+    "address": null
+  },
+  {
+    "title": "Premier Dental Care of Utah",
+    "link": "https://www.google.com/maps/place/Premier+Dental+Care+of+Utah/data=!4m7!3m6!1s0x87528d80c071c805:0xca199ad44bafe8a6!8m2!3d40.6977989!4d-111.9695483!16s%2Fg%2F1tdww50n!19sChIJBchxwICNUocRpuivS9SaGco?authuser=0&hl=en&rclk=1",
+    "website": "http://www.premierdentalcareutah.com/?utm_source=GMB&utm_medium=organic&utm_campaign=DevOptimization&utm_content=Website",
+    "phone": "(801)3166577",
+    "address": null
+  },
+  {
+    "title": "Contact Us - Holladay, UT Dentist - Ronald E. Hicks, DDS, PC",
+    "link": "https://www.google.com/maps/place/Contact+Us+-+Holladay,+UT+Dentist+-+Ronald+E.+Hicks,+DDS,+PC/data=!4m7!3m6!1s0x8752628cdf747263:0xb493766c86a1c3ee!8m2!3d40.6216891!4d-111.8348479!16s%2Fg%2F11ghr04l1g!19sChIJY3J034xiUocR7sOhhmx2k7Q?authuser=0&hl=en&rclk=1",
+    "website": "https://www.drronhicks.com/contact.html",
+    "phone": "(801)2721616",
+    "address": null
+  },
+  {
+    "title": "Dr. Robert Thorup",
+    "link": "https://www.google.com/maps/place/Dr.+Robert+Thorup/data=!4m7!3m6!1s0x8752628cfceaaaab:0xf9fac0d8d4f06d50!8m2!3d40.6216054!4d-111.8352286!16s%2Fg%2F11rwxfqsk0!19sChIJq6rq_IxiUocRUG3w1NjA-vk?authuser=0&hl=en&rclk=1",
+    "website": "https://www.thorupdental.com/",
+    "phone": "(801)9449494",
+    "address": null
+  },
+  {
+    "title": "Dr. Tony M. Jensen, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Tony+M.+Jensen,+DDS/data=!4m7!3m6!1s0x87528760d667819f:0x347926db06a31af7!8m2!3d40.5279138!4d-111.8626493!16s%2Fg%2F1tq8k0pr!19sChIJn4Fn1mCHUocR9xqjBtsmeTQ?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5716663",
+    "address": null
+  },
+  {
+    "title": "Mouth of the Canyon Dental",
+    "link": "https://www.google.com/maps/place/Mouth+of+the+Canyon+Dental/data=!4m7!3m6!1s0x875262673ab433bf:0x9cc02f6dcff5223a!8m2!3d40.6342771!4d-111.8349528!16s%2Fg%2F1thd74mm!19sChIJvzO0OmdiUocROiL1z20vwJw?authuser=0&hl=en&rclk=1",
+    "website": "http://www.nydeggerdds.com/",
+    "phone": "(801)9432627",
+    "address": null
+  },
+  {
+    "title": "Salt Lake Dental Clinic",
+    "link": "https://www.google.com/maps/place/Salt+Lake+Dental+Clinic/data=!4m7!3m6!1s0x87526221cfc4b3a1:0x16348f49e592059b!8m2!3d40.6652501!4d-111.8330221!16s%2Fg%2F1hc3f93h4!19sChIJobPEzyFiUocRmwWS5UmPNBY?authuser=0&hl=en&rclk=1",
+    "website": "https://www.slcdental.com/?utm_campaign=gmb",
+    "phone": "(385)9997428",
+    "address": null
+  },
+  {
+    "title": "Dr. Jason Hodge, DMD",
+    "link": "https://www.google.com/maps/place/Dr.+Jason+Hodge,+DMD/data=!4m7!3m6!1s0x875289e5acfe8abb:0x9f8e6f140e1c5c2!8m2!3d40.5798488!4d-111.8382822!16s%2Fg%2F1tj2jchs!19sChIJu4r-rOWJUocRwsXhQPHm-Ak?authuser=0&hl=en&rclk=1",
+    "website": "https://platinumdentalsandy.com/",
+    "phone": "(801)5903266",
+    "address": null
+  },
+  {
+    "title": "ClearChoice Dental Implant Center",
+    "link": "https://www.google.com/maps/place/ClearChoice+Dental+Implant+Center/data=!4m7!3m6!1s0x8752863668274957:0x703200518f26cd82!8m2!3d40.5569058!4d-111.9128061!16s%2Fg%2F1td38qns!19sChIJV0knaDaGUocRgs0mj1EAMnA?authuser=0&hl=en&rclk=1",
+    "website": "https://www.clearchoice.com/locations/dental-implants-salt-lake-city/?trans_id=slcyextlisting&utm_source=yext&utm_medium=listing&utm_term=salt-lake-city&utm_campaign=yextlisting",
+    "phone": "(801)8102301",
+    "address": null
+  },
+  {
+    "title": "Corner Canyon Family Dental",
+    "link": "https://www.google.com/maps/place/Corner+Canyon+Family+Dental/data=!4m7!3m6!1s0x8752875dc633bd71:0x1ec924adec173990!8m2!3d40.5242662!4d-111.8638685!16s%2Fg%2F1tgvf325!19sChIJcb0zxl2HUocRkDkX7K0kyR4?authuser=0&hl=en&rclk=1",
+    "website": "https://cornercanyonfamilydental.com/",
+    "phone": "(801)5761167",
+    "address": null
+  },
+  {
+    "title": "Westwood Family and Cosmetic Dentistry, Dr. David Reynolds DDS",
+    "link": "https://www.google.com/maps/place/Westwood+Family+and+Cosmetic+Dentistry,+Dr.+David+Reynolds+DDS/data=!4m7!3m6!1s0x875287537a955f1d:0xe3cec966a8eefe75!8m2!3d40.5407778!4d-111.8917193!16s%2Fg%2F11grv54w2_!19sChIJHV-VelOHUocRdf7uqGbJzuM?authuser=0&hl=en&rclk=1",
+    "website": "https://www.westwoodfamilydentalgroup.com/",
+    "phone": "(801)7167006",
+    "address": null
+  },
+  {
+    "title": "Stonehaven Dental",
+    "link": "https://www.google.com/maps/place/Stonehaven+Dental/data=!4m7!3m6!1s0x8752871b98498aa9:0x154fd9188761ea1c!8m2!3d40.5261771!4d-111.8972441!16s%2Fg%2F1tdw3z5w!19sChIJqYpJmBuHUocRHOphhxjZTxU?authuser=0&hl=en&rclk=1",
+    "website": "https://stonehavendental.com/locations/draper/",
+    "phone": "(801)8710888",
+    "address": null
+  },
+  {
+    "title": "Steven K Jensen DDS, PC",
+    "link": "https://www.google.com/maps/place/Steven+K+Jensen+DDS,+PC/data=!4m7!3m6!1s0x8752871bdc632e81:0xf10c960db42c5fd6!8m2!3d40.5445764!4d-111.8623181!16s%2Fg%2F11t3h6706p!19sChIJgS5j3BuHUocR1l8stA2WDPE?authuser=0&hl=en&rclk=1",
+    "website": "http://www.stevenkjensendds.com/",
+    "phone": "(801)5531616",
+    "address": null
+  },
+  {
+    "title": "Almond Dental",
+    "link": "https://www.google.com/maps/place/Almond+Dental/data=!4m7!3m6!1s0x875288b81d87b9fd:0xf455b7049a575596!8m2!3d40.5617009!4d-111.947938!16s%2Fg%2F1tgh80w6!19sChIJ_bmHHbiIUocRllVXmgS3VfQ?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5622662",
+    "address": null
+  },
+  {
+    "title": "Canyon Pointe Dental",
+    "link": "https://www.google.com/maps/place/Canyon+Pointe+Dental/data=!4m7!3m6!1s0x875287168ee9a309:0x706cb7151a900cd!8m2!3d40.5241834!4d-111.8876931!16s%2Fg%2F1tjdm6r8!19sChIJCaPpjhaHUocRzQCpUXHLBgc?authuser=0&hl=en&rclk=1",
+    "website": "http://www.canyonpointedental.com/",
+    "phone": "(801)5761100",
+    "address": null
+  },
+  {
+    "title": "Thorup Dental",
+    "link": "https://www.google.com/maps/place/Thorup+Dental/data=!4m7!3m6!1s0x87526269a98e8d57:0x64c2eea2cf6db948!8m2!3d40.5478057!4d-111.9383304!16s%2Fg%2F1tfn36l6!19sChIJV42OqWliUocRSLltz6LuwmQ?authuser=0&hl=en&rclk=1",
+    "website": "http://www.thorupdental.com/",
+    "phone": "(801)9449494",
+    "address": null
+  },
+  {
+    "title": "Salt Lake Dental",
+    "link": "https://www.google.com/maps/place/Salt+Lake+Dental/data=!4m7!3m6!1s0x87528abb74b2f133:0xaeff27d0c0bad154!8m2!3d40.7248046!4d-111.8717921!16s%2Fg%2F11h14jcmr!19sChIJM_GydLuKUocRVNG6wNAn_64?authuser=0&hl=en&rclk=1",
+    "website": "https://www.saltlakedental.net/",
+    "phone": "(801)3969321",
+    "address": null
+  },
+  {
+    "title": "Oak Hollow Family Dentistry",
+    "link": "https://www.google.com/maps/place/Oak+Hollow+Family+Dentistry/data=!4m7!3m6!1s0x8752871391afffff:0x5c29b8ef3cab89c2!8m2!3d40.5275814!4d-111.8848605!16s%2Fg%2F11c2pmrj05!19sChIJ__-vkROHUocRwomrPO-4KVw?authuser=0&hl=en&rclk=1",
+    "website": "http://oakhollowdentistry.com/",
+    "phone": "(801)4954440",
+    "address": null
+  },
+  {
+    "title": "Murray Park Dental",
+    "link": "https://www.google.com/maps/place/Murray+Park+Dental/data=!4m7!3m6!1s0x87528a26b24860a5:0xca2f076f89b66796!8m2!3d40.6608924!4d-111.8866271!16s%2Fg%2F1td6gzcw!19sChIJpWBIsiaKUocRlme2iW8HL8o?authuser=0&hl=en&rclk=1",
+    "website": "http://www.murrayparkdental.com/",
+    "phone": "(801)5908786",
+    "address": null
+  },
+  {
+    "title": "Richard L. Blackhurst/Utah Dental Center",
+    "link": "https://www.google.com/maps/place/Richard+L.+Blackhurst%2FUtah+Dental+Center/data=!4m7!3m6!1s0x8752f53d93a6614d:0x779a9889110cde27!8m2!3d40.7688012!4d-111.8789505!16s%2Fg%2F1vvr6plx!19sChIJTWGmkz31UocRJ94MEYmYmnc?authuser=0&hl=en&rclk=1",
+    "phone": "(801)3591233",
+    "address": null
+  },
+  {
+    "title": "Utah Endodontics: Dr. Troy Thomson & Dr. Matthew Kjar",
+    "link": "https://www.google.com/maps/place/Utah+Endodontics:+Dr.+Troy+Thomson+%26+Dr.+Matthew+Kjar/data=!4m7!3m6!1s0x87528622a3ddc6cb:0xe5b50d7ee91ef45c!8m2!3d40.5628446!4d-111.9275021!16s%2Fg%2F1thy08m1!19sChIJy8bdoyKGUocRXPQe6X4NteU?authuser=0&hl=en&rclk=1",
+    "website": "http://utahendo.com/",
+    "phone": "(801)4461888",
+    "address": null
+  },
+  {
+    "title": "Haslam Stephen D DDS PLLC",
+    "link": "https://www.google.com/maps/place/Haslam+Stephen+D+DDS+PLLC/data=!4m7!3m6!1s0x875289956819c9ed:0x66d4cb71a8a6ddb0!8m2!3d40.6395204!4d-111.8820851!16s%2Fg%2F1tc_94dc!19sChIJ7ckZaJWJUocRsN2mqHHL1GY?authuser=0&hl=en&rclk=1",
+    "website": "https://www.murrayutahdentist.com/",
+    "phone": "(801)2624628",
+    "address": null
+  },
+  {
+    "title": "Draper Smiles - Dr. Fernando Pessoa: World-Class Dentistry",
+    "link": "https://www.google.com/maps/place/Draper+Smiles+-+Dr.+Fernando+Pessoa:+World-Class+Dentistry/data=!4m7!3m6!1s0x8752875d91223c37:0x70520d731bd324d5!8m2!3d40.5245704!4d-111.8812637!16s%2Fg%2F1tmxrhlm!19sChIJNzwikV2HUocR1STTG3MNUnA?authuser=0&hl=en&rclk=1",
+    "website": "http://www.drapersmiles.com/",
+    "phone": "(801)5716541",
+    "address": null
+  },
+  {
+    "title": "Dr. Stephen J. Davis, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Stephen+J.+Davis,+DDS/data=!4m7!3m6!1s0x87528a6ef853b90f:0x9d31a4655cc3dd50!8m2!3d40.6544046!4d-111.9072218!16s%2Fg%2F1vn9pks9!19sChIJD7lT-G6KUocRUN3DXGWkMZ0?authuser=0&hl=en&rclk=1",
+    "website": "http://bestsaltlakefamilydentist.com/",
+    "phone": "(801)2685200",
+    "address": null
+  },
+  {
+    "title": "Dr. John D. Miller, D.M.D.",
+    "link": "https://www.google.com/maps/place/Dr.+John+D.+Miller,+D.M.D./data=!4m7!3m6!1s0x875286180924a5e5:0x5d57bb0e521b08f2!8m2!3d40.5624753!4d-111.928483!16s%2Fg%2F1tf_1kcb!19sChIJ5aUkCRiGUocR8ggbUg67V10?authuser=0&hl=en&rclk=1",
+    "website": "http://jordanriverdental.com/",
+    "phone": "(801)2541400",
+    "address": null
+  },
+  {
+    "title": "Utah Specialty Dental Group",
+    "link": "https://www.google.com/maps/place/Utah+Specialty+Dental+Group/data=!4m7!3m6!1s0x818e3405ebccf0b9:0x66e942252f993b68!8m2!3d40.4934706!4d-111.852466!16s%2Fg%2F11twzxb2w0!19sChIJufDM6wU0joERaDuZLyVC6WY?authuser=0&hl=en&rclk=1",
+    "website": "https://utahspecialtydental.com/",
+    "phone": "(385)4254880",
+    "address": null
+  },
+  {
+    "title": "Aspen Ridge Dental",
+    "link": "https://www.google.com/maps/place/Aspen+Ridge+Dental/data=!4m7!3m6!1s0x87527df316304bd5:0xb07d0e0a7aa6d4c2!8m2!3d40.5268173!4d-111.849884!16s%2Fg%2F1tkl3t0t!19sChIJ1UswFvN9UocRwtSmegoOfbA?authuser=0&hl=en&rclk=1",
+    "website": "http://www.aspenridge-dental.com/",
+    "phone": "(801)5719555",
+    "address": null
+  },
+  {
+    "title": "Richard G. Parker, DDS | Rdentist",
+    "link": "https://www.google.com/maps/place/Richard+G.+Parker,+DDS+%7C+Rdentist/data=!4m7!3m6!1s0x875287169109376f:0x652bb86547c04e35!8m2!3d40.5246318!4d-111.8874945!16s%2Fg%2F1tdj4pmx!19sChIJbzcJkRaHUocRNU7AR2W4K2U?authuser=0&hl=en&rclk=1",
+    "website": "https://rdentistutah.net/",
+    "phone": "(801)3028897",
+    "address": null
+  },
+  {
+    "title": "Dr. Jeffrey S. Almond, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Jeffrey+S.+Almond,+DDS/data=!4m7!3m6!1s0x875288b81d87b9fd:0x5ab25694e0f61b89!8m2!3d40.5616739!4d-111.9478604!16s%2Fg%2F1v41_ymb!19sChIJ_bmHHbiIUocRiRv24JRWslo?authuser=0&hl=en&rclk=1",
+    "phone": "(801)5622662",
+    "address": null
+  },
+  {
+    "title": "The Sugar House Dentist",
+    "link": "https://www.google.com/maps/place/The+Sugar+House+Dentist/data=!4m7!3m6!1s0x8752601c34ea18bb:0x831f042fbc103fd!8m2!3d40.7276819!4d-111.8533803!16s%2Fg%2F1vzg2qjs!19sChIJuxjqNBxgUocR_QPB-0LwMQg?authuser=0&hl=en&rclk=1",
+    "website": "https://www.thesugarhousedentist.com/?utm_source=google.com&utm_medium=business+profile&utm_campaign=",
+    "phone": "(801)6180197",
+    "address": null
+  },
+  {
+    "title": "Dr. Craig L. Vanalfen, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Craig+L.+Vanalfen,+DDS/data=!4m7!3m6!1s0x8752627329137c5d:0xa32517e58933899a!8m2!3d40.6289926!4d-111.8663982!16s%2Fg%2F1hc2n4cp0!19sChIJXXwTKXNiUocRmokzieUXJaM?authuser=0&hl=en&rclk=1",
+    "phone": "(801)2784607",
+    "address": null
+  },
+  {
+    "title": "Jared Hepworth",
+    "link": "https://www.google.com/maps/place/Jared+Hepworth/data=!4m7!3m6!1s0x8752628cfceaaaab:0xcb057d70d01db24f!8m2!3d40.6216457!4d-111.8353395!16s%2Fg%2F11qgb7fl75!19sChIJq6rq_IxiUocRT7Id0HB9Bcs?authuser=0&hl=en&rclk=1",
+    "website": "https://www.whiteridgedental.com/about/meet-the-team/",
+    "phone": "(801)9427770",
+    "address": null
+  },
+  {
+    "title": "Village Dental",
+    "link": "https://www.google.com/maps/place/Village+Dental/data=!4m7!3m6!1s0x8752618b8a8bb19f:0x4bc6b9557d2e90bb!8m2!3d40.665973!4d-111.830448!16s%2Fg%2F1td2vcrq!19sChIJn7GLiothUocRu5AufVW5xks?authuser=0&hl=en&rclk=1",
+    "website": "http://village-dental.com/",
+    "phone": "(801)2771916",
+    "address": null
+  },
+  {
+    "title": "Dr. Brian W. Smith, DDS",
+    "link": "https://www.google.com/maps/place/Dr.+Brian+W.+Smith,+DDS/data=!4m7!3m6!1s0x8752630076c94469:0x790a984ae24eba78!8m2!3d40.6341209!4d-111.8067016!16s%2Fg%2F1td5m5bk!19sChIJaUTJdgBjUocReLpO4kqYCnk?authuser=0&hl=en&rclk=1",
+    "website": "http://www.ident.ws/oldmilldental",
+    "phone": "(801)9435443",
+    "address": null
+  },
+  {
+    "title": "Falling Creek Dental",
+    "link": "https://www.google.com/maps/place/Falling+Creek+Dental/data=!4m7!3m6!1s0x875287169109376f:0x87c464f6ac57dc30!8m2!3d40.524604!4d-111.887681!16s%2Fg%2F1trxkrr5!19sChIJbzcJkRaHUocRMNxXrPZkxIc?authuser=0&hl=en&rclk=1",
+    "website": "http://fallingcreekdental.com/",
+    "phone": "(801)4953567",
+    "address": null
+  },
+  {
+    "title": "9th Avenue Dental",
+    "link": "https://www.google.com/maps/place/9th+Avenue+Dental/data=!4m7!3m6!1s0x875289dc802f1cad:0xc5512ca639fd544e!8m2!3d40.6372146!4d-111.8664245!16s%2Fg%2F1ttyx6jw!19sChIJrRwvgNyJUocRTlT9OaYsUcU?authuser=0&hl=en&rclk=1",
+    "website": "https://www.9thavenuedental.com/",
+    "phone": "(801)2889283",
+    "address": null
+  }
+]
