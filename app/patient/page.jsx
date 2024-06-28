@@ -9,13 +9,13 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.
 export default function Page() {
   const [profiles, setProfiles] = useState([]);
   const [isDentalFiltered, setIsDentalFiltered] = useState(false);
-  const [isOpticFiltered, setIsOpticFiltered] = useState(false);
+  const [isVisionFiltered, setIsVisionFiltered] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedProfile, setSelectedProfile] = useState(null);
 
   useEffect(() => {
     fetchProfiles();
-  }, [isDentalFiltered, isOpticFiltered, searchTerm])
+  }, [isDentalFiltered, isVisionFiltered, searchTerm])
 
   const fetchProfiles = async () => {
     const { data } = await supabase.from("Profiles").select();
@@ -23,7 +23,7 @@ export default function Page() {
     if (isDentalFiltered) {
       const filtered = data.filter(profile => profile.type === "Dental");
       filteredByAddress = filtered.filter(profile => profile.address.toLowerCase().includes(searchTerm.toLowerCase()));
-    } else if (isOpticFiltered) {
+    } else if (isVisionFiltered) {
       const filtered = data.filter(profile => profile.type === "Vision");
       filteredByAddress = filtered.filter(profile => profile.address.toLowerCase().includes(searchTerm.toLowerCase()));
     }
@@ -39,11 +39,11 @@ export default function Page() {
 
   const handleDentalFilterClick = () => {
     setIsDentalFiltered(!isDentalFiltered);
-    setIsOpticFiltered(false);
+    setIsVisionFiltered(false);
   }
 
-  const handleOpticFilterClick = () => {
-    setIsOpticFiltered(!isOpticFiltered);
+  const handleVisionFilterClick = () => {
+    setIsVisionFiltered(!isVisionFiltered);
     setIsDentalFiltered(false);
   }
 
@@ -69,8 +69,8 @@ export default function Page() {
             onClick={handleDentalFilterClick}>
           Dental</button>
           <button
-            className={isOpticFiltered ? "btn btn-primary btn-lg" : "btn btn-neutral btn-lg"}
-            onClick={handleOpticFilterClick}>
+            className={isVisionFiltered ? "btn btn-primary btn-lg" : "btn btn-neutral btn-lg"}
+            onClick={handleVisionFilterClick}>
           Vision</button>
         </div>
       </div>
