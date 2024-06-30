@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 // import initMap from './search';
-import Map from './map';
+// import Map from './map';
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
@@ -96,14 +96,14 @@ export default function Page() {
                   {`${service}: $${price}`}
                 </div>
               ))}
-              <button className="btn btn-primary btn-sm">Book</button>
+              <button className="btn btn-primary btn-sm flex items-center justify-center h-16">Request Appointment</button>
             </div>
           </div>
         ))}
       </div>
-      <Map
+      {/* <Map
         latlong={{ coordinates: [40.297159, -111.695038]}} // Center of Orem city
-      />
+      /> */}
     </main>
   )
 }
