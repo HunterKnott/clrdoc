@@ -6,7 +6,7 @@ export default function Page() {
                     What is ClrDoc?
                 </h1>
                 <p>
-                    ClrDoc is a platform for patients to be connected with healthcare providers and know their starting service prices upfront. It's a great resource for people and families to plan ahead and stay on top of all their healthcare needs.
+                    ClrDoc is a platform for patients to be connected with healthcare providers and know their starting service prices upfront. It&#39;s a great resource for people and families to plan ahead and stay on top of all their healthcare needs.
                 </p>
             </div>
             <div className="flex flex-row gap-20 max-w-[800px] mt-[-96px] w-full h-screen mx-auto px-8 text-center justify-center items-center">
