@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 export default function Home() {
     return (
         <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
-            <NavBar />
+            <NavBar options={["About", "Features", "Contact"]}/>
             <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col gap-6 justify-center items-center">
                 <img src="Images/ClrDocIcon.png" alt="Icon" className="w-[200px]" />
                 <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl">A platform to find transparent healthcare pricing</h1>

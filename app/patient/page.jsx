@@ -93,7 +93,7 @@ export default function Page() {
             <div className="flex flex-col gap-2 text-xs md:text-base md:w-[20%] pt-4 md:pt-0">
               {Object.entries(profiles.prices).map(([service, price]) => (
                 <div key={service}>
-                  {`${service}: $${price}`}
+                  {`${service}: $${price} (Starting)`}
                 </div>
               ))}
               <button className="btn btn-primary btn-sm flex items-center justify-center h-16">Request Appointment</button>

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import PageLink from './PageLink';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { logout } from './logout/actions';
 import { createClient } from '@/utils/supabase/client';
@@ -9,6 +10,14 @@ import { createClient } from '@/utils/supabase/client';
 export default function Navbar({ options }) {
     const [user, setUser] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
+
+    const listLinks = options.map((option, index) =>
+        <PageLink
+            key={index}
+            text={option === "App" ? "Home" : option}
+            path={option === "App" ? "../" : `./${option.toLowerCase()}`}
+        />
+    );
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -29,14 +38,6 @@ export default function Navbar({ options }) {
         getUser();
     }, [])
 
-    // const listLinks = options.map((option, index) =>
-    //     <PageLink
-    //         key={index}
-    //         text={option === "App" ? "Home" : option}
-    //         path={option === "App" ? "../" : `./${option.toLowerCase()}`}
-    //     />
-    // );
-
     return (
         <div className="flex justify-between items-center h-24 w-[60%] max-w-[1240px] px-4 z-30 text-gray-700">
             {!menuOpen ?
@@ -44,9 +45,9 @@ export default function Navbar({ options }) {
                 : <h1></h1>
             }
             <ul className="hidden md:flex">
-                <li className="p-4">Product</li>
-                <li className="p-4">Features</li>
-                <li className="p-4">Contact</li>
+                <nav className='flex space-x-10 px-10 py-4'>
+                    {listLinks}
+                </nav>
                 <li>
                     {user ? (
                         <form action={logout}>
@@ -71,9 +72,9 @@ export default function Navbar({ options }) {
             <div className={menuOpen ? "fixed left-0 top-0 w-[60%] h-full bg-white border-r border-r-gray-900 ease-in-out duration-500 z-50" : "fixed left-[-100%]"}>
                 <h1 className="w-full text-3xl font-bold text-blue-700 m-4">ClrDoc</h1>
                 <ul className="uppercase p-4">
-                    <li className="p-4 border-b border-gray-600">Product</li>
-                    <li className="p-4 border-b border-gray-600">Features</li>
-                    <li className="p-4 border-b border-gray-600">Contact</li>
+                    <nav className='flex flex-col gap-6 items-start px-4 pb-6 border-y divide-y'>
+                        {listLinks}
+                    </nav>
                     <li className="p-4 border-b border-gray-600">
                         {user ? (
                             <form action={logout}>
