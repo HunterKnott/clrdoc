@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import Navbar from '../NavBar';
 // import initMap from './search';
 // import Map from './map';
 
@@ -52,7 +53,8 @@ export default function Page() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col gap-6 items-center justify-center bg-gray-100 py-24">
+    <main className="flex min-h-screen flex-col gap-6 items-center justify-center bg-gray-100">
+      <Navbar options={["App", "About", "Contact"]}/>
       <div className="flex flex-col gap-2 items-center p-6 text-center">
         <h1 className="text-4xl font-bold">ClrDoc</h1>
         <p>Connecting cash pay patients with quality providers</p>

@@ -1,9 +1,11 @@
-import { login, signup } from './actions'
-import { OAuthButtons } from './oauth-buttons'
+import { login, signup } from './actions';
+import { OAuthButtons } from './oauth-buttons';
+import NavBar from '../NavBar';
 
 export default function LoginPage() {
   return (
     <main className="flex min-h-screen flex-col gap-6 items-center justify-center bg-gray-100">
+      {/* <NavBar options={["App", "About", "Providers", "Contact"]}/> */}
       <div className="flex flex-col md:flex-row md:gap-12">
         <div className="flex flex-col gap-4 w-80">
           <h1 className="font-bold md:text-3xl sm:text-3xl text-2xl">Authentication</h1>
