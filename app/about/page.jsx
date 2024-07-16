@@ -18,7 +18,7 @@ export default function Page() {
                         <h2 className="font-bold md:text-3xl sm:text-xl text-2xl">Hunter Knott</h2>
                         <div className='container pl-6'>
                             <img src="Images/HunterPicture.png" alt="Images" className='mb-8 w-[300px]' />
-                            <p>Hi there, I'm Hunter Knott. I'm currently studying Computer Science at Utah Valley University. I have experience in software development and data analytics in a manufacturing environment, along with business web development. I love what I do!</p>
+                            <p>Hi there, I&#39;m Hunter Knott. I&#39;m currently studying Computer Science at Utah Valley University. I have experience in software development and data analytics in a manufacturing environment, along with business web development. I love what I do!</p>
                         </div>
                     </div>
                 </div>
