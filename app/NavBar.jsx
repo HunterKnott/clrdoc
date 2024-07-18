@@ -39,16 +39,19 @@ export default function Navbar({ options }) {
     }, [])
 
     return (
-        <div className="flex justify-between items-center h-24 w-[60%] max-w-[1240px] px-4 z-30 text-gray-700">
+        <div className="flex justify-between items-center h-24 w-[60%] max-w-[1240px] px-4 pt-6 z-30 text-gray-700">
             {!menuOpen ?
-                <h1 className="w-full text-3xl font-bold text-blue-700">ClrDoc</h1>
+                <div className='flex flex-row gap-4'>
+                    <h1 className="w-full text-3xl font-bold text-blue-700">Clrdoc</h1>
+                    <img src="Images/ClrDocIcon.png" alt="Icon" className="w-[40px]" />
+                </div>
                 : <h1></h1>
             }
             <ul className="hidden md:flex">
                 <nav className='flex space-x-10 px-10 py-4'>
                     {listLinks}
                 </nav>
-                <li>
+                {/* <li>
                     {user ? (
                         <form action={logout}>
                             <button
@@ -64,19 +67,19 @@ export default function Navbar({ options }) {
                             <button className="bg-blue-500 w-[80px] rounded-md font-medium text-gray-200 p-4 hover:bg-blue-600 transition duration-300">Login</button>
                         </Link>
                     )}
-                </li>
+                </li> */}
             </ul>
             <div onClick={toggleMenu} className="block md:hidden">
                 {menuOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
             <div className={menuOpen ? "fixed left-0 top-0 w-[60%] h-full bg-white border-r border-r-gray-900 ease-in-out duration-500 z-50" : "fixed left-[-100%]"}>
-                <h1 className="w-full text-3xl font-bold text-blue-700 m-4">ClrDoc</h1>
+                <h1 className="w-full text-3xl font-bold text-blue-700 m-4">Clrdoc</h1>
                 <ul className="uppercase p-4">
                     <nav className='flex flex-col gap-6 items-start px-4 pb-6 border-y divide-y'>
                         {listLinks}
                     </nav>
                     <li className="p-4 border-b border-gray-600">
-                        {user ? (
+                        {/* {user ? (
                             <form action={logout}>
                                 <button
                                     type="submit"
@@ -86,7 +89,7 @@ export default function Navbar({ options }) {
                             </form>
                         ) : (
                             <Link href={'./login'}>Login</Link>
-                        )}
+                        )} */}
                     </li>
                 </ul>
             </div>
