@@ -39,11 +39,12 @@ export default function Navbar({ options }) {
     }, [])
 
     return (
-        <div className="flex justify-between items-center h-24 w-[60%] max-w-[1240px] px-4 pt-6 z-30 text-gray-700">
+        // <header className="flex justify-between items-center h-24 w-full px-4 pt-6 z-30 bg-gray-200">
+        <header className="flex flex-row md:gap-64 justify-center items-center h-20 w-full px-4 pt-6 z-30 bg-gray-200 fixed shadow-md">
             {!menuOpen ?
                 <div className='flex flex-row gap-4'>
                     <h1 className="w-full text-3xl font-bold text-blue-700">Clrdoc</h1>
-                    <img src="Images/ClrDocIcon.png" alt="Icon" className="w-[40px]" />
+                    <img src="Images/ClrDocIcon.png" alt="Icon" className="w-[30px]" />
                 </div>
                 : <h1></h1>
             }
@@ -70,7 +71,7 @@ export default function Navbar({ options }) {
                 </li> */}
             </ul>
             <div onClick={toggleMenu} className="block md:hidden">
-                {menuOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+                {menuOpen ? <AiOutlineClose size={20} className='ml-64' /> : <AiOutlineMenu size={20} className='ml-24' />}
             </div>
             <div className={menuOpen ? "fixed left-0 top-0 w-[60%] h-full bg-white border-r border-r-gray-900 ease-in-out duration-500 z-50" : "fixed left-[-100%]"}>
                 <h1 className="w-full text-3xl font-bold text-blue-700 m-4">Clrdoc</h1>
@@ -93,6 +94,6 @@ export default function Navbar({ options }) {
                     </li>
                 </ul>
             </div>
-        </div>
+        </header>
     )
 }

@@ -56,7 +56,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col gap-6 items-center justify-center bg-gray-100">
       <Navbar options={["App", "About", "Contact"]}/>
       <div className="flex flex-col gap-2 items-center p-6 text-center">
-        <h1 className="text-4xl font-bold">ClrDoc</h1>
+        <h1 className="text-4xl font-bold">Clrdoc</h1>
         <p>Connecting cash pay patients with quality providers</p>
         <input
           className="input input-bordered w-full max-w-xs mb-6"
