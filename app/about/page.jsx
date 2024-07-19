@@ -11,7 +11,7 @@ export default function Page() {
                         <h2 className="font-bold md:text-3xl sm:text-xl text-2xl">Jaron Anderson</h2>
                         <div className='container'>
                             <img src="Images/JaronPicture.png" alt="Image" className='mb-8 w-[400px]' />
-                            <p>I'm Jaron. I&#39;ve worked in the software industry for a while, and now I&#39;m hyper focused on building Clrdoc - a digital marketplace to connect healthcare professionals and patients. I want to change the landscape of healthcare services drastically. I hope with Clrdoc we can make receiving services from healthcare providers as simple and transparent as buying eggs at the grocery store.</p>
+                            <p>I&#39;m Jaron. I&#39;ve worked in the software industry for a while, and now I&#39;m hyper focused on building Clrdoc - a digital marketplace to connect healthcare professionals and patients. I want to change the landscape of healthcare services drastically. I hope with Clrdoc we can make receiving services from healthcare providers as simple and transparent as buying eggs at the grocery store.</p>
                         </div>
                     </div>
                     <div className='flex flex-col'>
