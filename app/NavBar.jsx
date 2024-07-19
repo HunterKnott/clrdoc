@@ -40,11 +40,11 @@ export default function Navbar({ options }) {
 
     return (
         // <header className="flex justify-between items-center h-24 w-full px-4 pt-6 z-30 bg-gray-200">
-        <header className="flex flex-row md:gap-64 justify-center items-center h-20 w-full px-4 pt-6 z-30 bg-gray-200 fixed shadow-md">
+        <header className="flex flex-row md:gap-64 justify-center items-center h-16 w-full px-4 py-6 z-30 bg-gray-200 fixed shadow-md">
             {!menuOpen ?
                 <div className='flex flex-row gap-4'>
                     <h1 className="w-full text-3xl font-bold text-blue-700">Clrdoc</h1>
-                    <img src="Images/ClrDocIcon.png" alt="Icon" className="w-[30px]" />
+                    <img src="Images/ClrDocIconTransparent.png" alt="Icon" className="w-[30px]" />
                 </div>
                 : <h1></h1>
             }

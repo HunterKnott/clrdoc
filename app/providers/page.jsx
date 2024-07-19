@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import Navbar from '../NavBar';
+import Footer from '../Footer';
 // import initMap from './search';
 // import Map from './map';
 
@@ -53,9 +54,9 @@ export default function Page() {
   }
 
   return (
-    <main className="flex min-h-screen flex-col gap-6 items-center justify-center bg-gray-100">
+    <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
       <Navbar options={["App", "About", "Contact"]}/>
-      <div className="flex flex-col gap-2 items-center p-6 text-center">
+      <div className="flex flex-col gap-2 items-center p-6 mt-[60px] text-center">
         <h1 className="text-4xl font-bold">Clrdoc</h1>
         <p>Connecting cash pay patients with quality providers</p>
         <input
@@ -106,6 +107,7 @@ export default function Page() {
       {/* <Map
         latlong={{ coordinates: [40.297159, -111.695038]}} // Center of Orem city
       /> */}
+      <Footer />
     </main>
   )
 }

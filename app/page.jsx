@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import NavBar from './NavBar';
+import Footer from './Footer';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
 export default function Home() {
@@ -35,7 +36,7 @@ export default function Home() {
                     Why Clrdoc?
                 </h1>
             </div>
-            <div className='bg-gray-300 flex flex-col md:flex-row w-full px-8 py-20 mb-20 gap-20'>
+            <div className='bg-gray-300 flex flex-col md:flex-row w-full px-8 py-20 gap-20'>
                 <div>
                     <span className="text-4xl font-bold" style={{ color: '#424CBB' }}>26 Million people</span>
                     <p>in the United States were uninsured in 2022 according to a report by the Census Bureau.</p>
@@ -49,6 +50,7 @@ export default function Home() {
                     <p>see reducing healthcare costs as a top priority as of 2022.</p>
                 </div>
             </div>
+            <Footer />
         </main>
     )
 }
