@@ -56,25 +56,35 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
       <Navbar options={["App", "About", "Contact"]}/>
-      <div className="flex flex-col gap-2 items-center p-6 mt-[60px] text-center">
-        <h1 className="text-4xl font-bold">Clrdoc</h1>
-        <p>Connecting cash pay patients with quality providers</p>
-        <input
-          className="input input-bordered w-full max-w-xs mb-6"
-          type="text"
-          value={searchTerm}
-          onChange={handleSearchTermChange}
-          placeholder="Enter City or Zip Code"
-        />
-        <div className="flex flex-row gap-6">
-          <button
-            className={isDentalFiltered ? "btn btn-primary btn-lg" : "btn btn-neutral btn-lg"}
-            onClick={handleDentalFilterClick}>
-          Dental</button>
-          <button
-            className={isVisionFiltered ? "btn btn-primary btn-lg" : "btn btn-neutral btn-lg"}
-            onClick={handleVisionFilterClick}>
-          Vision</button>
+      <div className="flex flex-col gap-2 items-center p-6 pt-20 mt-[60px] text-center">
+        <div className='flex flex-col gap-6 m-6 md:w-[50%]'>
+          <h1 className="text-4xl font-bold">Connecting patients with quality providers</h1>
+          <p>Experience reliable, professional service that you can trust with ClrDoc. Making it simple to find care you need.</p>
+        </div>
+        <div className='bg-gray-300 w-screen flex flex-col items-center py-8'>
+          <div className="flex flex-row gap-6">
+            <button
+              className={
+                isDentalFiltered ? 'flex flex-col items-center w-[150px] rounded-md font-medium text-black my-6 py-3 bg-blue-500 hover:bg-blue-600 transition duration-300'
+                : 'flex flex-col items-center w-[150px] rounded-md font-medium text-black my-6 py-3 bg-white hover:bg-gray-400 transition duration-300'}
+              onClick={handleDentalFilterClick}>
+              <img src='Images/tooth.png' className='w-[40px]'/>
+            Dental Care</button>
+            <button
+              className={
+                isVisionFiltered ? 'flex flex-col items-center w-[150px] rounded-md font-medium text-black my-6 py-3 bg-blue-500 hover:bg-blue-600 transition duration-300'
+                : 'flex flex-col items-center w-[150px] rounded-md font-medium text-black my-6 py-3 bg-white hover:bg-gray-400 transition duration-300'}
+              onClick={handleVisionFilterClick}>
+                <img src='Images/eye.png' className='w-[40px]'/>
+            Vision Care</button>
+          </div>
+          <input
+            className="input input-bordered w-full max-w-xs mb-6"
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchTermChange}
+            placeholder="Enter City or Zip Code"
+          />
         </div>
       </div>
       <div className="overflow-x-auto flex flex-col gap-12 px-6">
@@ -96,10 +106,10 @@ export default function Page() {
             <div className="flex flex-col gap-2 text-xs md:text-base md:w-[20%] pt-4 md:pt-0">
               {Object.entries(profiles.prices).map(([service, price]) => (
                 <div key={service}>
-                  {`${service}: $${price} (Starting)`}
+                  <strong>{service}:</strong> <strong>${price}</strong> <span className='text-sm'>(Starting price)</span>
                 </div>
               ))}
-              <button className="btn btn-primary btn-sm flex items-center justify-center h-16">Request Appointment</button>
+              <button className="btn btn-secondary btn-sm flex items-center justify-center h-12">Request Appointment</button>
             </div>
           </div>
         ))}

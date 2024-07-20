@@ -39,12 +39,13 @@ export default function Navbar({ options }) {
     }, [])
 
     return (
-        // <header className="flex justify-between items-center h-24 w-full px-4 pt-6 z-30 bg-gray-200">
         <header className="flex flex-row md:gap-64 justify-center items-center h-16 w-full px-4 py-6 z-30 bg-gray-200 fixed shadow-md">
             {!menuOpen ?
-                <div className='flex flex-row gap-4'>
-                    <h1 className="w-full text-3xl font-bold text-blue-700">Clrdoc</h1>
-                    <img src="Images/ClrDocIconTransparent.png" alt="Icon" className="w-[30px]" />
+                <div>
+                    <Link href={'../'} className='flex flex-row gap-4'>
+                        <h1 className="w-full text-3xl font-bold text-blue-700">ClrDoc</h1>
+                        <img src="Images/ClrDocIconTransparent.png" alt="Icon" className="w-[30px]" />
+                    </Link>
                 </div>
                 : <h1></h1>
             }
@@ -74,7 +75,7 @@ export default function Navbar({ options }) {
                 {menuOpen ? <AiOutlineClose size={20} className='ml-64' /> : <AiOutlineMenu size={20} className='ml-24' />}
             </div>
             <div className={menuOpen ? "fixed left-0 top-0 w-[60%] h-full bg-white border-r border-r-gray-900 ease-in-out duration-500 z-50" : "fixed left-[-100%]"}>
-                <h1 className="w-full text-3xl font-bold text-blue-700 m-4">Clrdoc</h1>
+                <h1 className="w-full text-3xl font-bold text-blue-700 m-4">ClrDoc</h1>
                 <ul className="uppercase p-4">
                     <nav className='flex flex-col gap-6 items-start px-4 pb-6 border-y divide-y'>
                         {listLinks}
