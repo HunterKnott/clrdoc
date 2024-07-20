@@ -57,7 +57,7 @@ export default function Page() {
     <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
       <Navbar options={["App", "About", "Contact"]}/>
       <div className="flex flex-col gap-2 items-center p-6 pt-20 mt-[60px] text-center">
-        <div className='flex flex-col gap-6 m-6 md:w-[50%]'>
+        <div className='flex flex-col gap-6 m-6 md:w-[50%] md:pb-24'>
           <h1 className="text-4xl font-bold">Connecting patients with quality providers</h1>
           <p>Experience reliable, professional service that you can trust with ClrDoc. Making it simple to find care you need.</p>
         </div>
