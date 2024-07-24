@@ -1,15 +1,19 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Navbar from '../NavBar';
 import Footer from '../Footer';
+import emailjs from '@emailjs/browser';
 
 export default function Page() {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
+        email: '',
         message: ''
     });
+
+    const form = useRef()
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -21,24 +25,30 @@ export default function Page() {
 
     const handleSubmitClick = (e) => {
         e.preventDefault();
-
-        const { name, phone, email, message } = formData;
-        const subject = `ClrDoc site message from ${name}`;
-        const body = `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`;
-        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=ClrDoc.com@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        const mailtoLink = `mailto:ClrDoc.com@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-        const newTab = window.open(gmailLink, '_blank');
-
-        if (!newTab || newTab.closed || typeof newTab.closed == 'undefined') {
-            window.location.href = mailtoLink;
-        }
+        
+        emailjs
+        .sendForm('service_1cbln5k', 'template_n4wwyyh', form.current, {
+          publicKey: 'oPteMBi316qbCtvom',
+        })
+        .then(
+          () => {
+            console.log('SUCCESS!');
+          },
+          (error) => {
+            console.log('FAILED...', error.text);
+          }
+        );
+        
+        e.target.reset();
 
         setFormData({
             name: '',
             phone: '',
+            email: '',
             message: ''
         });
+
+        // Add feedback for after message has been sent
     };
 
     return (
@@ -46,12 +56,13 @@ export default function Page() {
             <Navbar options={["Home", "About", "Providers"]}/>
             <div className="flex flex-col items-center bg-white p-8 rounded shadow-md w-full max-w-lg md:mt-[96px]">
                 <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
-                <form className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
+                <form ref={form} className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
                     <label className="flex flex-col">
                         Name:
                         <input
                             type="text"
                             id="name"
+                            name='name'
                             value={formData.name}
                             onChange={handleChange}
                             className="border border-gray-300 p-2 rounded"
@@ -63,6 +74,7 @@ export default function Page() {
                         <input
                             type="tel"
                             id="phone"
+                            name='phone'
                             value={formData.phone}
                             onChange={handleChange}
                             className="border border-gray-300 p-2 rounded"
@@ -70,9 +82,22 @@ export default function Page() {
                         />
                     </label>
                     <label className="flex flex-col">
+                        Email Address:
+                        <input
+                            type="email"
+                            id="email"
+                            name='email'
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="border border-gray-300 p-2 rounded"
+                            placeholder="Your Email Address"
+                        />
+                    </label>
+                    <label className="flex flex-col">
                         Message:
                         <textarea
                             id="message"
+                            name='message'
                             value={formData.message}
                             onChange={handleChange}
                             className="border border-gray-300 p-2 rounded"
