@@ -25,8 +25,14 @@ export default function Page() {
         const { name, phone, email, message } = formData;
         const subject = `ClrDoc site message from ${name}`;
         const body = `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`;
-        const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=clrdoc.com@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.open(mailtoLink, '_blank');
+        const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=ClrDoc.com@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        const mailtoLink = `mailto:ClrDoc.com@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        const newTab = window.open(gmailLink, '_blank');
+
+        if (!newTab || newTab.closed || typeof newTab.closed == 'undefined') {
+            window.location.href = mailtoLink;
+        }
 
         setFormData({
             name: '',
