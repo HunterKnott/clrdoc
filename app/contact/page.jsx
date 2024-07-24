@@ -8,7 +8,6 @@ export default function Page() {
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
-        email: '',
         message: ''
     });
 
@@ -25,14 +24,13 @@ export default function Page() {
 
         const { name, phone, email, message } = formData;
         const subject = `ClrDoc site message from ${name}`;
-        const body = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nMessage:\n${message}`;
+        const body = `Name: ${name}\nPhone: ${phone}\n\nMessage:\n${message}`;
         const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=clrdoc.com@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         window.open(mailtoLink, '_blank');
 
         setFormData({
             name: '',
             phone: '',
-            email: '',
             message: ''
         });
     };
@@ -63,17 +61,6 @@ export default function Page() {
                             onChange={handleChange}
                             className="border border-gray-300 p-2 rounded"
                             placeholder="Your Phone Number"
-                        />
-                    </label>
-                    <label className="flex flex-col">
-                        Email Address:
-                        <input
-                            type="email"
-                            id="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="border border-gray-300 p-2 rounded"
-                            placeholder="Your Email Address"
                         />
                     </label>
                     <label className="flex flex-col">
