@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Navbar from '../NavBar';
 import Footer from '../Footer';
 import emailjs from '@emailjs/browser';
@@ -13,7 +13,8 @@ export default function Page() {
         message: ''
     });
 
-    const form = useRef()
+    const [showThankYou, setShowThankYou] = useState(false);
+    const form = useRef();
 
     const handleChange = (e) => {
         const { id, value } = e.target;
@@ -48,12 +49,15 @@ export default function Page() {
             message: ''
         });
 
-        // Add feedback for after message has been sent
+        setShowThankYou(true);
+        setTimeout(() => {
+            setShowThankYou(false);
+        }, 10000);
     };
 
     return (
         <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
-            <Navbar options={["Home", "About", "Providers"]}/>
+            <Navbar options={["App", "About", "Providers"]}/>
             <div className="flex flex-col items-center bg-white p-8 rounded shadow-md w-full max-w-lg md:mt-[96px]">
                 <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
                 <form ref={form} className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
@@ -108,6 +112,11 @@ export default function Page() {
                         Submit
                     </button>
                 </form>
+                {showThankYou && (
+                    <div className="mt-4 p-2 text-green-700 border border-green-700 rounded">
+                        Thank you for your message. We have been notified and will be getting back to you soon.
+                    </div>
+                )}
             </div>
             <Footer />
         </main>
