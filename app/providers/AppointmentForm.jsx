@@ -6,6 +6,7 @@ export default function AppointmentForm({ profile, onClose }) {
     name: '',
     phone: '',
     email: '',
+    comment: '',
     provider: profile.name,
     address: profile.address
   });
@@ -28,13 +29,11 @@ export default function AppointmentForm({ profile, onClose }) {
       'oPteMBi316qbCtvom'
     ).then(
       () => {
-        // Show success message
         setShowMessage(true);
-        // Hide message and close form after 5 seconds
         setTimeout(() => {
           setShowMessage(false);
           onClose();
-        }, 5000); // 5000 milliseconds = 5 seconds
+        }, 5000);
       },
       (error) => {
         console.log('FAILED...', error.text);
@@ -47,6 +46,7 @@ export default function AppointmentForm({ profile, onClose }) {
       name: '',
       phone: '',
       email: '',
+      comment: '',
       provider: profile.name,
       address: profile.address
     });
@@ -98,11 +98,25 @@ export default function AppointmentForm({ profile, onClose }) {
                   required
                 />
               </div>
+              <div className="mb-4">
+                <label className='block text-sm font-medium'>Additional Comments</label>
+                <input
+                  type="text"
+                  className="input input-bordered w-full"
+                  name="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                />
+              </div>
               <input type="hidden" name="provider" value={formData.provider} />
               <input type="hidden" name="address" value={formData.address} />
               <div className="flex justify-end gap-4">
-                <button type="button" className="btn btn-secondary" onClick={onClose}>Cancel</button>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="button" className='flex flex-col items-center w-[150px] rounded-md font-medium text-white my-6 py-3 bg-gray-500 hover:bg-gray-600 transition duration-300' onClick={onClose}>
+                  Cancel
+                </button>
+                <button type="submit" className='flex flex-col items-center w-[150px] rounded-md font-medium text-white my-6 py-3 bg-indigo-500 hover:bg-indigo-600 transition duration-300'>
+                  Submit
+                </button>
               </div>
             </form>
           </>
