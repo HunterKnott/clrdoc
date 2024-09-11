@@ -7,8 +7,8 @@ import emailjs from '@emailjs/browser';
 
 export default function Page() {
     const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
+        // name: '',
+        // phone: '',
         email: '',
         message: ''
     });
@@ -43,8 +43,8 @@ export default function Page() {
         e.target.reset();
 
         setFormData({
-            name: '',
-            phone: '',
+            // name: '',
+            // phone: '',
             email: '',
             message: ''
         });
@@ -57,11 +57,11 @@ export default function Page() {
 
     return (
         <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
-            <Navbar options={["App", "About", "Providers"]}/>
+            <Navbar options={["App", "About", "Contact"]}/>
             <div className="flex flex-col items-center bg-white p-8 rounded shadow-md w-full max-w-lg md:mt-[96px]">
                 <h1 className="text-2xl font-bold mb-4">Join our Waitlist</h1>
                 <form ref={form} className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
-                    <label className="flex flex-col">
+                    {/* <label className="flex flex-col">
                         Name:
                         <input
                             type="text"
@@ -84,7 +84,7 @@ export default function Page() {
                             className="border border-gray-300 p-2 rounded"
                             placeholder="Your Phone Number"
                         />
-                    </label>
+                    </label> */}
                     <label className="flex flex-col">
                         Email Address:
                         <input

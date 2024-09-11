@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaRegEye, FaGlasses, FaRegThumbsUp, FaRegHeart } from "react-icons/fa6";
 
 export default function Home() {
     return (
@@ -19,14 +19,39 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-            {/* <div className='text-center'>
-                <h2 className=''>ClrDoc Solutions</h2>
-                <div className='flex flex-row gap-8'>
-                    <p>Blah</p>
-                    <p>Blah</p>
-                    <p>Blah</p>
+            <div className='text-center pb-8'>
+                <h2 className='font-bold mb-8 mt-4 px-4 text-4xl md:text-5xl'>ClrDoc Solutions</h2>
+                <div className='flex flex-col md:flex-row gap-20 px-4 md:px-0'>
+                    {/* Item 1 */}
+                    <div className='flex flex-row md:flex-col items-center'>
+                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
+                        <FaRegEye className='text-8xl'/>
+                    </div>
+                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>For all optometrists</p>
+                    </div>
+                    {/* Item 2 */}
+                    <div className='flex flex-row md:flex-col items-center'>
+                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
+                        <FaGlasses className='text-8xl'/>
+                    </div>
+                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>An E-commerce platform for glasses</p>
+                    </div>
+                    {/* Item 3 */}
+                    <div className='flex flex-row md:flex-col items-center'>
+                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
+                        <FaRegThumbsUp className='text-8xl'/>
+                    </div>
+                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>Reach more patients</p>
+                    </div>
+                    {/* Item 4 */}
+                    <div className='flex flex-row md:flex-col items-center'>
+                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
+                        <FaRegHeart className='text-8xl'/>
+                    </div>
+                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>Help more people</p>
+                    </div>
                 </div>
-            </div> */}
+            </div>
             {/* <div className="flex flex-row gap-12 p-8 md:w-[60%]">
                 <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl" style={{ color: '#424CBB' }}>
                         What is ClrDoc?
