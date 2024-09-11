@@ -19,14 +19,14 @@ export default function Home() {
                     </Link>
                 </div>
             </div>
-            <div className='text-center'>
+            {/* <div className='text-center'>
                 <h2 className=''>ClrDoc Solutions</h2>
                 <div className='flex flex-row gap-8'>
                     <p>Blah</p>
                     <p>Blah</p>
                     <p>Blah</p>
                 </div>
-            </div>
+            </div> */}
             {/* <div className="flex flex-row gap-12 p-8 md:w-[60%]">
                 <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl" style={{ color: '#424CBB' }}>
                         What is ClrDoc?
