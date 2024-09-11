@@ -5,21 +5,29 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
-            <NavBar options={["About", "Providers", "Contact"]}/>
-            <div className="bg-gray-300 lg:px-96 mt-[24px] w-full h-screen mx-auto text-center flex flex-col gap-6 justify-center items-center">
-                <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl">A platform to find transparent healthcare pricing</h1>
-                <p className="font-bold">Patients have access to leading healthcare practitioners and their pricing. Providers have access to a wider group of patients.</p>
+        <main style={{ background: '#EEF1F2' }} className="flex min-h-screen flex-col gap-6 items-center">
+            <NavBar options={["App", "About", "Contact"]}/>
+            <div style={{ background: '#EEF1F2' }} className="lg:px-96 mt-[24px] w-full h-screen mx-auto text-center flex flex-col gap-6 justify-center items-center">
+                <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl">Sell Your Glasses Online</h1>
+                <p className="font-bold">ClrDoc.com lets you sell your glasses on your website.</p>
                 <div className="flex flex-row gap-8 justify-center items-center">
-                    <Link href={'./providers'}>
+                    <Link href={'./contact'}>
                         <button className="bg-blue-500 flex flex-row gap-4 justify-center w-[200px] rounded-md font-medium text-gray-200 my-6 py-3 hover:bg-blue-600 transition duration-300">
-                            Search Providers
-                            <FaMagnifyingGlass className='mt-1' />
+                            Join Waitlist
+                            {/* <FaMagnifyingGlass className='mt-1' /> */}
                         </button>
                     </Link>
                 </div>
             </div>
-            <div className="flex flex-row gap-12 p-8 md:w-[60%]">
+            <div className='text-center'>
+                <h2 className=''>ClrDoc Solutions</h2>
+                <div className='flex flex-row gap-8'>
+                    <p>Blah</p>
+                    <p>Blah</p>
+                    <p>Blah</p>
+                </div>
+            </div>
+            {/* <div className="flex flex-row gap-12 p-8 md:w-[60%]">
                 <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl" style={{ color: '#424CBB' }}>
                         What is ClrDoc?
                 </h1>
@@ -34,8 +42,8 @@ export default function Home() {
                 <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl" style={{ color: '#424CBB' }}>
                     Why ClrDoc?
                 </h1>
-            </div>
-            <div className='bg-gray-300 flex flex-col md:flex-row w-full px-8 py-20 gap-20'>
+            </div> */}
+            {/* <div className='bg-gray-300 flex flex-col md:flex-row w-full px-8 py-20 gap-20'>
                 <div>
                     <span className="text-4xl font-bold" style={{ color: '#424CBB' }}>26 Million people</span>
                     <p>in the United States were uninsured in 2022 according to a report by the Census Bureau.</p>
@@ -48,7 +56,7 @@ export default function Home() {
                     <span className="text-4xl font-bold" style={{ color: '#424CBB' }}>61% of U.S. adults</span>
                     <p>see reducing healthcare costs as a top priority as of 2022.</p>
                 </div>
-            </div>
+            </div> */}
             <Footer />
         </main>
     )

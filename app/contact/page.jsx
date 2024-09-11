@@ -59,7 +59,7 @@ export default function Page() {
         <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
             <Navbar options={["App", "About", "Providers"]}/>
             <div className="flex flex-col items-center bg-white p-8 rounded shadow-md w-full max-w-lg md:mt-[96px]">
-                <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
+                <h1 className="text-2xl font-bold mb-4">Join our Waitlist</h1>
                 <form ref={form} className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
                     <label className="flex flex-col">
                         Name:
@@ -98,7 +98,7 @@ export default function Page() {
                         />
                     </label>
                     <label className="flex flex-col">
-                        Message:
+                        Message (Optional):
                         <textarea
                             id="message"
                             name='message'
@@ -114,7 +114,8 @@ export default function Page() {
                 </form>
                 {showThankYou && (
                     <div className="mt-4 p-2 text-green-700 border border-green-700 rounded">
-                        Thank you for your message. We have been notified and will be getting back to you soon.
+                        {/* Thank you for your message. We have been notified and will be getting back to you soon. */}
+                        Thank you for signing up for our waitlist. We have been notified and will be getting back to you soon.
                     </div>
                 )}
             </div>
