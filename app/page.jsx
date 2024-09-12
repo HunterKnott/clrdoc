@@ -1,23 +1,40 @@
 import Link from 'next/link';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import { FaRegEye, FaGlasses, FaRegThumbsUp, FaRegHeart } from "react-icons/fa6";
+import { FaChartLine, FaGlasses, FaUserPlus, FaLaptopMedical } from "react-icons/fa";
 
-const SolutionItem = ({ icon: Icon, text }) => (
-  <div className='flex flex-row md:flex-col items-center'>
-    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
-      <Icon className='text-8xl'/>
+const SolutionItem = ({ icon: Icon, text, subtext }) => (
+  <div className='flex flex-col items-center max-w-xs'>
+    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center mb-4'>
+      <Icon className='text-6xl text-blue-600'/>
     </div>
-    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>{text}</p>
+    <h3 className='font-bold text-xl mb-2 text-center'>{text}</h3>
+    <p className='text-center text-gray-600'>{subtext}</p>
   </div>
 );
 
 export default function Home() {
   const solutions = [
-    { icon: FaRegEye, text: "For all optometrists" },
-    { icon: FaGlasses, text: "An E-commerce platform for glasses" },
-    { icon: FaRegThumbsUp, text: "Reach more patients" },
-    { icon: FaRegHeart, text: "Help more people" },
+    { 
+      icon: FaChartLine, 
+      text: "Boost Your Revenue", 
+      subtext: "Increase sales by offering your glasses online 24/7. Our platform enables you to reach customers beyond your physical store hours, significantly expanding your earning potential."
+    },
+    { 
+      icon: FaLaptopMedical, 
+      text: "Seamless Integration", 
+      subtext: "Easily connects with your existing Practice Management System and inventory management."
+    },
+    { 
+      icon: FaUserPlus, 
+      text: "Reach More Customers", 
+      subtext: "Attract new clients with the convenience of online shopping. Our platform makes it easy for customers to browse and purchase glasses from the comfort of their homes."
+    },
+    { 
+      icon: FaGlasses, 
+      text: "Expand Your Inventory", 
+      subtext: "Sell your in-store stock or partner with distributors for a wider selection. Give more options to your customers and save inventory space."
+    },
   ];
 
   return (
@@ -45,7 +62,7 @@ export default function Home() {
       </div>
       <div id="clrdoc-solutions" className='w-full text-center py-16 bg-gray-200'>
         <h2 className='font-bold mb-12 px-4 text-4xl md:text-5xl'>ClrDoc Solutions</h2>
-        <div className='flex flex-col md:flex-row justify-center gap-20 px-4 md:px-0'>
+        <div className='flex flex-col md:flex-row justify-center gap-12 px-4 md:px-8'>
           {solutions.map((solution, index) => (
             <SolutionItem key={index} {...solution} />
           ))}
