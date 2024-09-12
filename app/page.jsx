@@ -1,95 +1,57 @@
 import Link from 'next/link';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import { FaMagnifyingGlass, FaRegEye, FaGlasses, FaRegThumbsUp, FaRegHeart } from "react-icons/fa6";
+import { FaRegEye, FaGlasses, FaRegThumbsUp, FaRegHeart } from "react-icons/fa6";
+
+const SolutionItem = ({ icon: Icon, text }) => (
+  <div className='flex flex-row md:flex-col items-center'>
+    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
+      <Icon className='text-8xl'/>
+    </div>
+    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>{text}</p>
+  </div>
+);
 
 export default function Home() {
-    return (
-        <main className="bg-gray-200 flex min-h-screen flex-col gap-6 items-center">
-            <NavBar options={["App", "About", "Contact"]}/>
-            <div className="bg-gray-200 flex flex-row md:mt-[38px] h-auto">
-                <div style={{ background: '#EEF1F2' }} className='border-b-8 mb-2 border-gray-200 md:w-1/2 w-full min-h-screen mx-auto px-16 text-center flex flex-col gap-6 justify-center items-center'>
-                    <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl">Sell Your Glasses Online</h1>
-                    <p className="font-bold">ClrDoc.com lets you sell your glasses on your website.</p>
-                    <div className="flex flex-row gap-8 justify-center items-center">
-                        <Link href={'./contact'}>
-                            <button className="bg-blue-500 flex flex-row gap-4 justify-center w-[200px] rounded-md font-medium text-gray-200 my-6 py-3 hover:bg-blue-600 transition duration-300">
-                                Join Waitlist
-                                {/* <FaMagnifyingGlass className='mt-1' /> */}
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-                <div className='w-half md:w-auto hidden md:flex flex-col justify-end'>
-                    <div className="flex-grow flex items-end">
-                        <img src="Images/FrontImage.jpeg" alt="ClrDoc Sample" className="w-full h-auto md:h-screen object-cover md:object-contain" />
-                    </div>
-                </div>
-            </div>
-            <div className='text-center pb-8 bg-gray-200'>
-                <h2 className='font-bold mb-8 mt-4 px-4 text-4xl md:text-5xl'>ClrDoc Solutions</h2>
-                <div className='flex flex-col md:flex-row gap-20 px-4 md:px-0'>
-                    {/* Item 1 */}
-                    <div className='flex flex-row md:flex-col items-center'>
-                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
-                        <FaRegEye className='text-8xl'/>
-                    </div>
-                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>For all optometrists</p>
-                    </div>
-                    {/* Item 2 */}
-                    <div className='flex flex-row md:flex-col items-center'>
-                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
-                        <FaGlasses className='text-8xl'/>
-                    </div>
-                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>An E-commerce platform for glasses</p>
-                    </div>
-                    {/* Item 3 */}
-                    <div className='flex flex-row md:flex-col items-center'>
-                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
-                        <FaRegThumbsUp className='text-8xl'/>
-                    </div>
-                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>Reach more patients</p>
-                    </div>
-                    {/* Item 4 */}
-                    <div className='flex flex-row md:flex-col items-center'>
-                    <div className='w-40 h-40 bg-blue-200 rounded-full flex items-center justify-center'>
-                        <FaRegHeart className='text-8xl'/>
-                    </div>
-                    <p className='font-bold ml-4 md:ml-0 md:mt-4 md:text-center md:max-w-[12rem]'>Help more people</p>
-                    </div>
-                </div>
-            </div>
-            {/* <div className="flex flex-row gap-12 p-8 md:w-[60%]">
-                <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl" style={{ color: '#424CBB' }}>
-                        What is ClrDoc?
-                </h1>
-                <p>
-                    We connect with providers so you don&#39;t have to. ClrDoc offers clear, reliable information to eliminate the hassle of contacting multiple providers and comparing costs. With us, you can access transparent pricing, find local providers, and receive quality care easily.
-                </p>
-            </div>
-            <div className="flex flex-row gap-12 p-8 md:w-[60%]">
-                <p>
-                    ClrDoc simplifies your search for local doctors and provides clarity on pricing, especially for self-pay patients. We facilitate direct connections with providers, ensuring transparency for informed healthcare decisions. Our platform prioritizes access to quality care, offering a straightforward solution to find the right healthcare provider without financial uncertainties.
-                </p>
-                <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl" style={{ color: '#424CBB' }}>
-                    Why ClrDoc?
-                </h1>
-            </div> */}
-            {/* <div className='bg-gray-300 flex flex-col md:flex-row w-full px-8 py-20 gap-20'>
-                <div>
-                    <span className="text-4xl font-bold" style={{ color: '#424CBB' }}>26 Million people</span>
-                    <p>in the United States were uninsured in 2022 according to a report by the Census Bureau.</p>
-                </div>
-                <div>
-                    <span className="text-4xl font-bold" style={{ color: '#424CBB' }}>73% of adults</span>
-                    <p>say they are worried about the cost of healthcare services.</p>
-                </div>
-                <div>
-                    <span className="text-4xl font-bold" style={{ color: '#424CBB' }}>61% of U.S. adults</span>
-                    <p>see reducing healthcare costs as a top priority as of 2022.</p>
-                </div>
-            </div> */}
-            <Footer />
-        </main>
-    )
+  const solutions = [
+    { icon: FaRegEye, text: "For all optometrists" },
+    { icon: FaGlasses, text: "An E-commerce platform for glasses" },
+    { icon: FaRegThumbsUp, text: "Reach more patients" },
+    { icon: FaRegHeart, text: "Help more people" },
+  ];
+
+  return (
+    <main className="bg-gray-200 flex min-h-screen flex-col items-center">
+      <NavBar options={["App", "About", "Contact"]}/>
+      <div className="w-full relative md:flex md:flex-row" style={{ background: '#EEF1F2' }}>
+        {/* Image container - visible on small screens */}
+        <div className='md:hidden w-full h-screen absolute inset-0'>
+          <img src="Images/FrontImage.jpg" alt="ClrDoc Sample" className="w-full h-full object-cover" />
+        </div>
+        {/* Text content */}
+        <div className='w-full md:w-1/2 min-h-screen flex flex-col justify-center items-center md:items-start px-8 md:px-16 text-center md:text-left relative z-10 bg-[#EEF1F2]/80 md:bg-transparent'>
+          <h1 className="font-bold text-4xl sm:text-5xl md:text-5xl mb-4">Sell Your Glasses Online</h1>
+          <p className="font-bold text-xl sm:text-2xl md:text-base mb-6">ClrDoc.com lets you sell <strong>your</strong> glasses on <strong>your</strong> website.</p>
+          <Link href={'./contact'}>
+            <button className="bg-blue-500 flex flex-row gap-4 justify-center w-[200px] rounded-md font-medium text-gray-200 py-3 hover:bg-blue-600 transition duration-300">
+              Join Waitlist
+            </button>
+          </Link>
+        </div>
+        {/* Image container - visible on medium and larger screens */}
+        <div className='hidden md:block md:w-1/2 h-screen'>
+          <img src="Images/FrontImage.jpg" alt="ClrDoc Sample" className="w-full h-full object-cover" />
+        </div>
+      </div>
+      <div id="clrdoc-solutions" className='w-full text-center py-16 bg-gray-200'>
+        <h2 className='font-bold mb-12 px-4 text-4xl md:text-5xl'>ClrDoc Solutions</h2>
+        <div className='flex flex-col md:flex-row justify-center gap-20 px-4 md:px-0'>
+          {solutions.map((solution, index) => (
+            <SolutionItem key={index} {...solution} />
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </main>
+  )
 }

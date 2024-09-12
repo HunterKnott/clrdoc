@@ -11,11 +11,23 @@ export default function Navbar({ options }) {
     const [user, setUser] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    const handleAboutClick = (e) => {
+        e.preventDefault();
+        const solutionsSection = document.getElementById('clrdoc-solutions');
+        if (solutionsSection) {
+            solutionsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+        if (menuOpen) {
+            setMenuOpen(false);
+        }
+    };
+
     const listLinks = options.map((option, index) =>
         <PageLink
             key={index}
             text={option === "App" ? "Home" : option}
             path={option === "App" ? "../" : `./${option.toLowerCase()}`}
+            onClick={option === "About" ? handleAboutClick : null}
         />
     );
 
@@ -27,7 +39,6 @@ export default function Navbar({ options }) {
         async function getUser() {
             const supabase = createClient()
     
-            // This should be changed because the get is throwing an error
             const { data, error } = await supabase.auth.getUser();
             if (error || !data?.user) {
               console.log('No user');
@@ -53,23 +64,6 @@ export default function Navbar({ options }) {
                 <nav className='flex space-x-10 px-10 py-4'>
                     {listLinks}
                 </nav>
-                {/* <li>
-                    {user ? (
-                        <form action={logout}>
-                            <button
-                                type="submit"
-                                className="bg-blue-500 w-[100px] rounded-md font-medium text-gray-200 p-4 hover:bg-blue-600 transition duration-300"
-                                onClick={() => window.location.reload()}
-                            >
-                                Logout
-                            </button>
-                        </form>
-                    ) : (
-                        <Link href={'./login'}>
-                            <button className="bg-blue-500 w-[80px] rounded-md font-medium text-gray-200 p-4 hover:bg-blue-600 transition duration-300">Login</button>
-                        </Link>
-                    )}
-                </li> */}
             </ul>
             <div onClick={toggleMenu} className="block md:hidden">
                 {menuOpen ? <AiOutlineClose size={20} className='ml-64' /> : <AiOutlineMenu size={20} className='ml-24' />}
@@ -80,19 +74,6 @@ export default function Navbar({ options }) {
                     <nav className='flex flex-col gap-6 items-start px-4 pb-6 border-y divide-y'>
                         {listLinks}
                     </nav>
-                    <li className="p-4 border-b border-gray-600">
-                        {/* {user ? (
-                            <form action={logout}>
-                                <button
-                                    type="submit"
-                                    onClick={() => window.location.reload()}
-                                >
-                                LOGOUT</button>
-                            </form>
-                        ) : (
-                            <Link href={'./login'}>Login</Link>
-                        )} */}
-                    </li>
                 </ul>
             </div>
         </header>
