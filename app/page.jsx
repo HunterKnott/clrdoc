@@ -5,21 +5,28 @@ import { FaMagnifyingGlass, FaRegEye, FaGlasses, FaRegThumbsUp, FaRegHeart } fro
 
 export default function Home() {
     return (
-        <main style={{ background: '#EEF1F2' }} className="flex min-h-screen flex-col gap-6 items-center">
+        <main className="bg-gray-200 flex min-h-screen flex-col gap-6 items-center">
             <NavBar options={["App", "About", "Contact"]}/>
-            <div style={{ background: '#EEF1F2' }} className="lg:px-96 mt-[24px] w-full h-screen mx-auto text-center flex flex-col gap-6 justify-center items-center">
-                <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl">Sell Your Glasses Online</h1>
-                <p className="font-bold">ClrDoc.com lets you sell your glasses on your website.</p>
-                <div className="flex flex-row gap-8 justify-center items-center">
-                    <Link href={'./contact'}>
-                        <button className="bg-blue-500 flex flex-row gap-4 justify-center w-[200px] rounded-md font-medium text-gray-200 my-6 py-3 hover:bg-blue-600 transition duration-300">
-                            Join Waitlist
-                            {/* <FaMagnifyingGlass className='mt-1' /> */}
-                        </button>
-                    </Link>
+            <div className="bg-gray-200 flex flex-row md:mt-[38px] h-auto">
+                <div style={{ background: '#EEF1F2' }} className='border-b-8 mb-2 border-gray-200 md:w-1/2 w-full min-h-screen mx-auto px-16 text-center flex flex-col gap-6 justify-center items-center'>
+                    <h1 className="font-bold md:text-5xl sm:text-3xl text-2xl">Sell Your Glasses Online</h1>
+                    <p className="font-bold">ClrDoc.com lets you sell your glasses on your website.</p>
+                    <div className="flex flex-row gap-8 justify-center items-center">
+                        <Link href={'./contact'}>
+                            <button className="bg-blue-500 flex flex-row gap-4 justify-center w-[200px] rounded-md font-medium text-gray-200 my-6 py-3 hover:bg-blue-600 transition duration-300">
+                                Join Waitlist
+                                {/* <FaMagnifyingGlass className='mt-1' /> */}
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+                <div className='w-half md:w-auto hidden md:flex flex-col justify-end'>
+                    <div className="flex-grow flex items-end">
+                        <img src="Images/FrontImage.jpeg" alt="ClrDoc Sample" className="w-full h-auto md:h-screen object-cover md:object-contain" />
+                    </div>
                 </div>
             </div>
-            <div className='text-center pb-8'>
+            <div className='text-center pb-8 bg-gray-200'>
                 <h2 className='font-bold mb-8 mt-4 px-4 text-4xl md:text-5xl'>ClrDoc Solutions</h2>
                 <div className='flex flex-col md:flex-row gap-20 px-4 md:px-0'>
                     {/* Item 1 */}

@@ -39,7 +39,7 @@ export default function Navbar({ options }) {
     }, [])
 
     return (
-        <header className="flex flex-row md:gap-64 justify-center items-center h-16 w-full px-4 py-6 z-30 bg-gray-200 fixed shadow-md">
+        <header className="flex flex-row md:gap-64 justify-center items-center h-[76px] w-full px-4 py-6 z-30 bg-gray-200 fixed shadow-md">
             {!menuOpen ?
                 <div>
                     <Link href={'../'} className='flex flex-row gap-4'>
