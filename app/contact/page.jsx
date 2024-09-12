@@ -58,7 +58,7 @@ export default function Page() {
     return (
         <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
             <Navbar options={["App", "About", "Contact"]}/>
-            <div className="flex flex-col items-center bg-white px-8 py-16 rounded shadow-md w-full max-w-lg md:mt-[96px]">
+            <div className="flex flex-col items-center bg-white px-8 py-16 rounded shadow-md w-full max-w-lg mt-[30px] md:mt-[96px]">
                 <h1 className="text-2xl font-bold mb-4">Join our Waitlist</h1>
                 <form ref={form} className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
                     {/* <label className="flex flex-col">
