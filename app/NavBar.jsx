@@ -50,23 +50,18 @@ export default function Navbar({ options }) {
     }, [])
 
     return (
-        <header className="flex flex-row md:gap-64 justify-center items-center h-[76px] w-full px-4 py-6 z-30 bg-gray-200 fixed shadow-md">
-            {!menuOpen ?
-                <div>
-                    <Link href={'../'} className='flex flex-row gap-4'>
-                        <h1 className="w-full text-3xl font-bold text-blue-700">ClrDoc</h1>
-                        <img src="Images/ClrDocIconTransparent.png" alt="Icon" className="w-[30px]" />
-                    </Link>
-                </div>
-                : <h1></h1>
-            }
-            <ul className="hidden md:flex">
-                <nav className='flex space-x-10 px-10 py-4'>
-                    {listLinks}
-                </nav>
-            </ul>
+        <header className="flex flex-row justify-between items-center h-[76px] w-full px-6 md:px-12 lg:px-24 py-6 z-30 bg-gray-200 fixed shadow-md">
+            <div>
+                <Link href={'../'} className='flex flex-row gap-4 items-center'>
+                    <h1 className="text-3xl font-bold text-blue-700">ClrDoc</h1>
+                    <img src="Images/ClrDocIconTransparent.png" alt="Icon" className="w-[30px]" />
+                </Link>
+            </div>
+            <nav className="hidden md:flex space-x-10">
+                {listLinks}
+            </nav>
             <div onClick={toggleMenu} className="block md:hidden">
-                {menuOpen ? <AiOutlineClose size={20} className='ml-64' /> : <AiOutlineMenu size={20} className='ml-24' />}
+                {menuOpen ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
             </div>
             <div className={menuOpen ? "fixed left-0 top-0 w-[60%] h-full bg-white border-r border-r-gray-900 ease-in-out duration-500 z-50" : "fixed left-[-100%]"}>
                 <h1 className="w-full text-3xl font-bold text-blue-700 m-4">ClrDoc</h1>
