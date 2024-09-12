@@ -6,11 +6,33 @@ import { createClient } from '@/utils/supabase/client';
 export default function WaitlistSignup({ onClose }) {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const supabase = createClient();
 
+    // First, check if the email already exists in the waitlist
+    const { data: existingData, error: existingError } = await supabase
+      .from('Waitlist')
+      .select('email')
+      .eq('email', email)
+      .single();
+
+    if (existingError && existingError.code !== 'PGRST116') {
+      setMessage('Error checking waitlist. Please try again.');
+      setIsLoading(false);
+      return;
+    }
+
+    if (existingData) {
+      setMessage('Congratulations! You\'re already on our waitlist. We\'ll be in touch soon!');
+      setIsLoading(false);
+      return;
+    }
+
+    // If the email doesn't exist, add it to the waitlist
     const { data, error } = await supabase
       .from('Waitlist')
       .insert([{ email: email }]);
@@ -21,6 +43,7 @@ export default function WaitlistSignup({ onClose }) {
       setMessage('Thank you for joining our waitlist!');
       setEmail('');
     }
+    setIsLoading(false);
   };
 
   return (
@@ -45,8 +68,9 @@ export default function WaitlistSignup({ onClose }) {
           <button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
+            disabled={isLoading}
           >
-            Join Waitlist
+            {isLoading ? 'Processing...' : 'Join Waitlist'}
           </button>
         </form>
         {message && <p className="mt-4 text-center">{message}</p>}
