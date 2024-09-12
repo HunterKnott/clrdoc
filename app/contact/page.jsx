@@ -59,9 +59,9 @@ export default function Page() {
         <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
             <Navbar options={["App", "About", "Contact"]}/>
             <div className="flex flex-col items-center bg-white px-8 py-16 rounded shadow-md w-full max-w-lg mt-[30px] md:mt-[96px]">
-                <h1 className="text-2xl font-bold mb-4">Join our Waitlist</h1>
+                <h1 className="text-2xl font-bold mb-4">Send us a message</h1>
                 <form ref={form} className="w-full flex flex-col gap-4" onSubmit={handleSubmitClick}>
-                    {/* <label className="flex flex-col">
+                    <label className="flex flex-col">
                         Name:
                         <input
                             type="text"
@@ -84,7 +84,7 @@ export default function Page() {
                             className="border border-gray-300 p-2 rounded"
                             placeholder="Your Phone Number"
                         />
-                    </label> */}
+                    </label>
                     <label className="flex flex-col">
                         Email Address:
                         <input
@@ -115,7 +115,7 @@ export default function Page() {
                 {showThankYou && (
                     <div className="mt-4 p-2 text-green-700 border border-green-700 rounded">
                         {/* Thank you for your message. We have been notified and will be getting back to you soon. */}
-                        Thank you for signing up for our waitlist. We have been notified and will be getting back to you soon.
+                        Thank you for reaching out! We have been notified and will get back to you soon.
                     </div>
                 )}
             </div>
