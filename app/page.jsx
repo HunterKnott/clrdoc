@@ -6,11 +6,14 @@ import { createClient } from '@/utils/supabase/client';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const ProductCard = ({ product }) => (
   <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
-    <Image src={product.image_url} alt={product.name} width={300} height={192} className="w-full h-48 object-cover" />
+    <img 
+      src={product.image_url} 
+      alt={product.name} 
+      className="w-full h-48 object-cover"
+    />
     <div className='p-4'>
       <h3 className='font-bold text-xl mb-2 text-center'>{product.name}</h3>
       <p className='text-center text-gray-600 mb-2'>{product.description}</p>
