@@ -6,6 +6,7 @@ import PageLink from './PageLink';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { logout } from './logout/actions';
 import { createClient } from '@/utils/supabase/client';
+import Image from 'next/image';
 
 export default function Navbar({ options }) {
     const [user, setUser] = useState(null);
@@ -54,7 +55,7 @@ export default function Navbar({ options }) {
             <div>
                 <Link href={'../'} className='flex flex-row gap-4 items-center'>
                     <h1 className="text-3xl font-bold text-blue-700">ClrDoc</h1>
-                    <img src="Images/ClrDocIconTransparent.png" alt="Icon" className="w-[30px]" />
+                    <Image src="/Images/ClrDocIconTransparent.png" alt="Icon" width={30} height={30} className="w-[30px]" />
                 </Link>
             </div>
             <nav className="hidden md:flex space-x-10">
