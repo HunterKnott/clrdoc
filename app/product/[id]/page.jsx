@@ -5,6 +5,7 @@ import { createClient } from '@/utils/supabase/client';
 import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProductPage({ params }) {
   const [product, setProduct] = useState(null);
