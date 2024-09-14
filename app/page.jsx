@@ -5,19 +5,17 @@ import { FaSearch } from "react-icons/fa";
 import { createClient } from '@/utils/supabase/client';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import Link from 'next/link';
 
 const ProductCard = ({ product }) => (
-  <div className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden'>
+  <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
     <img src={product.image_url} alt={product.name} className="w-full h-48 object-cover" />
     <div className='p-4'>
       <h3 className='font-bold text-xl mb-2 text-center'>{product.name}</h3>
       <p className='text-center text-gray-600 mb-2'>{product.description}</p>
       <p className='text-center text-lg font-bold'>${product.base_price.toFixed(2)}</p>
-      <button className='mt-4 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition duration-300'>
-        Add to Cart
-      </button>
     </div>
-  </div>
+  </Link>
 );
 
 export default function Home() {
