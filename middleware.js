@@ -13,17 +13,26 @@ export function middleware(req) {
   // if (isProtectedRoute(req)) auth().protect();
 
   const url = req.nextUrl;
-  const pathname = url.pathname;
 
   // Get hostname (e.g., 'hunter.com', 'test.hunter.com')
   const hostname = req.headers.get('host');
 
   // Extract the subdomain from the hostname
-  const currentHost = hostname?.split('.')[0];
+  const currentHost = hostname.split('.')[0];
 
-  if (currentHost) {
-    const headers = new Headers(req.headers);
-    headers.set('x-subdomain', currentHost);
+  if (currentHost !== 'clrdoc' && currentHost !== 'www') {
+    // Add the subdomain to the request headers
+    const requestHeaders = new Headers(req.headers);
+    requestHeaders.set('x-subdomain', currentHost);
+
+    // Rewrite the URL to the tenant-specific path
+    const rewrittenUrl = new URL(`/subdomain/${currentHost}${url.pathname}`, req.url);
+
+    return NextResponse.rewrite(rewrittenUrl, {
+      request: {
+        headers: requestHeaders,
+      },
+    });
   }
 
   return NextResponse.next();

@@ -6,10 +6,14 @@ import { createClient } from '@/utils/supabase/client';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
+import { headers } from 'next/headers';
 
 const ProductCard = ({ product }) => {
   const firstVariant = product.variants[0];
   const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
+
+const headersList = headers();
+const subdomain = headersList.get('x-subdomain');
 
   return (
     <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
