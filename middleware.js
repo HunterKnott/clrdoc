@@ -13,8 +13,14 @@ export function middleware(req) {
   const hostname = req.headers.get('host');
   const currentHost = hostname.split('.')[0];
 
-  if (currentHost === 'keeneyefamilyvision') {
-    return NextResponse.rewrite(`/keeneyefamilyvision/${req.nextUrl.pathname}`);
+  console.log("URL:", url.toString());
+  console.log("Hostname:", hostname);
+  console.log("Current Host:", currentHost);
+
+  if (currentHost === 'keeneyefamilyvision' && !url.pathname.startsWith('/keeneyefamilyvision')) {
+    console.log('Rewriting to:', `/keeneyefamilyvision${req.nextUrl.pathname}`);
+    const rewrittenUrl = new URL(`/keeneyefamilyvision${url.pathname}`, url);
+    return NextResponse.rewrite(rewrittenUrl);
   }
 
   return NextResponse.next();
@@ -75,6 +81,6 @@ export const config = {
      * Feel free to modify this pattern to include more paths.
      */
     // '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-    '/:path*',
+    '/((?!api|_next/static|_next/image|favicon.ico).*)',
   ],
 }
