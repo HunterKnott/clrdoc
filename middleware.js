@@ -1,13 +1,8 @@
 import { updateSession } from '@/utils/supabase/middleware'
-
-// import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
-// const { readSiteDomain } = require('./utils/actions/sites/read-site-domain');
+import { NextRequest } from 'next/server';
 
-// Define routes that require authentication
-// const isProtectedRoute = createRouteMatcher(["/cms(.*)"]);
 
-// module.exports = middleware(async (auth, req) => {
 export function middleware(req) {
 
   // if (isProtectedRoute(req)) auth().protect();
@@ -16,23 +11,10 @@ export function middleware(req) {
 
   // Get hostname (e.g., 'hunter.com', 'test.hunter.com')
   const hostname = req.headers.get('host');
-
-  // Extract the subdomain from the hostname
   const currentHost = hostname.split('.')[0];
 
-  if (currentHost !== 'clrdoc' && currentHost !== 'www') {
-    // Add the subdomain to the request headers
-    const requestHeaders = new Headers(req.headers);
-    requestHeaders.set('x-subdomain', currentHost);
-
-    // Rewrite the URL to the tenant-specific path
-    const rewrittenUrl = new URL(`/subdomain/${currentHost}${url.pathname}`, req.url);
-
-    return NextResponse.rewrite(rewrittenUrl, {
-      request: {
-        headers: requestHeaders,
-      },
-    });
+  if (currentHost === 'keeneyefamilyvision') {
+    return NextResponse.rewrite(`/keeneyefamilyvision/${req.nextUrl.pathname}`);
   }
 
   return NextResponse.next();
@@ -80,7 +62,6 @@ export function middleware(req) {
   // }
 
   // If no rewrite domain is found, continue to the next middleware
-  return NextResponse.next();
   // return await updateSession(request)
 };
 

@@ -6,7 +6,6 @@ import { createClient } from '@/utils/supabase/client';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
-import { headers } from 'next/headers';
 
 const ProductCard = ({ product }) => {
   const firstVariant = product.variants[0];
