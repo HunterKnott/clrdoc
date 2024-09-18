@@ -14,7 +14,7 @@ const ProductCard = ({ product }) => {
   return (
     <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
       <img 
-        src={thumbnailImage} 
+        src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
         alt={product.name} 
         className="w-full h-48 object-cover"
       />
