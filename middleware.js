@@ -1,6 +1,6 @@
 import { updateSession } from '@/utils/supabase/middleware'
 
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+// import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import { NextResponse } from 'next/server';
 // const { readSiteDomain } = require('./utils/actions/sites/read-site-domain');
 
