@@ -7,20 +7,25 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
 
-const ProductCard = ({ product }) => (
-  <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
-    <img 
-      src={product.image_url} 
-      alt={product.name} 
-      className="w-full h-48 object-cover"
-    />
-    <div className='p-4'>
-      <h3 className='font-bold text-xl mb-2 text-center'>{product.name}</h3>
-      <p className='text-center text-gray-600 mb-2'>{product.description}</p>
-      <p className='text-center text-lg font-bold'>${product.base_price.toFixed(2)}</p>
-    </div>
-  </Link>
-);
+const ProductCard = ({ product }) => {
+  const firstVariant = product.variants[0];
+  const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
+
+  return (
+    <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
+      <img 
+        src={thumbnailImage} 
+        alt={product.name} 
+        className="w-full h-48 object-cover"
+      />
+      <div className='p-4'>
+        <h3 className='font-bold text-xl mb-2 text-center'>{product.name}</h3>
+        <p className='text-center text-gray-600 mb-2'>{firstVariant?.color}</p>
+        <p className='text-center text-lg font-bold'>${product.base_price.toFixed(2)}</p>
+      </div>
+    </Link>
+  );
+};
 
 export default function Home() {
   const [tenants, setTenants] = useState([]);
@@ -54,7 +59,17 @@ export default function Home() {
         const supabase = createClient();
         const { data, error } = await supabase
           .from('products')
-          .select('*')
+          .select(`
+            *,
+            variants (
+              id,
+              color,
+              image_url,
+              gallery_images (
+                image_url
+              )
+            )
+          `)
           .eq('tenant_id', selectedTenant)
           .order('created_at', { ascending: false });
 
