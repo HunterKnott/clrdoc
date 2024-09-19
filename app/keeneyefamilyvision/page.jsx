@@ -4,28 +4,29 @@ import { useState, useEffect } from 'react';
 import { FaSearch } from "react-icons/fa";
 import { createClient } from '@/utils/supabase/client';
 import Link from 'next/link';
+import styles from './styles.module.css';
 
 const ProductCard = ({ product }) => {
-  const firstVariant = product.variants[0];
-  const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
+    const firstVariant = product.variants[0];
+    const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
+  
+    return (
+      <Link href={`/product/${product.id}`} className={`flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ${styles.productCard}`}>
+        <img 
+          src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
+          alt={product.name} 
+          className="w-full h-48 object-cover"
+        />
+        <div className={`p-4 ${styles.productInfo}`}>
+          <h3 className='font-bold text-xl mb-2 text-center'>{product.name}</h3>
+          <p className='text-center mb-2'>{firstVariant?.color}</p>
+          <p className={`text-center text-lg font-bold ${styles.productPrice}`}>${product.base_price.toFixed(2)}</p>
+        </div>
+      </Link>
+    );
+  };
 
-  return (
-    <Link href={`/product/${product.id}`} className='flex flex-col items-center max-w-xs bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300'>
-      <img 
-        src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
-        alt={product.name} 
-        className="w-full h-48 object-cover"
-      />
-      <div className='p-4'>
-        <h3 className='font-bold text-xl mb-2 text-center'>{product.name}</h3>
-        <p className='text-center text-gray-600 mb-2'>{firstVariant?.color}</p>
-        <p className='text-center text-lg font-bold'>${product.base_price.toFixed(2)}</p>
-      </div>
-    </Link>
-  );
-};
-
-export default function Home() {
+export default function Page() {
   const [tenants, setTenants] = useState([]);
   const [selectedTenant, setSelectedTenant] = useState(null);
   const [products, setProducts] = useState([]);
@@ -88,11 +89,14 @@ export default function Home() {
   );
 
   return (
-    <main className="bg-gray-100 flex min-h-screen flex-col">
-      <div className="bg-white shadow-md mt-[76px]"> {/* Add mt-[76px] to push content below navbar */}
+    <main className={`${styles.main} bg-gray-100 flex min-h-screen flex-col`}>
+      <div className={`${styles.header} shadow-md mt-[76px]`}>
         <div className="container mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row justify-between items-center">
-            <h1 className="font-bold text-3xl mb-4 sm:mb-0">Find Your Perfect Eyewear</h1>
+            <div className='flex flex-col gap-4'>
+              <h1 className="font-bold text-3xl mb-4 sm:mb-0 text-white">KeenEye Family Vision</h1>
+              <h1 className="font-bold text-3xl mb-4 sm:mb-0 text-white">Find Your Perfect Eyewear</h1>
+            </div>
             <div className="flex items-center">
               <div className="relative mr-4">
                 <input
@@ -102,7 +106,9 @@ export default function Home() {
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="px-4 py-2 w-48 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <button className={`absolute right-2 top-1/2 transform -translate-y-1/2 ${styles.searchButton} p-1 rounded-full`}>
+                  <FaSearch className="text-white" />
+                </button>
               </div>
               <select
                 value={selectedTenant || ''}

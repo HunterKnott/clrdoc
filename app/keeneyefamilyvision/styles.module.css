@@ -1,0 +1,48 @@
+.main {
+    --main-color: #691b33;
+    --accent-color: #da627d;
+    --text-color: #646464;
+    font-family: 'Archivo Narrow', Verdana, sans-serif;
+  }
+  
+  .main h2, .main h3 {
+    color: black;
+    font-family: 'Archivo Narrow', Verdana, sans-serif;
+  }
+  
+  .main p, .main input, .main select {
+    color: var(--text-color);
+  }
+  
+  .main input:focus, .main select:focus {
+    border-color: var(--main-color);
+    box-shadow: 0 0 0 2px var(--accent-color);
+  }
+  
+  .searchButton {
+    background-color: var(--accent-color);
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .searchButton:hover {
+    background-color: var(--accent-color);
+  }
+  
+  .productCard {
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+  }
+  
+  .productCard:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .productPrice {
+    color: var(--main-color);
+  }
+  .header {
+    background-color: var(--main-color);
+    color: white;
+  }
