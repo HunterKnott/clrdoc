@@ -2,7 +2,6 @@ import { updateSession } from '@/utils/supabase/middleware'
 import { NextResponse } from 'next/server';
 import { NextRequest } from 'next/server';
 
-
 export function middleware(req) {
   const url = req.nextUrl;
   const hostname = req.headers.get('host');
