@@ -1,16 +1,32 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from 'next/link';
 
-export default function ProductPage({ params }) {
+export default function ProductPage({ params, searchParams }) {
   const [product, setProduct] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const selectedTenant = params.selectedTenant;
+
+  const tenantString = searchParams.tenant;
+  let tenant;
+  const decodedString = decodeURIComponent(tenantString);
+  // tenant = JSON.parse(decodedString);
+  console.log(decodedString);
+  tenant = JSON.parse(decodedString);
+  console.log(tenant[0]);
+  // const cleanedString = decodedString.replace(/^"(.+)"$/, '$1').replace(/\\"/g, '"');
+  // console.log(cleanedString);
+
+  // const decodedOnce = decodeURIComponent(tenantString);
+  // const decodedTwice = JSON.parse(decodedOnce);
+  // tenant = JSON.parse(decodedTwice);
+  // console.log(tenant.logo_url);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -78,7 +94,7 @@ export default function ProductPage({ params }) {
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
-      <NavBar options={["App", "About", "Contact"]} />
+      <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.logo_url}`} />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link href="/" className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Products</Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">

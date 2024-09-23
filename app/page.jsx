@@ -8,12 +8,13 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, selectedTenant }) => {
   const firstVariant = product.variants[0];
   const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
+  const tenantString = encodeURIComponent(JSON.stringify(JSON.stringify(selectedTenant)));
 
   return (
-    <Link href={`/product/${product.id}`} className='product-card'>
+    <Link href={`/product/${product.id}?tenant=${tenantString}`} className='product-card'>
       <img 
         src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
         alt={product.name} 
@@ -60,11 +61,7 @@ export default function Home() {
       } else {
         setTenants(data);
         if (data.length > 0) {
-          // setSelectedTenant({ id: data[0].id, name: data[0].name });
-          setSelectedTenant({ id: data[0].id, name: data[0].name });
-          console.log(data[0].name)
-          console.log(data[0].id)
-          console.log(data[0].logo_url)
+          setSelectedTenant({ id: data[0].id, name: data[0].name, logo_url: data[0].logo_url });
         }
 
         // Validate the subdomain
@@ -113,67 +110,69 @@ export default function Home() {
     fetchProducts();
   }, [selectedTenant]);
 
+  const handleTenantChange = (e) => {
+    const selectedTenantId = e.target.value;
+    setSelectedTenant(selectedTenantId);
+  };
+
   const filteredProducts = products.filter(product =>
-    product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    product.description.toLowerCase().includes(searchTerm.toLowerCase())
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (isSubdomain) {
-    if (!isValidSubdomain) {
-      return (
-        <main id="error-page">
-          <h1>Error: Invalid subdomain</h1>
-        </main>
-      );
-    }
-    return (
-      <main id="subdomain-page">
-        {console.log("selectedTenant.logo_url:", selectedTenant.logo_url, "Type:", typeof selectedTenant.logo_url)}
-        <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.logo_url}`} />
-        <div id="search-section">
-          <div className="container">
-            <div className="search-content">
-              <h1>Find Your Perfect Eyewear</h1>
-              <div className="search-controls">
-                <div className="search-input-wrapper">
-                  <input
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-input"
-                  />
-                  <FaSearch className="search-icon" />
+  return (
+    <>
+      {isSubdomain ? (
+        isValidSubdomain ? (
+          <main id="subdomain-page">
+            <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.logo_url}`} />
+            <div id="search-section">
+              <div className="container">
+                <div className="search-content">
+                  <h1>Find Your Perfect Eyewear</h1>
+                  <div className="search-controls">
+                    <div className="search-input-wrapper">
+                      <input
+                        type="text"
+                        placeholder="Search products..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        className="search-input"
+                      />
+                      <FaSearch className="search-icon" />
+                    </div>
+                    <select
+                      value={selectedTenant.id || ''}
+                      onChange={handleTenantChange}
+                      className="tenant-select"
+                    >
+                      {tenants.map((tenant) => (
+                        <option key={tenant.id} value={tenant.id}>{tenant.name}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-                <select
-                  value={selectedTenant.id || ''}
-                  onChange={(e) => setSelectedTenant(e.target.value)}
-                  className="tenant-select"
-                >
-                  {tenants.map((tenant) => (
-                    <option key={tenant.id} value={tenant.id}>{tenant.name}</option>
-                  ))}
-                </select>
               </div>
             </div>
-          </div>
-        </div>
-        <div id='products-section'>
-          <div className='container'>
-            <h2>Featured Products</h2>
-            <div className='products-grid'>
-              {filteredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+            <div id='products-section'>
+              <div className='container'>
+                <h2>Featured Products</h2>
+                <div className='products-grid'>
+                  {filteredProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} selectedTenant={selectedTenant} />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <Footer />
-      </main>
-    );
-  }
-
-  return (
-    <LandingPage />
-  )
+            <Footer />
+          </main>
+        ) : (
+          <main id="error-page">
+            <h1>Error: Invalid subdomain</h1>
+          </main>
+        )
+      ) : (
+        <LandingPage />
+      )}
+    </>
+  );
 }

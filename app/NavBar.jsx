@@ -55,7 +55,13 @@ export default function Navbar({ options, logoText = "ClrDoc", logoImage = "/Ima
             <div>
                 <Link href={'../'} className='flex flex-row gap-4 items-center'>
                     <h1 className="text-3xl font-bold text-blue-700">{logoText}</h1>
-                    <img src={logoImage} alt="Icon" width={30} height={30} className="w-[30px]" />
+                    <img 
+                        src={logoImage} 
+                        alt="Icon" 
+                        width={30} 
+                        height={30} 
+                        className={logoImage === "/Images/ClrDocIconTransparent.png" ? "w-[40px]" : "w-[150px]"} 
+                    />
                 </Link>
             </div>
             <nav className="hidden md:flex space-x-10">
