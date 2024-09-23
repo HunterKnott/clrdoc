@@ -8,7 +8,7 @@ import { logout } from './logout/actions';
 import { createClient } from '@/utils/supabase/client';
 import Image from 'next/image';
 
-export default function Navbar({ options }) {
+export default function Navbar({ options, logoText = "ClrDoc", logoImage = "/Images/ClrDocIconTransparent.png" }) {
     const [user, setUser] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -54,8 +54,8 @@ export default function Navbar({ options }) {
         <header className="flex flex-row justify-between items-center h-[76px] w-full px-6 md:px-12 lg:px-24 py-6 z-30 bg-gray-200 fixed shadow-md">
             <div>
                 <Link href={'../'} className='flex flex-row gap-4 items-center'>
-                    <h1 className="text-3xl font-bold text-blue-700">ClrDoc</h1>
-                    <Image src="/Images/ClrDocIconTransparent.png" alt="Icon" width={30} height={30} className="w-[30px]" />
+                    <h1 className="text-3xl font-bold text-blue-700">{logoText}</h1>
+                    <img src={logoImage} alt="Icon" width={30} height={30} className="w-[30px]" />
                 </Link>
             </div>
             <nav className="hidden md:flex space-x-10">

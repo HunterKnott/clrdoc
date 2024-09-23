@@ -127,7 +127,7 @@ export default function Home() {
             )}
             <div className="flex items-center justify-center text-xs text-gray-500">
               <FaLock className="mr-2" />
-              <p>We'll never share your information.</p>
+              <p>We&apos;ll never share your information.</p>
             </div>
           </form>
         </div>
