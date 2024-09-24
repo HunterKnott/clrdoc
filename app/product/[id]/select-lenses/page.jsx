@@ -85,7 +85,7 @@ export default function SelectLensesPage({ params, searchParams }) {
     <main className="flex min-h-screen flex-col bg-gray-100">
       <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${tenant.logo_url}`} />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
-        <Link href={`/product/${params.id}`} className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Product</Link>
+        <Link href={`/product/${params.id}?tenant=${tenantString}`} className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Product</Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
           <h1 className="text-3xl font-bold mb-6 text-gray-800">Select Lenses for {product.name}</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
