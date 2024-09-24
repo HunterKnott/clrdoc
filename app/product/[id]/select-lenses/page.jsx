@@ -13,10 +13,16 @@ const lensTypes = [
   { id: 'progressive', name: 'Progressive', price: 100 },
 ];
 
-export default function SelectLensesPage({ params }) {
+export default function SelectLensesPage({ params, searchParams }) {
   const [product, setProduct] = useState(null);
   const [selectedLens, setSelectedLens] = useState(null);
   const [isLoading, setIsLoading] = useState(false);  // Add this line
+
+  const tenantString = searchParams.tenant;
+  let tenant;
+  const decodedString = decodeURIComponent(tenantString);
+  tenant = JSON.parse(decodedString);
+  tenant = JSON.parse(tenant);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -77,7 +83,7 @@ export default function SelectLensesPage({ params }) {
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
-      <NavBar options={["App", "About", "Contact"]} />
+      <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${tenant.logo_url}`} />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link href={`/product/${params.id}`} className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Product</Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">

@@ -11,22 +11,12 @@ export default function ProductPage({ params, searchParams }) {
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const selectedTenant = params.selectedTenant;
 
   const tenantString = searchParams.tenant;
   let tenant;
   const decodedString = decodeURIComponent(tenantString);
-  // tenant = JSON.parse(decodedString);
-  console.log(decodedString);
   tenant = JSON.parse(decodedString);
-  console.log(tenant[0]);
-  // const cleanedString = decodedString.replace(/^"(.+)"$/, '$1').replace(/\\"/g, '"');
-  // console.log(cleanedString);
-
-  // const decodedOnce = decodeURIComponent(tenantString);
-  // const decodedTwice = JSON.parse(decodedOnce);
-  // tenant = JSON.parse(decodedTwice);
-  // console.log(tenant.logo_url);
+  tenant = JSON.parse(tenant);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -94,7 +84,7 @@ export default function ProductPage({ params, searchParams }) {
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
-      <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.logo_url}`} />
+      <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${tenant.logo_url}`} />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link href="/" className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Products</Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
@@ -168,7 +158,7 @@ export default function ProductPage({ params, searchParams }) {
                   ))}
                 </div>
               </div>
-              <Link href={`/product/${params.id}/select-lenses`} className="inline-block">
+              <Link href={`/product/${params.id}/select-lenses?tenant=${tenantString}`} className="inline-block">
                 <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 w-full md:w-auto">
                   Select Lenses
                 </button>
