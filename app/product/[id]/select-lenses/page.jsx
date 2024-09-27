@@ -16,7 +16,7 @@ const lensTypes = [
 export default function SelectLensesPage({ params, searchParams }) {
   const [product, setProduct] = useState(null);
   const [selectedLens, setSelectedLens] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);  // Add this line
+  const [isLoading, setIsLoading] = useState(false);
 
   const tenantString = searchParams.tenant;
   let tenant;
