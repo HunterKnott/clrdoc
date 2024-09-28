@@ -1,0 +1,76 @@
+[33m4d83b1f[m[33m ([m[1;36mHEAD -> [m[1;32mmvp[m[33m, [m[1;31morigin/mvp[m[33m)[m Started to work on dynamic NavBar colors. searchParams are broken on one of the pages, commiting here for reference
+[33m8bb5c9c[m Added matching custom logo to footer
+[33m2d11458[m Logo is consistent across different pages
+[33mef9d34e[m Navigation back and forth between pages with logo state works correctly
+[33md1b62df[m Glasses are now centered on the page
+[33ma8d9639[m Merge branch 'mvp' of https://github.com/HunterKnott/clrdoc into mvp
+[33m425cdcf[m Got logo to transfer to all pages of purchase process by passing state
+[33m7a990db[m removed keeneye logo bg
+[33mceac6b5[m Got search bar working. Clicking on a pair of glasses will break it because I'm still working on passing tenant information to different pages. Probably will just hard code this
+[33mb293083[m Another stray apostrophe has graced us with its presence
+[33mbc52647[m Put all styling in CSS file for resposiveness capability once there are multiple subdomains
+[33m8413325[m Making it so that landing page is default, and glasses are displayed when keeneye subdomain is present in domain
+[33m49bde9d[m Added some basic styling to match opto website, probably add more later to make it better
+[33mff64c16[m Added listing page content to keeneyefamilyvision that works, it just needs to be styled
+[33m8a06314[m keeneyefamilyvision subdomain should work
+[33m77ba8e8[m Got rid of headers in page due to client component
+[33ma503773[m Merge branch 'mvp' of https://github.com/HunterKnott/clrdoc into mvp
+[33m7721520[m Working on subdomain
+[33m4f64242[m new glasses carousel
+[33m9480b41[m changed the resolution of the glasses to be smaller for the fp
+[33md9e39f7[m Merge branch 'mvp' of https://github.com/HunterKnott/clrdoc into mvp
+[33m28fbf48[m Trying again
+[33mb997649[m commented out the clerkMiddleWare thing
+[33m96e3b7e[m Merge branch 'mvp' of https://github.com/HunterKnott/clrdoc into mvp
+[33m15cd05c[m changed the db structure and added some Oakley glasses
+[33m23e5049[m Adding Middleware for subdomain
+[33m07d7fac[m tried <Image> and moved back to <img>
+[33mbf6bd95[m eRoRr ' cAn bE EsCapEd
+[33mb8dae96[m added support for Stripe
+[33m45c7a3e[m made image paths absolute
+[33m25220af[m added some basic ecommerce stuff
+[33m827cca6[m[33m ([m[1;32mmain[m[33m)[m added a check for the email already being in the waitlist
+[33ma578927[m Returned the contact page to it's old status
+[33m61244b8[m Made the header a little wider sometimes
+[33m8a846e1[m Made a new waitlist widget and connected it to Supabase
+[33m97e53fd[m Made a new waitlist widget and connected it to Supabase
+[33mb8b06d9[m edited some wording on the about section
+[33m5edba32[m Merge branch 'main' of https://github.com/HunterKnott/clrdoc
+[33mb6b675d[m Made the site more mobile friendly
+[33m68c2bab[m Made the site more mobile friendly
+[33m26560cc[m Changed about messages
+[33m94f1dfe[m Reactivating about page, still need to add Sam in
+[33m5c2451d[m Fixed contact form margins for mobile
+[33mc44b843[m Added front image
+[33m3bb884b[m Added circle divs to home page for aesthetics
+[33m28eeba3[m Hiding some pages for now
+[33m5565101[m Pivoting to glasses website for optometrists
+[33mec7810d[m Added comments section on appointment request
+[33md6e2a14[m Added request appointment form
+[33m3f31e2c[m Added EmailJS capability
+[33m005853f[m Possible fix for mobile issue
+[33me735368[m Removed email field since it's redundant
+[33med8f888[m Added in Contact page with ClrDoc email
+[33mdd5d229[m More formatting on provider page
+[33m2ec6dce[m Added more styling and formatting
+[33m4ad3201[m Added a footer
+[33m670173c[m Better header
+[33mc9b4da8[m Yet another apostrophe
+[33m072d452[m Added more text to about
+[33m255ac30[m Fixed more apostrphes
+[33m06c472d[m Sample about page
+[33m45365f2[m Added more NavBars
+[33m1af2871[m Starting on about page
+[33me36f454[m Apostrophe error
+[33mbaf5959[m Started adding in more navigation options
+[33m366fc35[m Adding Vercel analytics
+[33m7fcf54e[m Added more data and removed map for time being
+[33mb8047c9[m Is the button working?
+[33m0e0b01a[m Changed eye care to vision keyword
+[33mcd64f4b[m Small changes to provider information format
+[33m4f7d52a[m Changed formatting on table-populated providers for better mobile design
+[33m6c1939e[m Added const for maps API key to try and fix Vercel build error
+[33m66b17ec[m Integrated a Google map into the patients page. Still need to get data from it for provider accounts and data rows
+[33md33eb37[m Had to add key prop to providers to avoid Vercel build error
+[33m9dbc7d6[m Added Google OAuth capability
+[33ma417464[m Formatted login page. Also added logout button. Next step is to add Google OAuth

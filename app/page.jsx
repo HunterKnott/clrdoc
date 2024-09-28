@@ -61,7 +61,7 @@ export default function Home() {
       } else {
         setTenants(data);
         if (data.length > 0) {
-          setSelectedTenant({ id: data[0].id, name: data[0].name, logo_url: data[0].logo_url, logo_urls: data[0].logo_urls });
+          setSelectedTenant({ id: data[0].id, name: data[0].name, preferences: data[0].preferences });
         }
 
         // Validate the subdomain
@@ -124,7 +124,7 @@ export default function Home() {
       {isSubdomain ? (
         isValidSubdomain ? (
           <main id="subdomain-page">
-            <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.logo_urls ? selectedTenant.logo_urls.header_logo : ''}`} />
+            <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}`} />
             <div id="search-section">
               <div className="container">
                 <div className="search-content">
@@ -163,7 +163,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Footer background="#691b33" logoText="" logoImage={`${selectedTenant.logo_urls ? selectedTenant.logo_urls.footer_logo : ''}`} />
+            <Footer background="#691b33" logoText="" logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.footer_logo : ''}`} />
           </main>
         ) : (
           <main id="error-page">

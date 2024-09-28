@@ -12,7 +12,7 @@ export default function ProductPage({ params, searchParams }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
-  const tenantString = searchParams.tenant;
+  const tenantString = decodeURIComponent(searchParams.tenant);
   let tenant;
   const decodedString = decodeURIComponent(tenantString);
   tenant = JSON.parse(decodedString);
@@ -158,7 +158,7 @@ export default function ProductPage({ params, searchParams }) {
                   ))}
                 </div>
               </div>
-              <Link href={`/product/${params.id}/select-lenses?tenant=${tenantString}`} className="inline-block">
+              <Link href={`/product/${params.id}/select-lenses?tenant=${encodeURIComponent(JSON.stringify(tenantString))}`} className="inline-block">
                 <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 w-full md:w-auto">
                   Select Lenses
                 </button>
