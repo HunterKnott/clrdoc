@@ -84,7 +84,12 @@ export default function ProductPage({ params, searchParams }) {
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
-      <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${tenant.logo_url}`} />
+      <NavBar
+        options={["App", "About", "Contact"]}
+        logoText=""
+        logoImage={`${tenant.styles.header_logo}`}
+        hoverColor={`${tenant.styles.accent_color}`}
+      />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link href="/" className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Products</Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
@@ -167,7 +172,7 @@ export default function ProductPage({ params, searchParams }) {
           </div>
         </div>
       </div>
-      <Footer />
+      <Footer background="#691b33" logoText="" logoImage={`${tenant.styles.footer_logo}`} />
     </main>
   );
 }
