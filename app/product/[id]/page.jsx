@@ -11,12 +11,18 @@ export default function ProductPage({ params, searchParams }) {
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHoveredOption, setIsHoveredOption] = useState(false);
+  const [isHoveredSelect, setIsHoveredSelect] = useState(false);
 
   const tenantString = decodeURIComponent(searchParams.tenant);
   let tenant;
   const decodedString = decodeURIComponent(tenantString);
   tenant = JSON.parse(decodedString);
   tenant = JSON.parse(tenant);
+  if (typeof tenant !== 'object') {
+    tenant = JSON.parse(tenant);
+    tenant =JSON.parse(tenant)
+  }
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -91,7 +97,12 @@ export default function ProductPage({ params, searchParams }) {
         hoverColor={`${tenant.preferences.accent_color}`}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
-        <Link href="/" className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Products</Link>
+        <Link
+          href="/"
+          className="hover:underline mb-4 inline-block"
+          style={{ color: tenant.preferences.accent_color }}>
+          &larr; Back to Products
+        </Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-1/2">
@@ -133,7 +144,14 @@ export default function ProductPage({ params, searchParams }) {
                         key={index}
                         src={getOptimizedImageUrl(image, 100)} 
                         alt={`${product.name} thumbnail ${index + 1}`} 
-                        className={`w-20 h-20 object-cover rounded cursor-pointer ${index === currentImageIndex ? 'border-2 border-blue-500' : ''}`}
+                        // className={`w-20 h-20 object-cover rounded cursor-pointer ${index === currentImageIndex ? 'border-2 border-blue-500' : ''}`}
+                        className="w-20 h-20 object-cover rounded cursor-pointer"
+                        style={{
+                          border: index === currentImageIndex ? '2px solid' : '',
+                          borderColor: index === currentImageIndex && tenant.preferences 
+                            ? tenant.preferences.accent_color : index === currentImageIndex 
+                            ? '#3b82f6' : ''
+                        }}
                         onClick={() => setCurrentImageIndex(index)}
                       />
                     ))}
@@ -152,11 +170,12 @@ export default function ProductPage({ params, searchParams }) {
                     <button
                       key={variant.id}
                       onClick={() => handleVariantChange(variant)}
-                      className={`px-4 py-2 rounded-md ${
-                        selectedVariant.id === variant.id
-                          ? 'bg-blue-500 text-white'
-                          : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
-                      }`}
+                      className='px-4 py-2 rounded-md'
+                      style={{
+                        backgroundColor: selectedVariant.id === variant.id
+                          ? (tenant.preferences ? tenant.preferences.accent_color : '#2563eb') : '#e5e7eb',
+                        color: selectedVariant.id === variant.id ? 'white' : '#1f2937'
+                      }}
                     >
                       {variant.color}
                     </button>
@@ -164,7 +183,16 @@ export default function ProductPage({ params, searchParams }) {
                 </div>
               </div>
               <Link href={`/product/${params.id}/select-lenses?tenant=${encodeURIComponent(JSON.stringify(tenantString))}`} className="inline-block">
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 w-full md:w-auto">
+                <button
+                  className="text-white py-2 px-4 rounded-md transition duration-300 w-full md:w-auto"
+                  style={{
+                    backgroundColor: isHoveredSelect
+                      ? (tenant.preferences ? tenant.preferences.accent_color : "#2563eb")
+                      : (tenant.preferences ? tenant.preferences.primary_color : "#3b82f6")
+                  }}
+                  onMouseEnter={() => setIsHoveredSelect(true)}
+                  onMouseLeave={() => setIsHoveredSelect(false)}
+                >
                   Select Lenses
                 </button>
               </Link>

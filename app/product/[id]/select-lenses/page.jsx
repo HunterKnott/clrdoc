@@ -17,6 +17,7 @@ export default function SelectLensesPage({ params, searchParams }) {
   const [product, setProduct] = useState(null);
   const [selectedLens, setSelectedLens] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isHoveredCheckout, setIsHoveredCheckout] = useState(false);
 
   const tenantString = searchParams.tenant;
   let tenant;
@@ -84,7 +85,6 @@ export default function SelectLensesPage({ params, searchParams }) {
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
-      {console.log(tenant)}
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
@@ -92,7 +92,12 @@ export default function SelectLensesPage({ params, searchParams }) {
         hoverColor={`${tenant.preferences.accent_color}`}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
-        <Link href={`/product/${params.id}?tenant=${tenantString}`} className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Product</Link>
+        <Link
+          href={`/product/${params.id}?tenant=${encodeURIComponent(JSON.stringify(tenantString))}`}
+          className="hover:underline mb-4 inline-block"
+          style={{ color: tenant.preferences.accent_color}}>
+          &larr; Back to Product
+        </Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
           <h1 className="text-3xl font-bold mb-6 text-gray-800">Select Lenses for {product.name}</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -115,7 +120,7 @@ export default function SelectLensesPage({ params, searchParams }) {
             <p className="text-2xl font-bold mb-4 md:mb-0 text-gray-800">
               Total: ${totalPrice.toFixed(2)}
             </p>
-            <button
+            {/* <button
               className={`bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 ${
                 !selectedLens || isLoading ? 'opacity-50 cursor-not-allowed' : ''
               }`}
@@ -123,7 +128,24 @@ export default function SelectLensesPage({ params, searchParams }) {
               onClick={handleCheckout}
             >
               {isLoading ? 'Processing...' : 'Checkout'}
-            </button>
+            </button> */}
+    <button
+      className={`text-white py-2 px-4 rounded-md transition duration-300 ${
+        !selectedLens || isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
+      }`}
+      disabled={!selectedLens || isLoading}
+      onClick={handleCheckout}
+      onMouseEnter={() => setIsHoveredCheckout(true)}
+      onMouseLeave={() => setIsHoveredCheckout(false)}
+      style={{
+        backgroundColor: isLoading ? '#3b82f6' : tenant.preferences
+          ? isHoveredCheckout ? tenant.preferences.accent_color : tenant.preferences.primary_color
+          : isHoveredCheckout
+          ? '#2563eb' : '#3b82f6'
+      }}
+    >
+      {isLoading ? 'Processing...' : 'Checkout'}
+    </button>
           </div>
         </div>
       </div>
