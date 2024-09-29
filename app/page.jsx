@@ -18,7 +18,7 @@ const ProductCard = ({ product, selectedTenant }) => {
     <Link
       href={`/product/${product.id}?tenant=${tenantString}`}
       className='product-card flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2'
-      style={{ borderColor: isHovered ? selectedTenant.styles.accent_color : 'transparent' }}
+      style={{ borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent' }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -135,6 +135,7 @@ export default function Home() {
               options={["App", "About", "Contact"]}
               logoText=""
               logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}`}
+              hoverColor={`${selectedTenant.preferences ? selectedTenant.preferences.accent_color : ''}`}
             />
             <div id="search-section">
               <div className="container">

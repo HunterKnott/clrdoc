@@ -87,8 +87,8 @@ export default function ProductPage({ params, searchParams }) {
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
-        logoImage={`${tenant.styles.header_logo}`}
-        hoverColor={`${tenant.styles.accent_color}`}
+        logoImage={`${tenant.preferences.header_logo}`}
+        hoverColor={`${tenant.preferences.accent_color}`}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link href="/" className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Products</Link>
@@ -172,7 +172,7 @@ export default function ProductPage({ params, searchParams }) {
           </div>
         </div>
       </div>
-      <Footer background="#691b33" logoText="" logoImage={`${tenant.styles.footer_logo}`} />
+      <Footer background="#691b33" logoText="" logoImage={`${tenant.preferences.footer_logo}`} />
     </main>
   );
 }

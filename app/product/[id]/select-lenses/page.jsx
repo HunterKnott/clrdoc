@@ -23,6 +23,7 @@ export default function SelectLensesPage({ params, searchParams }) {
   const decodedString = decodeURIComponent(tenantString);
   tenant = JSON.parse(decodedString);
   tenant = JSON.parse(tenant);
+  tenant = JSON.parse(tenant)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -83,11 +84,12 @@ export default function SelectLensesPage({ params, searchParams }) {
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
+      {console.log(tenant)}
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
-        logoImage={`${tenant.styles.header_logo}`}
-        hoverColor={`${tenant.styles.accent_color}`}
+        logoImage={`${tenant.preferences.header_logo}`}
+        hoverColor={`${tenant.preferences.accent_color}`}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link href={`/product/${params.id}?tenant=${tenantString}`} className="text-blue-500 hover:underline mb-4 inline-block">&larr; Back to Product</Link>
@@ -125,7 +127,7 @@ export default function SelectLensesPage({ params, searchParams }) {
           </div>
         </div>
       </div>
-      <Footer background="#691b33" logoText="" logoImage={`${tenant.styles.footer_logo}`} />
+      <Footer background="#691b33" logoText="" logoImage={`${tenant.preferences.footer_logo}`} />
     </main>
   );
 }
