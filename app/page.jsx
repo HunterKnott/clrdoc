@@ -11,7 +11,7 @@ import Link from 'next/link';
 const ProductCard = ({ product, selectedTenant }) => {
   const firstVariant = product.variants[0];
   const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
-  const tenantString = encodeURIComponent(JSON.stringify(JSON.stringify(selectedTenant)));
+  const tenantString = selectedTenant ? encodeURIComponent(JSON.stringify(selectedTenant)) : '';
   const [isHovered, setIsHovered] = useState(false);
 
   return (

@@ -22,10 +22,15 @@ export default function SelectLensesPage({ params, searchParams }) {
 
   const tenantString = searchParams.tenant;
   let tenant;
-  const decodedString = decodeURIComponent(tenantString);
-  tenant = JSON.parse(decodedString);
-  tenant = JSON.parse(tenant);
-  tenant = JSON.parse(tenant)
+  try {
+    tenant = JSON.parse(decodeURIComponent(tenantString));
+  } catch (error) {
+      console.error("Failed to parse tenant data:", error);
+      tenant = null;
+  }
+  if (tenant && tenant.preferences) {} else {
+    console.error("Tenant data is missing or malformed.");
+  }
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -94,7 +99,7 @@ export default function SelectLensesPage({ params, searchParams }) {
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link
-          href={`/product/${params.id}?tenant=${encodeURIComponent(JSON.stringify(tenantString))}`}
+          href={`/product/${params.id}?tenant=${encodeURIComponent(JSON.stringify(tenant))}`}
           className="hover:underline mb-4 inline-block"
           style={{ color: tenant.preferences.accent_color}}>
           &larr; Back to Product
@@ -103,18 +108,6 @@ export default function SelectLensesPage({ params, searchParams }) {
           <h1 className="text-3xl font-bold mb-6 text-gray-800">Select Lenses for {product.name}</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
             {lensTypes.map((lens) => (
-              // <button
-              //   key={lens.id}
-              //   className={`p-4 rounded-md border ${
-              //     selectedLens?.id === lens.id
-              //       ? 'bg-blue-500 text-white'
-              //       : 'bg-white text-gray-800 hover:bg-gray-100'
-              //   }`}
-              //   onClick={() => handleLensSelect(lens)}
-              // >
-              //   <h3 className="font-bold">{lens.name}</h3>
-              //   <p>{lens.price === 0 ? 'Included' : `+$${lens.price.toFixed(2)}`}</p>
-              // </button>
               <button
                 key={lens.id}
                 className='p-4 rounded-md border'

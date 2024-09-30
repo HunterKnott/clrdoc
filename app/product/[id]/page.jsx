@@ -14,14 +14,16 @@ export default function ProductPage({ params, searchParams }) {
   const [isHoveredOption, setIsHoveredOption] = useState(false);
   const [isHoveredSelect, setIsHoveredSelect] = useState(false);
 
-  const tenantString = decodeURIComponent(searchParams.tenant);
+  const tenantString = searchParams.tenant;
   let tenant;
-  const decodedString = decodeURIComponent(tenantString);
-  tenant = JSON.parse(decodedString);
-  tenant = JSON.parse(tenant);
-  if (typeof tenant !== 'object') {
-    tenant = JSON.parse(tenant);
-    tenant =JSON.parse(tenant)
+  try {
+    tenant = JSON.parse(decodeURIComponent(tenantString));
+  } catch (error) {
+    console.error("Failed to parse tenant data:", error);
+    tenant = null;
+  }
+  if (tenant && tenant.preferences) {} else {
+    console.error("Tenant data is missing or malformed.")
   }
 
   useEffect(() => {
@@ -144,7 +146,6 @@ export default function ProductPage({ params, searchParams }) {
                         key={index}
                         src={getOptimizedImageUrl(image, 100)} 
                         alt={`${product.name} thumbnail ${index + 1}`} 
-                        // className={`w-20 h-20 object-cover rounded cursor-pointer ${index === currentImageIndex ? 'border-2 border-blue-500' : ''}`}
                         className="w-20 h-20 object-cover rounded cursor-pointer"
                         style={{
                           border: index === currentImageIndex ? '2px solid' : '',
@@ -182,7 +183,7 @@ export default function ProductPage({ params, searchParams }) {
                   ))}
                 </div>
               </div>
-              <Link href={`/product/${params.id}/select-lenses?tenant=${encodeURIComponent(JSON.stringify(tenantString))}`} className="inline-block">
+              <Link href={`/product/${params.id}/select-lenses?tenant=${encodeURIComponent(JSON.stringify(tenant))}`} className="inline-block">
                 <button
                   className="text-white py-2 px-4 rounded-md transition duration-300 w-full md:w-auto"
                   style={{
