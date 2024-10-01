@@ -121,8 +121,14 @@ export default function Home() {
 
   useEffect(() => {
     const faviconElement = document.querySelector('link[rel="icon"]');
-    const hostname = window.location.hostname.split('.')[0];
-    const useDefaultFavicon = hostname === 'localhost' || hostname === 'clrdoc';
+    const hostnameParts = window.location.hostname.split('.');
+    let domain;
+    if (hostnameParts[0] === 'www') {
+      domain = hostnameParts[1];
+    } else {
+      domain = hostnameParts[0];
+    }
+    const useDefaultFavicon = domain === 'localhost' || domain === 'clrdoc';
     const faviconUrl = useDefaultFavicon ? '/favicon.ico' : selectedTenant?.preferences?.favicon;
     if (faviconElement) {
       faviconElement.href = faviconUrl;
