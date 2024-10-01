@@ -119,6 +119,21 @@ export default function Home() {
     fetchProducts();
   }, [selectedTenant]);
 
+  useEffect(() => {
+    const faviconElement = document.querySelector('link[rel="icon"]');
+    const hostname = window.location.hostname.split('.')[0];
+    const useDefaultFavicon = hostname === 'localhost' || hostname === 'clrdoc';
+    const faviconUrl = useDefaultFavicon ? '/favicon.ico' : selectedTenant?.preferences?.favicon;
+    if (faviconElement) {
+      faviconElement.href = faviconUrl;
+    } else {
+      const newFaviconElement = document.createElement('link');
+      newFaviconElement.rel = 'icon';
+      newFaviconElement.href = faviconUrl;
+      document.head.appendChild(newFaviconElement);
+    }
+  }, [selectedTenant]);
+
   const handleTenantChange = (e) => {
     const selectedTenantId = e.target.value;
     setSelectedTenant(selectedTenantId);
