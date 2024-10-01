@@ -15,24 +15,24 @@ const ProductCard = ({ product, selectedTenant }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link
-      href={`/product/${product.id}?tenant=${tenantString}`}
-      className='product-card flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2'
-      style={{ borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent' }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-    <img 
-      src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
-      alt={product.name} 
-      className="product-image"
-    />
-    <div className='product-info'>
-      <h3 className='product-name text-lg font-semibold'>{product.name}</h3>
-      <p className='product-color text-gray-600'>{firstVariant?.color}</p>
-      <p className='product-price text-xl font-bold'>${product.base_price.toFixed(2)}</p>
-    </div>
-  </Link>
+      <Link
+        href={`/product/${product.id}?tenant=${tenantString}`}
+        className={`flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2`}
+        style={{ borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent' }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+      <img 
+        src={thumbnailImage + '?impolicy=OO_ratio&width=768'}
+        alt={product.name} 
+        className="w-full h-48 object-cover"
+      />
+      <div className='p-4'>
+        <h3 className='text-lg font-semibold text-center mb-2'>{product.name}</h3>
+        <p className='text-gray-600 text-center mb-2'>{firstVariant?.color}</p>
+        <p className='text-xl font-bold text-center'>${product.base_price.toFixed(2)}</p>
+      </div>
+    </Link>
   );
 };
 
@@ -78,10 +78,6 @@ export default function Home() {
         }
       }
     };
-
-    if (isSubdomain && isValidSubdomain) {
-      import('./subdomain.css');
-    }
 
     fetchTenants();
   }, [isSubdomain, isValidSubdomain]);
@@ -130,32 +126,32 @@ export default function Home() {
     <>
       {isSubdomain ? (
         isValidSubdomain ? (
-          <main id="subdomain-page">
+          <main className="flex flex-col min-h-screen" id="subdomain-page">
             <NavBar
               options={["App", "About", "Contact"]}
               logoText=""
-              logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}`}
-              hoverColor={`${selectedTenant.preferences ? selectedTenant.preferences.accent_color : ''}`}
+              logoImage={selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}
+              hoverColor={selectedTenant.preferences ? selectedTenant.preferences.accent_color : ''}
             />
-            <div id="search-section">
-              <div className="container">
-                <div className="search-content">
-                  <h1>Find Your Perfect Eyewear</h1>
-                  <div className="search-controls">
-                    <div className="search-input-wrapper">
+            <div id="search-section" className="pt-32 pb-16">
+              <div className="max-w-screen-xl mx-auto px-4">
+                <div className="max-w-3xl mx-auto text-center">
+                  <h1 className="text-2xl font-bold mb-8">Find Your Perfect Eyewear</h1>
+                  <div className="flex gap-4">
+                    <div className="relative flex-grow">
                       <input
                         type="text"
                         placeholder="Search products..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="search-input"
+                        className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-700 focus:ring-2 focus:ring-pink-500"
                       />
-                      <FaSearch className="search-icon" />
+                      <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     </div>
                     <select
                       value={selectedTenant.id || ''}
                       onChange={handleTenantChange}
-                      className="tenant-select"
+                      className="p-3 rounded-lg border border-gray-300"
                     >
                       {tenants.map((tenant) => (
                         <option key={tenant.id} value={tenant.id}>{tenant.name}</option>
@@ -165,10 +161,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div id='products-section'>
-              <div className='container'>
-                <h2>Featured Products</h2>
-                <div className='products-grid'>
+            <div id="products-section" className="pt-8">
+              <div className="max-w-screen-xl mx-auto px-4">
+                <h2 className="text-3xl font-bold text-center mb-6">Featured Products</h2>
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
                   {filteredProducts.map((product) => (
                     <ProductCard key={product.id} product={product} selectedTenant={selectedTenant} />
                   ))}
@@ -178,8 +174,8 @@ export default function Home() {
             <Footer background="#691b33" logoText="" logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.footer_logo : ''}`} />
           </main>
         ) : (
-          <main id="error-page">
-            <h1>Error: Invalid subdomain</h1>
+          <main className="flex flex-col min-h-screen items-center justify-center bg-gray-100" id="error-page">
+            <h1 className="text-3xl font-bold text-red-600">Error: Invalid subdomain</h1>
           </main>
         )
       ) : (
