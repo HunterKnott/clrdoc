@@ -3,16 +3,16 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Footer from './Footer';
-import { FaChartLine, FaGlasses, FaUserPlus, FaLaptopMedical, FaLock } from "react-icons/fa";
+import { FaStore, FaGlasses, FaCog, FaClock, FaLock } from "react-icons/fa";
 import { createClient } from '@/utils/supabase/client';
 
 const SolutionItem = ({ icon: Icon, text, subtext }) => (
-  <div className='flex flex-col items-center max-w-xs'>
-    <div className='w-40 h-40 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-4'>
-      <Icon className='text-6xl text-white'/>
+  <div className='flex flex-col items-center max-w-xs mx-auto'>
+    <div className='w-24 h-24 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mb-4'>
+      <Icon className='text-4xl text-white'/>
     </div>
-    <h3 className='font-bold text-xl mb-2 text-center text-gray-800'>{text}</h3>
-    <p className='text-center text-gray-600'>{subtext}</p>
+    <h3 className='font-bold text-xl mb-2 text-center text-gray-800 h-14 flex items-center'>{text}</h3>
+    <p className='text-center text-gray-600 h-20'>{subtext}</p>
   </div>
 );
 
@@ -59,24 +59,24 @@ export default function Home() {
 
   const solutions = [
     { 
-      icon: FaChartLine, 
-      text: "Boost Your Revenue", 
-      subtext: "Increase sales by offering your glasses online 24/7. Our platform enables you to reach customers beyond your physical store hours, significantly expanding your earning potential."
-    },
-    { 
-      icon: FaLaptopMedical, 
-      text: "Seamless Integration", 
-      subtext: "Easily connects with your existing Practice Management System and inventory management."
-    },
-    { 
-      icon: FaUserPlus, 
-      text: "Reach More Customers", 
-      subtext: "Attract new clients with the convenience of online shopping. Our platform makes it easy for customers to browse and purchase glasses from the comfort of their homes."
+      icon: FaStore, 
+      text: "Digital window shopping", 
+      subtext: "Your digital showcase drives in-store traffic."
     },
     { 
       icon: FaGlasses, 
-      text: "Expand Your Inventory", 
-      subtext: "Sell your in-store stock or partner with distributors for a wider selection. Give more options to your customers and save inventory space."
+      text: "See more, sell more", 
+      subtext: "Present your entire catalog to turn browsers into buyers."
+    },
+    { 
+      icon: FaCog, 
+      text: "Easy setup", 
+      subtext: "Select your brands, and we'll list the glasses for you."
+    },
+    { 
+      icon: FaClock, 
+      text: "Never lose another after-hours sale", 
+      subtext: "Your online store is always open."
     },
   ];
 
@@ -90,7 +90,15 @@ export default function Home() {
         {/* Text content */}
         <div className='w-full md:w-1/2 min-h-screen flex flex-col justify-center items-center md:items-start px-8 md:px-16 text-center md:text-left relative z-10 bg-[#EEF1F2]/80 md:bg-transparent'>
           <h1 className="font-bold text-5xl sm:text-6xl md:text-7xl mb-6 text-gray-800">Sell Your Glasses Online</h1>
-          <p className="font-medium text-xl sm:text-2xl md:text-3xl mb-8 text-gray-600">ClrDoc.com lets you sell <strong className="text-blue-600">your</strong> glasses on <strong className="text-blue-600">your</strong> website.</p>
+          <p className="font-medium text-xl sm:text-2xl md:text-3xl mb-4 text-gray-600">ClrDoc.com lets you sell <strong className="text-blue-600">your</strong> glasses on <strong className="text-blue-600">your</strong> website.</p>
+          
+          {/* New risk-free revenue message */}
+          <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-8 rounded-r-lg shadow-md">
+            <p className="font-semibold text-lg">
+              Risk-free revenue: If our product doesn&apos;t pay for itself, you get your money back!
+            </p>
+          </div>
+
           <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
             <div className="relative">
               <input
@@ -137,8 +145,8 @@ export default function Home() {
         </div>
       </div>
       <div id="clrdoc-solutions" className='w-full text-center py-16 bg-white'>
-        <h2 className='font-bold mb-12 px-4 text-4xl md:text-5xl text-gray-800'>ClrDoc Solutions</h2>
-        <div className='flex flex-col md:flex-row justify-center gap-12 px-4 md:px-8 max-w-7xl mx-auto'>
+        <h2 className='font-bold mb-12 px-4 text-4xl md:text-5xl text-gray-800'>Here&apos;s what we can do for you</h2>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-8 max-w-6xl mx-auto'>
           {solutions.map((solution, index) => (
             <SolutionItem key={index} {...solution} />
           ))}
