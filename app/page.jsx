@@ -7,6 +7,7 @@ import LandingPage from './LandingPage';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Link from 'next/link';
+import './globals.css';
 
 const ProductCard = ({ product, selectedTenant }) => {
   const firstVariant = product.variants[0];
@@ -43,6 +44,7 @@ export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [isSubdomain, setIsSubdomain] = useState(false);
   const [isValidSubdomain, setIsValidSubdomain] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const hostname = window.location.hostname;
@@ -77,10 +79,11 @@ export default function Home() {
           setIsValidSubdomain(isValid);
         }
       }
+      setIsLoading(false);
     };
 
     fetchTenants();
-  }, [isSubdomain, isValidSubdomain]);
+  }, []);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -121,6 +124,15 @@ export default function Home() {
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  if (isLoading) {
+    return (
+      <main className="loading-page">
+        <div className="spinner"></div>
+        <h2>Loading...</h2>
+      </main>
+    );
+  }
 
   return (
     <>
