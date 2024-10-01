@@ -11,21 +11,28 @@ import Link from 'next/link';
 const ProductCard = ({ product, selectedTenant }) => {
   const firstVariant = product.variants[0];
   const thumbnailImage = firstVariant?.gallery_images[0]?.image_url || firstVariant?.image_url;
-  const tenantString = encodeURIComponent(JSON.stringify(JSON.stringify(selectedTenant)));
+  const tenantString = selectedTenant ? encodeURIComponent(JSON.stringify(selectedTenant)) : '';
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Link href={`/product/${product.id}?tenant=${tenantString}`} className='product-card'>
-      <img 
-        src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
-        alt={product.name} 
-        className="product-image"
-      />
-      <div className='product-info'>
-        <h3 className='product-name'>{product.name}</h3>
-        <p className='product-color'>{firstVariant?.color}</p>
-        <p className='product-price'>${product.base_price.toFixed(2)}</p>
-      </div>
-    </Link>
+    <Link
+      href={`/product/${product.id}?tenant=${tenantString}`}
+      className='product-card flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2'
+      style={{ borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent' }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+    <img 
+      src={thumbnailImage+'?impolicy=OO_ratio&width=768'}
+      alt={product.name} 
+      className="product-image"
+    />
+    <div className='product-info'>
+      <h3 className='product-name text-lg font-semibold'>{product.name}</h3>
+      <p className='product-color text-gray-600'>{firstVariant?.color}</p>
+      <p className='product-price text-xl font-bold'>${product.base_price.toFixed(2)}</p>
+    </div>
+  </Link>
   );
 };
 
@@ -61,7 +68,7 @@ export default function Home() {
       } else {
         setTenants(data);
         if (data.length > 0) {
-          setSelectedTenant({ id: data[0].id, name: data[0].name, logo_url: data[0].logo_url });
+          setSelectedTenant({ id: data[0].id, name: data[0].name, preferences: data[0].preferences });
         }
 
         // Validate the subdomain
@@ -124,7 +131,12 @@ export default function Home() {
       {isSubdomain ? (
         isValidSubdomain ? (
           <main id="subdomain-page">
-            <NavBar options={["App", "About", "Contact"]} logoText="" logoImage={`${selectedTenant.logo_url}`} />
+            <NavBar
+              options={["App", "About", "Contact"]}
+              logoText=""
+              logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}`}
+              hoverColor={`${selectedTenant.preferences ? selectedTenant.preferences.accent_color : ''}`}
+            />
             <div id="search-section">
               <div className="container">
                 <div className="search-content">
@@ -163,7 +175,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Footer />
+            <Footer background="#691b33" logoText="" logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.footer_logo : ''}`} />
           </main>
         ) : (
           <main id="error-page">

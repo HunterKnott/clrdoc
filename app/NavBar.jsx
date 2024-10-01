@@ -8,7 +8,7 @@ import { logout } from './logout/actions';
 import { createClient } from '@/utils/supabase/client';
 import Image from 'next/image';
 
-export default function Navbar({ options, logoText = "ClrDoc", logoImage = "/Images/ClrDocIconTransparent.png" }) {
+export default function Navbar({ options, logoText = "ClrDoc", logoImage = "/Images/ClrDocIconTransparent.png", hoverColor = "#4338ca" }) {
     const [user, setUser] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -29,6 +29,7 @@ export default function Navbar({ options, logoText = "ClrDoc", logoImage = "/Ima
             text={option === "App" ? "Home" : option}
             path={option === "App" ? "../" : `./${option.toLowerCase()}`}
             onClick={option === "About" ? handleAboutClick : null}
+            hoverColor={hoverColor}
         />
     );
 
