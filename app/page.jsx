@@ -19,7 +19,10 @@ const ProductCard = ({ product, selectedTenant }) => {
       <Link
         href={`/product/${product.id}?tenant=${tenantString}`}
         className={`flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2`}
-        style={{ borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent' }}
+        style={{
+          borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent',
+          transition: 'border-color 0.3s ease',
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -156,7 +159,14 @@ export default function Home() {
                         placeholder="Search products..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:border-red-700 focus:ring-2 focus:ring-pink-500"
+                        className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none"
+                        style={{
+                          borderColor: searchTerm ? 'gray' : 'gray',
+                          borderWidth: '2px',
+                          transition: 'border-color 0.3s',
+                        }}
+                        onFocus={(e) => e.target.style.borderColor = selectedTenant.preferences.primary_color}
+                        onBlur={(e) => e.target.style.borderColor = 'gray'}
                       />
                       <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                     </div>
