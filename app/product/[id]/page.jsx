@@ -116,8 +116,7 @@ export default function ProductPage({ params, searchParams }) {
                       key={index}
                       src={getOptimizedImageUrl(image, 600)} 
                       alt={`${product.name} view ${index + 1}`} 
-                      className="w-full h-auto rounded-lg"
-                      height="300px"
+                      className="w-full h-[400px]"
                     />
                   ))}
                 </div>
@@ -127,7 +126,7 @@ export default function ProductPage({ params, searchParams }) {
                     <ShimmerImage 
                       src={getOptimizedImageUrl(images[currentImageIndex], 600)} 
                       alt={`${product.name} view ${currentImageIndex + 1}`} 
-                      className="w-full h-full rounded-lg"
+                      className="w-full h-full"
                     />
                     <button 
                       onClick={prevImage} 
@@ -158,7 +157,7 @@ export default function ProductPage({ params, searchParams }) {
                         <ShimmerImage 
                           src={getOptimizedImageUrl(image, 100)} 
                           alt={`${product.name} thumbnail ${index + 1}`} 
-                          className="w-full h-full rounded"
+                          className="w-full h-full"
                         />
                       </div>
                     ))}
