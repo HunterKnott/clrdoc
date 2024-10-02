@@ -59,8 +59,6 @@ export default function Navbar({ options, logoText = "ClrDoc", logoImage = "/Ima
                     <img 
                         src={logoImage} 
                         alt="Icon" 
-                        width={30} 
-                        height={30} 
                         className={logoImage === "/Images/ClrDocIconTransparent.png" ? "w-[40px]" : "w-[150px]"} 
                     />
                 </Link>
