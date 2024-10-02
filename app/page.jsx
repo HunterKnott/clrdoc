@@ -5,6 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import { createClient } from '@/utils/supabase/client';
 import LandingPage from './LandingPage';
 import NavBar from './NavBar';
+import Banner from './Banner';
 import Footer from './Footer';
 import Link from 'next/link';
 import './globals.css';
@@ -107,7 +108,7 @@ export default function Home() {
           `)
           .eq('tenant_id', selectedTenant.id)
           .order('created_at', { ascending: false });
-
+ 55
         if (error) {
           console.error('Error fetching products:', error);
         } else {
@@ -169,9 +170,14 @@ export default function Home() {
               logoImage={selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}
               hoverColor={selectedTenant.preferences ? selectedTenant.preferences.accent_color : ''}
             />
-            <div id="search-section" className="pt-32 pb-16">
-              <div className="max-w-screen-xl mx-auto px-4">
-                <div className="max-w-3xl mx-auto text-center">
+            <div className="pt-32 pb-8 md:pb-16">
+              <Banner
+                background={`${selectedTenant.preferences ? selectedTenant.preferences.primary_color : None}`}
+                bannerText='Welcome to KeenEye Family Vision'
+                logoImage=''
+              />
+              <div className="max-w-screen-xl mx-auto">
+                {/* <div className="max-w-3xl mx-auto text-center">
                   <h1 className="text-2xl font-bold mb-8">Find Your Perfect Eyewear</h1>
                   <div className="flex gap-4">
                     <div className="relative flex-grow">
@@ -201,10 +207,10 @@ export default function Home() {
                       ))}
                     </select>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
-            <div id="products-section" className="pt-8">
+            <div id="products-section" className="md:pt-8">
               <div className="max-w-screen-xl mx-auto px-4">
                 <h2 className="text-3xl font-bold text-center mb-6">Featured Products</h2>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
@@ -214,7 +220,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <Footer background="#691b33" logoText="" logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.footer_logo : ''}`} />
+            <Footer
+              background={`${selectedTenant.preferences ? selectedTenant.preferences.primary_color : None}`}
+              logoText=""
+              logoImage={`${selectedTenant.preferences ? selectedTenant.preferences.footer_logo : ''}`}
+            />
           </main>
         ) : (
           <main className="flex flex-col min-h-screen items-center justify-center bg-gray-100" id="error-page">
