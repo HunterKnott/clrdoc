@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 
 export default function Footer({ background = '#0C0526', logoText = "ClrDoc", logoImage = "/Images/ClrDocIcon.png"}) {
     return (

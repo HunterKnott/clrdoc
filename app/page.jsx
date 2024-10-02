@@ -170,7 +170,7 @@ export default function Home() {
               logoImage={selectedTenant.preferences ? selectedTenant.preferences.header_logo : ''}
               hoverColor={selectedTenant.preferences ? selectedTenant.preferences.accent_color : ''}
             />
-            <div className="pt-32 pb-8 md:pb-16">
+            <div className="pt-16 pb-8 md:pb-16">
               <Banner
                 background={`${selectedTenant.preferences ? selectedTenant.preferences.primary_color : None}`}
                 bannerText='Welcome to KeenEye Family Vision'
