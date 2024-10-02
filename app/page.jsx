@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 import Banner from './Banner';
 import Footer from './Footer';
 import Link from 'next/link';
+import ShimmerImage from './components/ShimmerImage';
 import './globals.css';
 
 const ProductCard = ({ product, selectedTenant }) => {
@@ -17,21 +18,23 @@ const ProductCard = ({ product, selectedTenant }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-      <Link
-        href={`/product/${product.id}?tenant=${tenantString}`}
-        className={`flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2`}
-        style={{
-          borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent',
-          transition: 'border-color 0.3s ease',
-        }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-      <img 
-        src={thumbnailImage + '?impolicy=OO_ratio&width=768'}
-        alt={product.name} 
-        className="w-full h-48 object-cover"
-      />
+    <Link
+      href={`/product/${product.id}?tenant=${tenantString}`}
+      className={`flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2`}
+      style={{
+        borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent',
+        transition: 'border-color 0.3s ease',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="w-full h-48 relative">
+        <ShimmerImage 
+          src={thumbnailImage + '?impolicy=OO_ratio&width=768'}
+          alt={product.name} 
+          className="w-full h-full"
+        />
+      </div>
       <div className='p-4'>
         <h3 className='text-lg font-semibold text-center mb-2'>{product.name}</h3>
         <p className='text-gray-600 text-center mb-2'>{firstVariant?.color}</p>

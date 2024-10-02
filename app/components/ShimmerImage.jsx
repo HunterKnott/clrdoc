@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const ShimmerImage = ({ src, alt, className, width, height }) => {
+const ShimmerImage = ({ src, alt, className }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [currentSrc, setCurrentSrc] = useState(src);
 
@@ -14,23 +14,16 @@ const ShimmerImage = ({ src, alt, className, width, height }) => {
   }, [src]);
 
   return (
-    <div 
-      className={`relative overflow-hidden ${className}`} 
-      style={{ width, height }}
-    >
-      <div 
-        className={`absolute inset-0 bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 animate-shimmer ${
-          imageLoaded ? 'opacity-0' : 'opacity-100'
-        } transition-opacity duration-300`}
-        style={{
-          backgroundSize: '200% 100%',
-          backgroundPositionX: '180%',
-        }}
-      />
+    <div className={`relative overflow-hidden ${className}`}>
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-gray-200">
+          <div className="absolute inset-0 animate-shimmer" />
+        </div>
+      )}
       <img 
         src={currentSrc} 
         alt={alt} 
-        className={`w-full h-full object-cover transition-opacity duration-300 ${
+        className={`w-full h-full object-contain transition-opacity duration-300 ${
           imageLoaded ? 'opacity-100' : 'opacity-0'
         }`}
       />
