@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // domains: [
-    //     'clrdoc.com',
-    //     'keeneyefamilyvision.clrdoc.com',
-    // ],
+    images: {
+        domains: ['assets2.oakley.com'],
+    },
 
     async rewrites() {
         return [
