@@ -5,6 +5,7 @@ import { createClient } from '@/utils/supabase/client';
 import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from 'next/link';
+import ShimmerImage from '../../components/ShimmerImage';
 
 export default function ProductPage({ params, searchParams }) {
   const [product, setProduct] = useState(null);
@@ -111,21 +112,22 @@ export default function ProductPage({ params, searchParams }) {
               {isMobile ? (
                 <div className="flex flex-col gap-4">
                   {images.map((image, index) => (
-                    <img 
+                    <ShimmerImage 
                       key={index}
                       src={getOptimizedImageUrl(image, 600)} 
                       alt={`${product.name} view ${index + 1}`} 
-                      className="w-full h-auto object-cover rounded-lg"
+                      className="w-full h-auto rounded-lg"
+                      height="300px"
                     />
                   ))}
                 </div>
               ) : (
                 <>
-                  <div className="relative">
-                    <img 
+                  <div className="relative h-[400px]">
+                    <ShimmerImage 
                       src={getOptimizedImageUrl(images[currentImageIndex], 600)} 
                       alt={`${product.name} view ${currentImageIndex + 1}`} 
-                      className="w-full h-auto object-cover rounded-lg"
+                      className="w-full h-full rounded-lg"
                     />
                     <button 
                       onClick={prevImage} 
@@ -142,19 +144,23 @@ export default function ProductPage({ params, searchParams }) {
                   </div>
                   <div className="flex mt-4 gap-2 overflow-x-auto">
                     {images.map((image, index) => (
-                      <img 
+                      <div 
                         key={index}
-                        src={getOptimizedImageUrl(image, 100)} 
-                        alt={`${product.name} thumbnail ${index + 1}`} 
-                        className="w-20 h-20 object-cover rounded cursor-pointer"
+                        className="relative w-20 h-20 cursor-pointer"
+                        onClick={() => setCurrentImageIndex(index)}
                         style={{
                           border: index === currentImageIndex ? '2px solid' : '',
                           borderColor: index === currentImageIndex && tenant.preferences 
-                            ? tenant.preferences.accent_color : index === currentImageIndex 
+                            ? tenant.preferences.primary_color : index === currentImageIndex 
                             ? '#3b82f6' : ''
                         }}
-                        onClick={() => setCurrentImageIndex(index)}
-                      />
+                      >
+                        <ShimmerImage 
+                          src={getOptimizedImageUrl(image, 100)} 
+                          alt={`${product.name} thumbnail ${index + 1}`} 
+                          className="w-full h-full rounded"
+                        />
+                      </div>
                     ))}
                   </div>
                 </>
