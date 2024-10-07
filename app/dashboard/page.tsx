@@ -45,7 +45,7 @@ export default async function Dashboard() {
   const tenant = await fetchTenant();
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-12">
+    <main className="flex min-h-screen flex-col gap-6 items-center bg-gray-100">
       <HeaderAuth />
       {tenant ? (
         <div>
@@ -60,6 +60,6 @@ export default async function Dashboard() {
           <p>Tenant not found.</p>
         </div>
       )}
-    </div>
+    </main>
   );
 }
