@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/utils/supabase/client';
-import { initPayPal, createPayPalOrder } from '@/utils/paypalClient';
+import { initPayPal, createPayPalButton } from '@/utils/paypalClient';
 import { useTenant } from '@/utils/useTenant';
 import NavBar from '../../../NavBar';
 import Footer from '../../../Footer';
@@ -91,10 +91,10 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
     const initializePayPal = async () => {
       if (product && selectedLens && paypalButtonRef.current) {
         try {
-          const paypal = await initPayPal('YOUR_PAYPAL_CLIENT_ID');
+          const paypal = await initPayPal();
           if (paypal) {
             const totalPrice = product.base_price + selectedLens.price;
-            const PayPalButton = await createPayPalOrder(paypal, totalPrice);
+            const PayPalButton = createPayPalButton(paypal, totalPrice);
             if (paypalButtonRef.current.firstChild) {
               paypalButtonRef.current.removeChild(paypalButtonRef.current.firstChild);
             }

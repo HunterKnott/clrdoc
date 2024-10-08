@@ -38,7 +38,7 @@ export function useTenant() {
           .single();
 
         if (error) throw error;
-        console.log("Here is the tenant", data); // Move the console.log here
+        // console.log("Here is the tenant", data);
         setTenant(data as Tenant);
       } catch (err) {
         setError(err instanceof Error ? err : new Error('An unknown error occurred'));
