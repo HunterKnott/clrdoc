@@ -54,7 +54,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, selectedTenant }) =>
 
   return (
     <Link
-      href={`/product/${product.id}?tenant=${tenantString}`}
+      href={`/product/${product.id}`}
       className={`flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2`}
       style={{
         borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent',
@@ -221,43 +221,7 @@ export default function Home() {
                 bannerText='Welcome to KeenEye Family Vision'
                 logoImage=''
               />
-              <div className="max-w-screen-xl mx-auto">
-                {/* <div className="max-w-3xl mx-auto text-center">
-                  <h1 className="text-2xl font-bold mb-8">Find Your Perfect Eyewear</h1>
-                  <div className="flex gap-4">
-                    <div className="relative flex-grow">
-                      <input
-                        type="text"
-                        placeholder="Search products..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full p-3 rounded-lg border border-gray-300 focus:outline-none"
-                        style={{
-                          borderColor: searchTerm ? 'gray' : 'gray',
-                          borderWidth: '2px',
-                          transition: 'border-color 0.3s',
-                        }}
-                        onFocus={(e) => {
-                          if (selectedTenant?.preferences) {
-                            e.currentTarget.style.borderColor = selectedTenant.preferences.primary_color;
-                          }
-                        }}
-                        onBlur={(e) => e.currentTarget.style.borderColor = 'gray'}
-                      />
-                      <FaSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                    </div>
-                    <select
-                      value={selectedTenant?.id || ''}
-                      onChange={handleTenantChange}
-                      className="p-3 rounded-lg border border-gray-300"
-                    >
-                      {tenants.map((tenant) => (
-                        <option key={tenant.id} value={tenant.id}>{tenant.name}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div> */}
-              </div>
+              <div className="max-w-screen-xl mx-auto"></div>
             </div>
             <div id="products-section" className="md:pt-8">
               <div className="max-w-screen-xl mx-auto px-4">

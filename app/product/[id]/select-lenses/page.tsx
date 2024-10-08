@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/utils/supabase/client';
+import { initPayPal, createPayPalOrder } from '@/utils/paypalClient';
 import NavBar from '../../../NavBar';
 import Footer from '../../../Footer';
 import Link from 'next/link';
-import { createCheckoutSession, getStripe } from '@/utils/stripe';
 
 interface LensType {
   id: string;
@@ -61,7 +61,7 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
   const [selectedLens, setSelectedLens] = useState<LensType | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hoveredLens, setHoveredLens] = useState<string | null>(null);
-  const [isHoveredCheckout, setIsHoveredCheckout] = useState<boolean>(false);
+  const paypalButtonRef = useRef<HTMLDivElement>(null);
 
   const tenantString = searchParams.tenant;
   let tenant: Tenant | null = null;
@@ -93,6 +93,28 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
     fetchProduct();
   }, [params.id]);
 
+  useEffect(() => {
+    const initializePayPal = async () => {
+      if (product && selectedLens && paypalButtonRef.current) {
+        try {
+          const paypal = await initPayPal('YOUR_PAYPAL_CLIENT_ID');
+          if (paypal) {
+            const totalPrice = product.base_price + selectedLens.price;
+            const PayPalButton = await createPayPalOrder(paypal, totalPrice);
+            if (paypalButtonRef.current.firstChild) {
+              paypalButtonRef.current.removeChild(paypalButtonRef.current.firstChild);
+            }
+            PayPalButton.render(paypalButtonRef.current);
+          }
+        } catch (error) {
+          console.error('PayPal initialization failed:', error);
+        }
+      }
+    };
+
+    initializePayPal();
+  }, [product, selectedLens]);
+
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -102,45 +124,6 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
   };
 
   const totalPrice = product.base_price + (selectedLens ? selectedLens.price : 0);
-
-  const handleCheckout = async () => {
-    setIsLoading(true);
-
-    try {
-      if (!selectedLens || !product) {
-        throw new Error('No lens selected or product not loaded');
-      }
-
-      const productDetails: ProductDetails = {
-        productId: product.id,
-        priceId: product.price_id,
-        productName: product.name,
-        productPrice: product.base_price,
-        lensType: selectedLens.name,
-        lensPrice: selectedLens.price,
-        quantity: 1
-      };
-
-      const session = await createCheckoutSession(productDetails);
-
-      const stripe = await getStripe();
-      if (!stripe) {
-        throw new Error('Failed to load Stripe');
-      }
-
-      const result = await stripe.redirectToCheckout({
-        sessionId: session.id,
-      });
-
-      if (result.error) {
-        console.error(result.error.message);
-      }
-    } catch (error) {
-      console.error('Error creating checkout session:', error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   return (
     <main className="flex min-h-screen flex-col bg-gray-100">
@@ -201,28 +184,7 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
             <p className="text-2xl font-bold mb-4 md:mb-0 text-gray-800">
               Total: ${totalPrice.toFixed(2)}
             </p>
-            <button
-              className={`text-white py-2 px-4 rounded-md transition duration-300 ${
-                !selectedLens || isLoading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
-              }`}
-              disabled={!selectedLens || isLoading}
-              onClick={handleCheckout}
-              onMouseEnter={() => setIsHoveredCheckout(true)}
-              onMouseLeave={() => setIsHoveredCheckout(false)}
-              style={{
-                backgroundColor: isLoading
-                  ? tenant?.preferences.accent_color
-                  : tenant?.preferences
-                  ? isHoveredCheckout
-                    ? tenant.preferences.accent_color
-                    : tenant.preferences.primary_color
-                  : isHoveredCheckout
-                  ? '#2563eb'
-                  : '#3b82f6',
-              }}
-            >
-              {isLoading ? 'Processing...' : 'Checkout'}
-            </button>
+            <div ref={paypalButtonRef} className="w-full md:w-auto"></div>
           </div>
         </div>
       </div>

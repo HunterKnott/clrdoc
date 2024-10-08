@@ -37,33 +37,38 @@ interface ProductPageProps {
   params: {
     id: string;
   };
-  searchParams: {
-    tenant: string;
-  };
 }
 
-export default function ProductPage({ params, searchParams }: ProductPageProps) {
+export default function ProductPage({ params }: ProductPageProps) {
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<Variant | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isHoveredOption, setIsHoveredOption] = useState(false);
   const [isHoveredSelect, setIsHoveredSelect] = useState(false);
+  const [tenant, setTenant] = useState<Tenant | null>(null);
 
-  const tenantString = searchParams.tenant;
-  let tenant: Tenant | null;
-  try {
-    tenant = JSON.parse(decodeURIComponent(tenantString)) as Tenant;
-  } catch (error) {
-    console.error("Failed to parse tenant data:", error);
-    tenant = null;
-  }
+  useEffect(() => {
+    const fetchTenantInfo = async () => {
+      const supabase = createClient();
+      const hostname = window.location.hostname;
+      const subdomain = hostname.split('.')[0];
 
-  if (tenant && tenant.preferences) {
-    // Tenant preferences logic here
-  } else {
-    console.error("Tenant data is missing or malformed.");
-  }
+      const { data, error } = await supabase
+        .from('tenants')
+        .select('*')
+        .eq('name', subdomain)
+        .single();
+
+      if (error) {
+        console.error("Error fetching tenant data:", error);
+      } else {
+        setTenant(data);
+      }
+    };
+
+    fetchTenantInfo();
+  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -107,7 +112,7 @@ export default function ProductPage({ params, searchParams }: ProductPageProps) 
     setCurrentImageIndex(0);
   }, [selectedVariant]);
 
-  if (!product) {
+  if (!product || !tenant) {
     return <div>Loading...</div>;
   }
 
@@ -136,14 +141,14 @@ export default function ProductPage({ params, searchParams }: ProductPageProps) 
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
-        logoImage={tenant?.preferences?.header_logo || ""}
-        hoverColor={tenant?.preferences?.accent_color || ""}
+        logoImage={tenant.preferences?.header_logo || ""}
+        hoverColor={tenant.preferences?.accent_color || ""}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link
           href="/"
           className="hover:underline mb-4 inline-block"
-          style={{ color: tenant?.preferences?.accent_color }}
+          style={{ color: tenant.preferences?.accent_color }}
         >
           &larr; Back to Products
         </Link>
@@ -262,7 +267,7 @@ export default function ProductPage({ params, searchParams }: ProductPageProps) 
       <Footer
         background="#691b33"
         logoText=""
-        logoImage={tenant?.preferences?.footer_logo || ""}
+        logoImage={tenant.preferences?.footer_logo || ""}
       />
     </main>
   );
