@@ -1,11 +1,13 @@
 'use client';
 
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
+import { useTenant } from '@/utils/useTenant';
 import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from 'next/link';
 import ShimmerImage from '../../../components/ShimmerImage';
+import { SupabaseClient } from '@supabase/supabase-js';
 
 interface Product {
   id: number;
@@ -42,31 +44,19 @@ interface ProductPageProps {
   };
 }
 
-export default function ProductPage({ params, searchParams }: ProductPageProps) {
+export default function ProductPage({ params }: ProductPageProps) {
+  const { tenant, isLoading: isTenantLoading, error: tenantError } = useTenant();
   const [product, setProduct] = useState<Product | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<Variant | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isHoveredOption, setIsHoveredOption] = useState(false);
-  const [isHoveredSelect, setIsHoveredSelect] = useState(false);
-
-  const tenantString = searchParams.tenant;
-  let tenant: Tenant | null;
-  try {
-    tenant = JSON.parse(decodeURIComponent(tenantString)) as Tenant;
-  } catch (error) {
-    console.error("Failed to parse tenant data:", error);
-    tenant = null;
-  }
-
-  if (tenant && tenant.preferences) {
-    // Tenant preferences logic here
-  } else {
-    console.error("Tenant data is missing or malformed.");
-  }
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isHoveredOption, setIsHoveredOption] = useState<boolean>(false);
+  const [isHoveredSelect, setIsHoveredSelect] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
+      if (!tenant) return;
+      
       const supabase = createClient();
       const { data, error } = await supabase
         .from('products')
@@ -82,26 +72,19 @@ export default function ProductPage({ params, searchParams }: ProductPageProps) 
           )
         `)
         .eq('id', params.id)
+        .eq('tenant_id', tenant.id)
         .single();
 
       if (error) {
         console.error('Error fetching product:', error);
       } else {
-        setProduct(data);
+        setProduct(data as Product);
         setSelectedVariant(data.variants[0]);
       }
     };
 
     fetchProduct();
-
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, [params.id]);
+  }, [params.id, tenant]);
 
   useEffect(() => {
     setCurrentImageIndex(0);
@@ -115,7 +98,7 @@ export default function ProductPage({ params, searchParams }: ProductPageProps) 
     setSelectedVariant(variant);
   };
 
-  const getOptimizedImageUrl = (url: string, width: number) => {
+  const getOptimizedImageUrl = (url: string, width: number): string => {
     return `${url}?impolicy=OO_ratio&width=${width}`;
   };
 
@@ -237,9 +220,7 @@ export default function ProductPage({ params, searchParams }: ProductPageProps) 
                 </div>
               </div>
               <Link
-                href={`/product/${params.id}/select-lenses?tenant=${encodeURIComponent(
-                  JSON.stringify(tenant)
-                )}`}
+                href={`/product/${params.id}/select-lenses`}
                 className="inline-block"
               >
                 <button
