@@ -7,6 +7,7 @@ import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from 'next/link';
 import ShimmerImage from '../../../components/ShimmerImage';
+import { SupabaseClient } from '@supabase/supabase-js';
 
 interface Product {
   id: number;
@@ -38,16 +39,19 @@ interface ProductPageProps {
   params: {
     id: string;
   };
+  searchParams: {
+    tenant: string;
+  };
 }
 
 export default function ProductPage({ params }: ProductPageProps) {
   const { tenant, isLoading: isTenantLoading, error: tenantError } = useTenant();
-  const [product, setProduct] = useState(null);
+  const [product, setProduct] = useState<Product | null>(null);
   const [selectedVariant, setSelectedVariant] = useState<Variant | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isHoveredOption, setIsHoveredOption] = useState(false);
-  const [isHoveredSelect, setIsHoveredSelect] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isHoveredOption, setIsHoveredOption] = useState<boolean>(false);
+  const [isHoveredSelect, setIsHoveredSelect] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -74,7 +78,7 @@ export default function ProductPage({ params }: ProductPageProps) {
       if (error) {
         console.error('Error fetching product:', error);
       } else {
-        setProduct(data);
+        setProduct(data as Product);
         setSelectedVariant(data.variants[0]);
       }
     };
@@ -86,15 +90,15 @@ export default function ProductPage({ params }: ProductPageProps) {
     setCurrentImageIndex(0);
   }, [selectedVariant]);
 
-  if (isTenantLoading) return <div>Loading...</div>;
-  if (tenantError) return <div>Error loading tenant information</div>;
-  if (!product) return <div>Loading product...</div>;
+  if (!product) {
+    return <div>Loading...</div>;
+  }
 
   const handleVariantChange = (variant: Variant) => {
     setSelectedVariant(variant);
   };
 
-  const getOptimizedImageUrl = (url: string, width: number) => {
+  const getOptimizedImageUrl = (url: string, width: number): string => {
     return `${url}?impolicy=OO_ratio&width=${width}`;
   };
 
@@ -115,14 +119,14 @@ export default function ProductPage({ params }: ProductPageProps) {
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
-        logoImage={tenant.preferences?.header_logo || ""}
-        hoverColor={tenant.preferences?.accent_color || ""}
+        logoImage={tenant?.preferences?.header_logo || ""}
+        hoverColor={tenant?.preferences?.accent_color || ""}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link
           href="/"
           className="hover:underline mb-4 inline-block"
-          style={{ color: tenant.preferences?.accent_color }}
+          style={{ color: tenant?.preferences?.accent_color }}
         >
           &larr; Back to Products
         </Link>
@@ -237,9 +241,9 @@ export default function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
       <Footer
-        background={tenant.preferences?.primary_color || "#691b33"}
+        background="#691b33"
         logoText=""
-        logoImage={tenant.preferences?.footer_logo || ""}
+        logoImage={tenant?.preferences?.footer_logo || ""}
       />
     </main>
   );
