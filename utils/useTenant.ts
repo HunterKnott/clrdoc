@@ -9,7 +9,9 @@ interface Tenant {
   created_at: string;
   preferences: {
     accent_color: string;
-    // Add other preference fields as needed
+    primary_color: string;
+    header_logo: string;
+    footer_logo: string;
   };
   // Add other tenant fields as needed
 }
@@ -37,6 +39,7 @@ export function useTenant() {
           .single();
 
         if (error) throw error;
+        console.log("Here is the tenant", data); // Move the console.log here
         setTenant(data as Tenant);
       } catch (err) {
         setError(err instanceof Error ? err : new Error('An unknown error occurred'));
@@ -49,6 +52,5 @@ export function useTenant() {
     fetchTenantInfo();
   }, []);
 
-  console.log("Here is the tenant", tenant);
   return { tenant, isLoading, error };
 }
