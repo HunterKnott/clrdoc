@@ -1,7 +1,8 @@
 'use client';
 
-import { useContext, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
+import { useTenant } from '@/utils/useTenant';
 import NavBar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from 'next/link';
@@ -40,38 +41,18 @@ interface ProductPageProps {
 }
 
 export default function ProductPage({ params }: ProductPageProps) {
-  const [product, setProduct] = useState<Product | null>(null);
+  const { tenant, isLoading: isTenantLoading, error: tenantError } = useTenant();
+  const [product, setProduct] = useState(null);
   const [selectedVariant, setSelectedVariant] = useState<Variant | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
   const [isHoveredOption, setIsHoveredOption] = useState(false);
   const [isHoveredSelect, setIsHoveredSelect] = useState(false);
-  const [tenant, setTenant] = useState<Tenant | null>(null);
-
-  useEffect(() => {
-    const fetchTenantInfo = async () => {
-      const supabase = createClient();
-      const hostname = window.location.hostname;
-      const subdomain = hostname.split('.')[0];
-
-      const { data, error } = await supabase
-        .from('tenants')
-        .select('*')
-        .eq('name', subdomain)
-        .single();
-
-      if (error) {
-        console.error("Error fetching tenant data:", error);
-      } else {
-        setTenant(data);
-      }
-    };
-
-    fetchTenantInfo();
-  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
+      if (!tenant) return;
+      
       const supabase = createClient();
       const { data, error } = await supabase
         .from('products')
@@ -87,6 +68,7 @@ export default function ProductPage({ params }: ProductPageProps) {
           )
         `)
         .eq('id', params.id)
+        .eq('tenant_id', tenant.id)
         .single();
 
       if (error) {
@@ -98,23 +80,15 @@ export default function ProductPage({ params }: ProductPageProps) {
     };
 
     fetchProduct();
-
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, [params.id]);
+  }, [params.id, tenant]);
 
   useEffect(() => {
     setCurrentImageIndex(0);
   }, [selectedVariant]);
 
-  if (!product || !tenant) {
-    return <div>Loading...</div>;
-  }
+  if (isTenantLoading) return <div>Loading...</div>;
+  if (tenantError) return <div>Error loading tenant information</div>;
+  if (!product) return <div>Loading product...</div>;
 
   const handleVariantChange = (variant: Variant) => {
     setSelectedVariant(variant);
@@ -242,9 +216,7 @@ export default function ProductPage({ params }: ProductPageProps) {
                 </div>
               </div>
               <Link
-                href={`/product/${params.id}/select-lenses?tenant=${encodeURIComponent(
-                  JSON.stringify(tenant)
-                )}`}
+                href={`/product/${params.id}/select-lenses`}
                 className="inline-block"
               >
                 <button
@@ -265,7 +237,7 @@ export default function ProductPage({ params }: ProductPageProps) {
         </div>
       </div>
       <Footer
-        background="#691b33"
+        background={tenant.preferences?.primary_color || "#691b33"}
         logoText=""
         logoImage={tenant.preferences?.footer_logo || ""}
       />

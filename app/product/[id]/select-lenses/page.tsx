@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { initPayPal, createPayPalOrder } from '@/utils/paypalClient';
+import { useTenant } from '@/utils/useTenant';
 import NavBar from '../../../NavBar';
 import Footer from '../../../Footer';
 import Link from 'next/link';
@@ -63,16 +64,20 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
   const [hoveredLens, setHoveredLens] = useState<string | null>(null);
   const paypalButtonRef = useRef<HTMLDivElement>(null);
 
+  const { tenant: fetchedTenant, isLoading: isTenantLoading, error: tenantError } = useTenant();
+
   const tenantString = searchParams.tenant;
-  let tenant: Tenant | null = null;
+  let parsedTenant: Tenant | null = null;
   try {
-    tenant = JSON.parse(decodeURIComponent(tenantString));
+    parsedTenant = JSON.parse(decodeURIComponent(tenantString));
   } catch (error) {
     console.error("Failed to parse tenant data:", error);
   }
-  if (!tenant || !tenant.preferences) {
+  if (!parsedTenant || !parsedTenant.preferences) {
     console.error("Tenant data is missing or malformed.");
   }
+
+  const tenant = fetchedTenant || parsedTenant;
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -115,6 +120,9 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
     initializePayPal();
   }, [product, selectedLens]);
 
+  if (isTenantLoading) return <div>Loading...</div>;
+  if (tenantError) return <div>Error loading tenant information</div>;
+
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -130,14 +138,14 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
-        logoImage={tenant?.preferences.header_logo}
-        hoverColor={tenant?.preferences.accent_color}
+        logoImage={tenant?.preferences?.header_logo || ""}
+        hoverColor={tenant?.preferences?.accent_color || ""}
       />
       <div className="flex-grow container mx-auto px-4 py-8 mt-[76px]">
         <Link
-          href={`/product/${params.id}?tenant=${encodeURIComponent(JSON.stringify(tenant))}`}
+          href={`/product/${params.id}`}
           className="hover:underline mb-4 inline-block"
-          style={{ color: tenant?.preferences.accent_color }}>
+          style={{ color: tenant?.preferences?.accent_color || "" }}>
           &larr; Back to Product
         </Link>
         <div className="bg-white rounded-lg shadow-md p-6 mt-4">
@@ -153,9 +161,7 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
                 style={{
                   backgroundColor:
                     selectedLens?.id === lens.id
-                      ? tenant?.preferences
-                        ? tenant.preferences.primary_color
-                        : '#3b82f6'
+                      ? tenant?.preferences?.primary_color || '#3b82f6'
                       : hoveredLens === lens.id
                       ? '#f3f4f6'
                       : '#ffffff',
@@ -189,9 +195,9 @@ export default function SelectLensesPage({ params, searchParams }: SelectLensesP
         </div>
       </div>
       <Footer
-        background="#691b33"
+        background={tenant?.preferences?.primary_color || "#691b33"}
         logoText=""
-        logoImage={tenant?.preferences.footer_logo}
+        logoImage={tenant?.preferences?.footer_logo || ""}
       />
     </main>
   );
