@@ -17,6 +17,7 @@ interface NavbarProps {
 export default function Navbar({ options = [""], logoText = "ClrDoc", logoImage = "/Images/ClrDocIconTransparent.png", hoverColor = "#4338ca" }: NavbarProps) {
   const [user, setUser] = useState<any>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [homeUrl, setHomeUrl] = useState('/');
 
   const handleAboutClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -29,19 +30,20 @@ export default function Navbar({ options = [""], logoText = "ClrDoc", logoImage 
     }
   };
 
-  const listLinks = options.map((option, index) => (
-    <PageLink
-      key={index}
-      text={option === "App" ? "Home" : option}
-      path={option === "App" ? "../" : `./${option.toLowerCase()}`}
-      onClick={option === "About" ? handleAboutClick : () => {}}
-      hoverColor={hoverColor}
-    />
-  ));
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    // This effect will run only on the client-side
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+    const protocol = window.location.protocol;
+    
+    // Construct the home URL with the correct protocol, hostname, and port (if present)
+    const url = `${protocol}//${hostname}${port ? `:${port}` : ''}`;
+    setHomeUrl(url);
+  }, []);
 
   useEffect(() => {
     async function getUser() {
@@ -57,10 +59,20 @@ export default function Navbar({ options = [""], logoText = "ClrDoc", logoImage 
     getUser();
   }, []);
 
+  const listLinks = options.map((option, index) => (
+    <PageLink
+      key={index}
+      text={option === "App" ? "Home" : option}
+      path={option === "App" ? "../" : `./${option.toLowerCase()}`}
+      onClick={option === "About" ? handleAboutClick : () => {}}
+      hoverColor={hoverColor}
+    />
+  ));
+
   return (
     <header className="flex flex-row justify-between items-center h-[76px] w-full px-6 md:px-12 lg:px-24 py-6 z-30 bg-gray-200 fixed shadow-md">
       <div>
-        <Link href={'../'} className="flex flex-row gap-4 items-center">
+        <Link href={homeUrl} className="flex flex-row gap-4 items-center">
           <h1 className="text-3xl font-bold text-blue-700">{logoText}</h1>
           <img 
             src={logoImage} 

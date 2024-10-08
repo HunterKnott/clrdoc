@@ -13,7 +13,6 @@ interface Tenant {
     header_logo: string;
     footer_logo: string;
   };
-  // Add other tenant fields as needed
 }
 
 export function useTenant() {
