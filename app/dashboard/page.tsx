@@ -3,7 +3,6 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Settings from "./settings";
 
-// Use the headers function directly
 export default async function Dashboard() {
   const supabase = createClient();
 
