@@ -17,6 +17,7 @@ interface Tenant {
   preferences: {
     accent_color: string;
     primary_color: string;
+    text_color: string;
     header_logo: string;
     footer_logo: string;
     favicon: string;
@@ -71,8 +72,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, selectedTenant }) =>
         />
       </div>
       <div className='p-4'>
-        <h3 className='text-lg font-semibold text-center mb-2'>{product.name}</h3>
-        <p className='text-gray-600 text-center mb-2'>{firstVariant?.color}</p>
+        <h3
+          className='text-lg font-semibold text-center mb-2'
+          style={{ color: selectedTenant?.preferences.text_color || 'inherit' }}
+        >
+          {product.name}
+        </h3>
+        <p
+          className='text-center mb-2'
+          style={{ color: selectedTenant?.preferences.text_color || 'inherit' }}
+        >
+          {firstVariant?.color}
+        </p>
         <p className='text-xl font-bold text-center'>${product.base_price.toFixed(2)}</p>
       </div>
     </Link>
@@ -261,7 +272,12 @@ export default function Home() {
             </div>
             <div id="products-section" className="md:pt-8">
               <div className="max-w-screen-xl mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center mb-6">Featured Products</h2>
+                <h2
+                  className="text-3xl font-bold text-center mb-6"
+                  style={{ color: selectedTenant?.preferences.text_color || 'inherit' }}
+                >
+                  Featured Products
+                </h2>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
                   {filteredProducts.map((product) => (
                     <ProductCard key={product.id} product={product} selectedTenant={selectedTenant!} />

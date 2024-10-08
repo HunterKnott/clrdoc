@@ -35,10 +35,32 @@ export const signUpAction = async (formData: FormData) => {
   }
 };
 
+// For keeneye as of now, credentials are doctor@email.com and Jzh8v_uODk6
 export const signInAction = async (formData: FormData) => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
   const supabase = createClient();
+  const origin = headers().get("origin");
+  const subdomain = origin?.split("//")[1]?.split(".")[0];
+
+  if (!subdomain || !email || !password) {
+    return encodedRedirect("error", "/login", "Invalid login information.");
+  }
+
+  const { data: tenant, error: tenantError } = await supabase
+    .from("tenants")
+    .select("email")
+    .eq("name", subdomain)
+    .single();
+  
+  if (tenantError || !tenant) {
+    console.log(subdomain)
+    return encodedRedirect("error", "/login", "No tenant found for this subdomain.");
+  }
+
+  if (tenant.email !== email) {
+    return encodedRedirect("error", "/login", "Invalid email for this subdomain."); 
+  }
 
   const { error } = await supabase.auth.signInWithPassword({
     email,

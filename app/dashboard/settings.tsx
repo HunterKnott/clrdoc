@@ -99,10 +99,16 @@ interface Tenant {
                 .eq('id', tenant.id);
             
             if (error) {
-                console.error('Error updating tenant preferences:', error);
+                if (error.code === '42501') {
+                    // RLS permission denied
+                    setMessage('You do not have the necessary permissions to perform this action.');
+                } else {
+                    console.error('Error updating tenant preferences:', error);
+                    setMessage('An unexpected error occurred. Please try again.');
+                }
             } else {
                 console.log('Preferences updated successfully');
-                setMessage('Your changes have been saved')
+                setMessage('Your changes have been saved');
 
                 setTimeout(() => {
                     setMessage('');
