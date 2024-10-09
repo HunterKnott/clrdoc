@@ -33,6 +33,7 @@ interface Tenant {
     }>({ main: false, accent: false, text: false });
     const [loading, setLoading] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
+    const [fileLoading, setFileLoading] = useState<{ [key: string]: boolean }>({});
 
     useEffect(() => {
         setIsMounted(true);
@@ -80,6 +81,54 @@ interface Tenant {
     const handleColorChange = (setter: React.Dispatch<React.SetStateAction<string>>) => (color: string) => {
         setter(color);
     }
+
+    const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, key: keyof Tenant['preferences']) => {
+        const file = e.target.files?.[0];
+        if (file && tenant) {
+            setFileLoading({ ...fileLoading, [key]: true });
+            const supabase = createClient();
+
+            const { data: uploadData, error: uploadError } = await supabase
+                .storage
+                .from('tenant_logos')
+                .upload(`icons/${tenant.id}/${key}`, file, {
+                    upsert: true,
+                });
+            
+            if (uploadError) {
+                console.error(`Error uploading ${key}:`, uploadError);
+                setFileLoading({ ...fileLoading, [key]: false });
+                return;
+            }
+
+            const publicURL = supabase.storage
+                .from('tenant_logos')
+                .getPublicUrl(`icons/${tenant.id}/${key}`).data.publicUrl;
+            
+            const { error: updateError } = await supabase
+                .from('tenants')
+                .update({
+                    preferences: {
+                        ...tenant.preferences,
+                        [key]: publicURL,
+                    },
+                })
+                .eq('id', tenant.id);
+
+            if (updateError) {
+                console.error(`Error updating tenant ${key}:`, updateError);
+            } else {
+                setTenant({
+                    ...tenant,
+                    preferences: {
+                        ...tenant.preferences,
+                        [key]: publicURL,
+                    },
+                });
+            }
+            setFileLoading({ ...fileLoading, [key]: false });
+        }
+    };
 
     const handleSaveChanges = async (): Promise<void> => {
         setLoading(true);
@@ -201,14 +250,35 @@ interface Tenant {
                     <li className="flex flex-col items-center flex-1">
                         <img src={tenant?.preferences.header_logo} alt="Header Logo" className="w-30 h-20 object-cover" />
                         <span className="text-gray-800 text-lg">Header Logo</span>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => handleFileUpload(e, 'header_logo')}
+                            disabled={fileLoading.header_logo}
+                        />
+                        {fileLoading.header_logo && <p>Uploading...</p>}
                     </li>
                     <li className="flex flex-col items-center flex-1">
                         <img src={tenant?.preferences.footer_logo} alt="Footer Logo" className="w-30 h-20 object-cover" />
                         <span className="text-gray-800 text-lg">Footer Logo</span>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => handleFileUpload(e, 'footer_logo')}
+                            disabled={fileLoading.footer_logo}
+                        />
+                        {fileLoading.footer_logo && <p>Uploading...</p>}
                     </li>
                     <li className="flex flex-col items-center flex-1">
                         <img src={tenant?.preferences.favicon} alt="Favicon" className="w-12 h-12 object-cover" />
                         <span className="text-gray-800 text-lg">Favicon</span>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => handleFileUpload(e, 'favicon')}
+                            disabled={fileLoading.favicon}
+                        />
+                        {fileLoading.favicon && <p>Uploading...</p>}
                     </li>
                 </ul>
             </div>
@@ -216,7 +286,7 @@ interface Tenant {
             {/* Save Changes Button */}
             <button
                 className={`mt-4 ${loading ? 'bg-blue-700' : 'bg-blue-500'} text-white py-2 px-4 rounded`}
-                onClick={handleSaveChanges}
+                onClick={() => handleSaveChanges()}
                 disabled={loading}
             >
                 {loading ? 'Saving changes...' : 'Save changes'}

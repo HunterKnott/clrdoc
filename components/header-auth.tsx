@@ -9,10 +9,17 @@ export default async function AuthButton() {
   } = await createClient().auth.getUser();
 
   return user ? (
-    <div className="flex items-center gap-4">
-      Hey, {user.email}!
+    <div className="flex items-center justify-center md:justify-between gap-4 px-6 py-4 bg-gray-200 fixed top-0 left-0 w-full shadow-md z-40">
+      <div className="flex flex-row gap-4 items-center">
+        <h1 className="text-3xl font-bold text-blue-700">ClrDoc</h1>
+        <img
+          src="/Images/ClrDocIconTransparent.png"
+          alt="Icon"
+          className="w-[40px]"
+        />
+      </div>
       <form action={signOutAction}>
-        <Button type="submit" variant={"outline"}>
+        <Button type="submit" variant={"clrdoc"}>
           Sign out
         </Button>
       </form>
