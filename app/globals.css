@@ -16,11 +16,6 @@ body {
   color: rgb(var(--foreground-rgb));
 }
 
-body * {
-  color: #292a2b; /* Gray-700 */
-}
-
-
 .loading-page {
   display: flex;
   flex-direction: column;
