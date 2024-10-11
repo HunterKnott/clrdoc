@@ -28,20 +28,19 @@ interface LensOption {
 }
 
 const lensTypes: LensOption[] = [
-  { id: 'single', name: 'Single Vision', description: 'Corrects vision for a single distance, ideal for most prescriptions.', price: 0 },
-  { id: 'bifocal', name: 'Bifocal', description: 'Combines two prescriptions in one lens, typically for near and far vision.', price: 30 },
+  { id: 'single', name: 'Single Vision', description: 'Corrects vision for a single distance, ideal for most prescriptions.', price: 30 },
+  { id: 'bifocal', name: 'Bifocal', description: 'Combines two prescriptions in one lens, typically for near and far vision.', price: 60 },
 ];
 
 const lensMaterials: LensOption[] = [
-  { id: 'plastic', name: 'Plastic (1.50)', description: 'Standard plastic lenses, suitable for light prescriptions.', price: 0 },
-  { id: 'trivex', name: 'Tri-vex (1.53)', description: 'Lightweight and impact-resistant, good for rimless frames.', price: 20 },
   { id: 'polycarbonate', name: 'Polycarbonate (1.59)', description: 'Highly impact-resistant, ideal for sports and children.', price: 35 },
-  { id: 'high-index', name: 'High Index (1.67)', description: 'Thinner and lighter lenses for stronger prescriptions.', price: 60 },
+  { id: 'trivex', name: 'Trivex (1.53)', description: 'Lightweight and impact-resistant, good for rimless frames. Includes anti-scratch and anti-chip.', price: 50 },
+  { id: 'high-index', name: 'High Index (1.67)', description: 'Thinner and lighter lenses for stronger prescriptions. Includes anti-scratch and anti-chip.', price: 80 },
 ];
 
 const lensCoatings: LensOption[] = [
   { id: 'anti-glare', name: 'Anti-Glare Coating', description: 'Reduces reflections and improves clarity.', price: 35 },
-  { id: 'anti-scratch', name: 'Anti-Scratch Coating', description: 'Increases durability and extends lens life.', price: 15 },
+  { id: 'anti-scratch', name: 'Anti-Scratch and Anti-Chip Coating', description: 'Increases durability and extends lens life.', price: 15 },
   { id: 'transitions', name: 'Transitions', description: 'Lenses that darken in sunlight, clear indoors.', price: 75 },
 ];
 
@@ -105,18 +104,27 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
   const handleLensTypeSelect = (id: string) => setSelectedLensType(id);
   const handleMaterialSelect = (id: string) => setSelectedMaterial(id);
   const handleCoatingToggle = (id: string) => {
+    if (id === 'anti-scratch' && isAntiScratchIncluded) {
+      return; // Do nothing if anti-scratch is included and user tries to toggle it
+    }
     setSelectedCoatings(prev => 
       prev.includes(id) ? prev.filter(c => c !== id) : [...prev, id]
     );
   };
+
+  const isAntiScratchIncluded = selectedMaterial === 'high-index' || selectedMaterial === 'trivex';
 
   const calculateTotalPrice = () => {
     const lensTypePrice = lensTypes.find(lt => lt.id === selectedLensType)?.price || 0;
     const materialPrice = lensMaterials.find(lm => lm.id === selectedMaterial)?.price || 0;
     const coatingsPrice = selectedCoatings.reduce((total, id) => {
       const coating = lensCoatings.find(lc => lc.id === id);
+      if (coating && coating.id === 'anti-scratch' && isAntiScratchIncluded) {
+        return total; // Don't add price for anti-scratch if it's included
+      }
       return total + (coating ? coating.price : 0);
     }, 0);
+    
     return product.base_price + lensTypePrice + materialPrice + coatingsPrice;
   };
 
@@ -127,7 +135,7 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
   const accentColor = tenant.preferences?.accent_color || "#2563eb";
 
   return (
-    <main className="flex min-h-screen flex-col bg-gray-100">
+    <main className="flex min-h-screen flex-col bg-gray-100 lens-selection-page">
       <NavBar
         options={["App", "About", "Contact"]}
         logoText=""
@@ -158,6 +166,7 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
               <p className="text-xl mb-6 text-gray-600">Base Price: ${product.base_price.toFixed(2)}</p>
               
               <div className="space-y-6">
+                {/* Lens Type Section */}
                 <section>
                   <h2 className="text-2xl font-semibold mb-4 text-gray-800">1. Select Lens Type</h2>
                   <div className="space-y-4">
@@ -166,18 +175,19 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
                         key={type.id}
                         className={`w-full p-4 rounded-lg text-left transition-all duration-200 ${
                           selectedLensType === type.id
-                            ? 'text-white shadow-md'
-                            : 'bg-white text-gray-800 border border-gray-200 hover:border-blue-300 hover:shadow'
+                            ? 'shadow-md'
+                            : 'bg-white border border-gray-200 hover:border-blue-300 hover:shadow'
                         }`}
                         style={{
                           backgroundColor: selectedLensType === type.id ? primaryColor : '',
                           borderColor: selectedLensType === type.id ? primaryColor : '',
+                          color: selectedLensType === type.id ? 'white' : 'rgb(31, 41, 55)',
                         }}
                         onClick={() => handleLensTypeSelect(type.id)}
                       >
                         <div className="flex justify-between items-center">
                           <span className="font-medium text-lg">{type.name}</span>
-                          <span className="text-lg">{type.price === 0 ? 'Included' : `+$${type.price.toFixed(2)}`}</span>
+                          <span className="text-lg">+${type.price.toFixed(2)}</span>
                         </div>
                         <p className="text-sm mt-2">{type.description}</p>
                       </button>
@@ -185,6 +195,7 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
                   </div>
                 </section>
 
+                {/* Lens Material Section */}
                 <section>
                   <h2 className="text-2xl font-semibold mb-4 text-gray-800">2. Select Lens Material</h2>
                   <div className="space-y-4">
@@ -193,18 +204,19 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
                         key={material.id}
                         className={`w-full p-4 rounded-lg text-left transition-all duration-200 ${
                           selectedMaterial === material.id
-                            ? 'text-white shadow-md'
-                            : `bg-white text-gray-800 border border-gray-200 hover:border-blue-300s hover:shadow`
+                            ? 'shadow-md'
+                            : 'bg-white border border-gray-200 hover:border-blue-300 hover:shadow'
                         }`}
                         style={{
                           backgroundColor: selectedMaterial === material.id ? primaryColor : '',
                           borderColor: selectedMaterial === material.id ? primaryColor : '',
+                          color: selectedMaterial === material.id ? 'white' : 'rgb(31, 41, 55)',
                         }}
                         onClick={() => handleMaterialSelect(material.id)}
                       >
                         <div className="flex justify-between items-center">
                           <span className="font-medium text-lg">{material.name}</span>
-                          <span className="text-lg">{material.price === 0 ? 'Included' : `+$${material.price.toFixed(2)}`}</span>
+                          <span className="text-lg">+${material.price.toFixed(2)}</span>
                         </div>
                         <p className="text-sm mt-2">{material.description}</p>
                       </button>
@@ -212,31 +224,48 @@ export default function SelectLensesPage({ params }: { params: { id: string } })
                   </div>
                 </section>
 
+                {/* Lens Coatings Section */}
                 <section>
                   <h2 className="text-2xl font-semibold mb-4 text-gray-800">3. Select Lens Coatings</h2>
                   <div className="space-y-4">
-                    {lensCoatings.map((coating) => (
-                      <button
-                        key={coating.id}
-                        className={`w-full p-4 rounded-lg text-left transition-all duration-200 ${
-                          selectedCoatings.includes(coating.id)
-                            ? 'text-white shadow-md '
-                            : 'bg-white text-gray-800 border border-gray-200 hover:border-blue-300 hover:shadow'
-                        }`}
-                        style={{
-                          color: selectedCoatings.includes(coating.id) ? 'white' : 'rgb(31, 41, 55)',
-                          backgroundColor: selectedCoatings.includes(coating.id) ? primaryColor : '',
-                          borderColor: selectedCoatings.includes(coating.id) ? primaryColor : '',
-                        }}
-                        onClick={() => handleCoatingToggle(coating.id)}
-                      >
-                        <div className="flex justify-between items-center">
-                          <span className="font-medium text-lg">{coating.name}</span>
-                          <span className="text-lg">+${coating.price.toFixed(2)}</span>
-                        </div>
-                        <p className="text-sm mt-2">{coating.description}</p>
-                      </button>
-                    ))}
+                    {lensCoatings.map((coating) => {
+                      const isIncluded = coating.id === 'anti-scratch' && isAntiScratchIncluded;
+                      const isSelected = selectedCoatings.includes(coating.id) || isIncluded;
+                      
+                      return (
+                        <button
+                          key={coating.id}
+                          className={`w-full p-4 rounded-lg text-left transition-all duration-200 ${
+                            isSelected
+                              ? 'shadow-md'
+                              : 'bg-white border border-gray-200 hover:border-blue-300 hover:shadow'
+                          } ${isIncluded ? 'cursor-not-allowed' : ''}`}
+                          style={{
+                            color: isSelected ? 'white' : 'rgb(31, 41, 55)',
+                            backgroundColor: isSelected ? (isIncluded ? 'rgb(138, 145, 155)' : primaryColor) : '',
+                            borderColor: isSelected ? (isIncluded ? '#A0AEC0' : primaryColor) : '',
+                          }}
+                          onClick={() => handleCoatingToggle(coating.id)}
+                          disabled={isIncluded}>
+                          <div className="flex justify-between items-start">
+                            <div className="flex-grow">
+                              <span className="font-medium text-lg">{coating.name}</span>
+                              <p className="text-sm mt-2">{coating.description}</p>
+                            </div>
+                            <div className="text-right flex flex-col items-end ml-4">
+                              <span className="text-lg">
+                                {isIncluded ? 'FREE' : `+$${coating.price.toFixed(2)}`}
+                              </span>
+                              {isIncluded && (
+                                <div className="text-xs mt-2">
+                                  Included with selected material
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </section>
               </div>
