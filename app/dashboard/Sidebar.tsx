@@ -7,7 +7,7 @@ import HeaderAuth from "@/components/header-auth";
 export default function Sidebar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleSelect = (section: "STYLE" | "PAYMENTS" | "ACCOUNT") => {
+  const handleSelect = (section: "STYLE" | "LENS OPTIONS" | "PAYMENTS" | "ACCOUNT") => {
     // Update the URL query parameter to the selected section
     const url = new URL(window.location.href);
     url.searchParams.set("section", section);
@@ -34,6 +34,9 @@ export default function Sidebar() {
         <div className="flex flex-col gap-6 md:pt-20 mt-[80px] md:mt-0">
           <button className="py-2 px-4 w-full text-white text-left" onClick={() => handleSelect("STYLE")}>
             STYLE
+          </button>
+          <button className="py-2 px-4 w-full text-white text-left" onClick={() => handleSelect("LENS OPTIONS")}>
+            LENS OPTIONS
           </button>
           <button className="py-2 px-4 w-full text-white text-left" onClick={() => handleSelect("PAYMENTS")}>
             PAYMENTS
