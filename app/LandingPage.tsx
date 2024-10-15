@@ -103,7 +103,7 @@ export default function Home() {
       <div className="w-full relative md:flex md:flex-row" style={{ background: '#EEF1F2' }}>
         {/* Image container - visible on small screens */}
         <div className='md:hidden w-full h-screen absolute inset-0'>
-          <img src="Images/FrontImage.jpg" alt="ClrDoc Sample" className="w-full h-full object-cover opacity-50" />
+          <img src="Images/FrontImage.png" alt="ClrDoc Sample" className="w-full h-full object-cover opacity-50" />
         </div>
         {/* Text content */}
         <div className='w-full md:w-1/2 min-h-screen flex flex-col justify-center items-center md:items-start px-8 md:px-16 text-center md:text-left relative z-10 bg-[#EEF1F2]/80 md:bg-transparent'>
@@ -158,7 +158,7 @@ export default function Home() {
         </div>
         {/* Image container - visible on medium and larger screens */}
         <div className='hidden md:block md:w-1/2 h-screen'>
-          <img src="Images/FrontImage.jpg" alt="ClrDoc Sample" className="w-full h-full object-cover" />
+          <img src="Images/FrontImage.png" alt="ClrDoc Sample" className="w-full h-full object-cover" />
         </div>
       </div>
       <div id="clrdoc-solutions" className='w-full text-center py-16 bg-white'>
