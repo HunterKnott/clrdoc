@@ -10,6 +10,7 @@ import Footer from './Footer';
 import Link from 'next/link';
 import ShimmerImage from './../components/ShimmerImage';
 import './globals.css';
+import { fetchFrameImage, fetchStyleConfigurations, StyleConfigurationsResponse, StyleConfiguration } from '@/utils/framesData';
 
 interface Tenant {
   id: string;
@@ -90,6 +91,80 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, selectedTenant }) =>
   );
 };
 
+interface FrameCardProps {
+  frame: StyleConfiguration;
+  selectedTenant: Tenant;
+}
+
+const FrameCard: React.FC<FrameCardProps> = ({ frame, selectedTenant }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadImage = async () => {
+      const configurationsWithImages = frame.Configurations.filter(
+        config => config.ConfigurationImageName !== ''
+      );
+
+      console.log('Checking if there are any images ...')
+      if (configurationsWithImages.length > 0) {
+        console.log('Configurations with images for', frame.StyleName, ':', configurationsWithImages);
+        try {
+          const url = await fetchFrameImage(configurationsWithImages[0].ConfigurationFPC);
+          setImageUrl(url);
+        } catch (error) {
+          console.error('Error loading frame image:', error);
+        }
+      } else {
+        console.log('No configurations with images for', frame.StyleName);
+        console.log('All configurations:', frame.Configurations);
+      }
+    };
+
+    loadImage();
+  }, [frame]);
+
+  return (
+    <Link
+      href={`/product/${frame.StyleFramesMasterID}`}
+      className={`flex flex-col items-center w-full max-w-[20rem] mx-auto bg-white shadow-md rounded overflow-hidden transition-shadow duration-300 border-2`}
+      style={{
+        borderColor: isHovered ? selectedTenant.preferences.accent_color : 'transparent',
+        transition: 'border-color 0.3s ease',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="w-full h-48 relative bg-gray-200 flex items-center justify-center">
+        {imageUrl ? (
+          <ShimmerImage 
+            src={imageUrl}
+            alt={frame.StyleName}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <span className="text-lg font-bold">{frame.StyleName}</span>
+        )}
+      </div>
+      <div className='p-4'>
+        <h3
+          className='text-lg font-semibold text-center mb-2'
+          style={{ color: selectedTenant?.preferences.text_color || 'inherit' }}
+        >
+          {frame.StyleName}
+        </h3>
+        <p
+          className='text-center mb-2'
+          style={{ color: selectedTenant?.preferences.text_color || 'inherit' }}
+        >
+          {frame.BrandName}
+        </p>
+        <p className='text-xl font-bold text-center'>${frame.Configurations[0]?.CompletePrice || 'N/A'}</p>
+      </div>
+    </Link>
+  );
+};
+
 export default function Home() {
   const [tenants, setTenants] = useState<Tenant[]>([]);
   const [selectedTenant, setSelectedTenant] = useState<Tenant | null>(null);
@@ -98,6 +173,8 @@ export default function Home() {
   const [isSubdomain, setIsSubdomain] = useState<boolean>(false);
   const [isValidSubdomain, setIsValidSubdomain] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [styleConfigurations, setStyleConfigurations] = useState<StyleConfigurationsResponse | null>(null);
+  const [frames, setFrames] = useState<StyleConfiguration[]>([]);
 
   useEffect(() => {
     const hostname = window.location.hostname;
@@ -136,6 +213,33 @@ export default function Home() {
     };
 
     fetchTenants();
+
+    // Fetch style configurations
+    const fetchConfigurations = async () => {
+      try {
+        const brandId = 8234; // OAKLEY brand ID
+        const data = await fetchStyleConfigurations(brandId);
+        setStyleConfigurations(data);
+        console.log('Style Configurations:', data);
+      } catch (error) {
+        console.error('Error fetching style configurations:', error);
+      }
+    };
+
+    fetchConfigurations();
+
+    const fetchFrames = async () => {
+      try {
+        const brandId = 8234; // Gucci brand ID
+        const data = await fetchStyleConfigurations(brandId);
+        setFrames(data.StyleConfigurations);
+        console.log('Frames:', data.StyleConfigurations);
+      } catch (error) {
+        console.error('Error fetching frames:', error);
+      }
+    };
+
+    fetchFrames();
   }, []);
 
   useEffect(() => {
@@ -205,6 +309,10 @@ export default function Home() {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const filteredFrames = frames.filter(frame =>
+    frame.StyleName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (isLoading) {
     return (
       <main className="loading-page">
@@ -240,11 +348,11 @@ export default function Home() {
                   className="text-3xl font-bold text-center mb-6"
                   style={{ color: selectedTenant?.preferences.text_color || 'inherit' }}
                 >
-                  Featured Products
+                  Featured Frames
                 </h2>
                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 justify-center">
-                  {filteredProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} selectedTenant={selectedTenant!} />
+                  {filteredFrames.map((frame) => (
+                    <FrameCard key={frame.StyleFramesMasterID} frame={frame} selectedTenant={selectedTenant!} />
                   ))}
                 </div>
               </div>
