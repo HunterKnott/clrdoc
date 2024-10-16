@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@/utils/supabase/client';
 import { HexColorPicker } from "react-colorful";
 
@@ -20,7 +20,6 @@ interface Tenant {
 
   export default function Settings() {
     const [tenant, setTenant] = useState<Tenant | null>(null);
-    const [isLoading, setIsLoading] = useState<boolean>(true);
     const [domain, setDomain] = useState<string | null>(null);
     const [isMounted, setIsMounted] = useState<boolean>(false);
     const [mainColor, setMainColor] = useState<string>(tenant?.preferences.primary_color || '#fff');
@@ -71,7 +70,7 @@ interface Tenant {
                     setAccentColor(data?.preferences.accent_color);
                     setTextColor(data?.preferences.text_color);
                 }
-                setIsLoading(false);
+                setLoading(false);
             }
         };
 

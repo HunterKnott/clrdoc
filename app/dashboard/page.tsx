@@ -2,12 +2,10 @@ import HeaderAuth from "@/components/header-auth";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import Sidebar from "./Sidebar";
-import Settings from "./settings";
+import Content from "./content";
 
-// Dummy components for PAYMENTS and ACCOUNT sections
-const PaymentsContent = () => <div>Payments settings go here.</div>;
-const AccountContent = () => <div>Account settings go here.</div>;
-
+// This page is meant to be a server-side component that handles the Supabase login session
+// Most other page content is in the Content component
 export default async function Dashboard({ searchParams }: { searchParams?: { section?: string } }) {
   const supabase = createClient();
 
@@ -19,29 +17,15 @@ export default async function Dashboard({ searchParams }: { searchParams?: { sec
     return redirect("/login");
   }
 
-  // Determine which section to show based on the searchParams
-  const selectedSection = searchParams?.section || "STYLE";
-
-  const renderContent = () => {
-    switch (selectedSection) {
-      case "STYLE":
-        return <Settings />;
-      case "PAYMENTS":
-        return <PaymentsContent />;
-      case "ACCOUNT":
-        return <AccountContent />;
-      default:
-        return null;
-    }
-  };
+  const selectedSection = decodeURIComponent(searchParams?.section || "STYLE");
 
   return (
     <main className="flex min-h-screen bg-gray-100">
-      <Sidebar />
+      <Sidebar/>
       <div className="flex flex-col flex-grow">
         <HeaderAuth />
         <section className="flex-1 p-6 ml-auto mt-[80px]">
-          {renderContent()}
+          <Content initialSection={selectedSection} />
         </section>
       </div>
     </main>
