@@ -328,8 +328,8 @@ export default function Home() {
         isValidSubdomain ? (
           <main className="flex flex-col min-h-screen" id="subdomain-page">
             <NavBar
-              options={["App", "About", "Contact"]}
-              // options={["Login"]}
+              // options={["App", "About", "Contact"]}
+              options={["Login", "About", "Contact"]}
               logoText=""
               logoImage={selectedTenant?.preferences ? selectedTenant.preferences.header_logo : ''}
               hoverColor={selectedTenant?.preferences ? selectedTenant.preferences.accent_color : ''}

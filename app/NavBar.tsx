@@ -52,7 +52,6 @@ export default function Navbar({ options = [""], logoText = "ClrDoc", logoImage 
       key={index}
       text={option === "App" ? "Home" : option}
       path={option === "App" ? "/" : `/${option.toLowerCase()}`}
-      onClick={option === "About" ? handleAboutClick : () => {}}
       hoverColor={hoverColor}
     />
   ));

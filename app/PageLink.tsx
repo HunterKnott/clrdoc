@@ -10,22 +10,8 @@ interface PageLinkProps {
   hoverColor: string;
 }
 
-export default function PageLink({ path, text, onClick, hoverColor }: PageLinkProps) {
+export default function PageLink({ path, text, hoverColor }: PageLinkProps) {
   const [isHovered, setIsHovered] = useState(false);
-
-  if (onClick) {
-    return (
-      <button
-        onClick={onClick}
-        className={`text-gray-800 font-bold text-lg transition-colors duration-180`}
-        style={{ color: isHovered ? hoverColor : 'black' }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        {text}
-      </button>
-    );
-  }
 
   return (
     <Link href={path || '#'}>

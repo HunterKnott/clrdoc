@@ -4,7 +4,7 @@ import Footer from '../Footer';
 export default function Page() {
     return (
         <main className="flex min-h-screen flex-col items-center bg-gray-100">
-            <NavBar options={["App", "Providers", "Contact"]} />
+            <NavBar options={["App", "Login", "Contact"]} />
             <div className="max-w-[800px] my-[80px] md:mt-[40px] w-full min-h-screen mx-auto text-center flex flex-col justify-center items-center px-4 sm:px-8">
                 <h1 className="font-bold text-5xl pb-12">About Us</h1>
                 <div className='flex flex-col md:flex-row gap-10'>

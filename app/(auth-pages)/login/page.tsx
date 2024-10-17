@@ -6,8 +6,17 @@ import { Label } from "@/components/ui/label";
 import Navbar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
+import { redirect } from "next/navigation";
 
-export default function Login({ searchParams }: { searchParams: Message }) {
+export default async function Login({ searchParams }: { searchParams: Message }) {
+  const supabase = createClient();
+  const { data: { user } } = await supabase.auth.getUser();
+
+  if (user) {
+    return redirect("/dashboard");
+  }
+
   return (
     <main className="flex min-h-screen flex-col gap-6 items-center justify-between bg-gray-100">
       <Navbar options={["App", "About", "Contact"]} />
