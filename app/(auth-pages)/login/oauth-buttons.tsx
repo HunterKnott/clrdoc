@@ -1,30 +1,31 @@
-// 'use client';
+'use client';
 
-// import { Provider } from '@supabase/supabase-js';
-// import { FaGoogle } from 'react-icons/fa';
+import { Provider } from '@supabase/supabase-js';
+import { FaGoogle } from 'react-icons/fa';
+import { createClient } from '../../../utils/supabase/client';
 // import { oAuthSignIn } from './actions';
 
-// export function OAuthButtons() {
-//     const oAuthProviders = [{
-//         providerName: 'google',
-//         displayName: 'Google',
-//         icon: <FaGoogle className="size-5" />
-//     }, ];
+export function OAuthButtons() {
+    const supabase = createClient();
 
-//     return (
-//         <div>
-//             {oAuthProviders.map((provider) => (
-//                 <button
-//                     key={provider.providerName}
-//                     className="flex items-center justify-center gap-2 py-2 border rounded-md"
-//                     onClick={async () => {
-//                         await oAuthSignIn(provider.providerName);
-//                     }}
-//                 >
-//                     {provider.icon}
-//                     Login with {provider.displayName}
-//                 </button>
-//             ))}
-//         </div>
-//     );
-// }
+    const handleOAuthSignIn = async (provider: 'google') => {
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: provider as Provider,
+        });
+        if (error) {
+            console.error("OAuth sign-in error:", error.message);
+        }
+    };
+
+    return (
+        <div className="mt-4">
+          <button
+            className="flex items-center justify-center gap-2 py-2 border rounded-md w-full"
+            onClick={() => handleOAuthSignIn('google')}
+          >
+            <FaGoogle />
+            Login with Google
+          </button>
+        </div>
+      );
+}

@@ -3,6 +3,7 @@ import { FormMessage, Message } from "@/components/form-message";
 import { SubmitButton } from "@/components/submit-button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { OAuthButtons } from "./oauth-buttons";
 import Navbar from '../../NavBar';
 import Footer from '../../Footer';
 import Link from "next/link";
@@ -59,6 +60,7 @@ export default async function Login({ searchParams }: { searchParams: Message })
             <FormMessage message={searchParams} />
           </div>
         </form>
+        <OAuthButtons />
       </div>
       <Footer />
     </main>
